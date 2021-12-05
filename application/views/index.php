@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<title> PAUD Sri Rejeki </title>
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Green Bootstrap Template - Index</title>
+    <!-- <title>Green Bootstrap Template - Index</title> -->
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="<?= base_url('front-end/assets/img/favicon.png'); ?>" rel="icon">
+    <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
     <link href="<?= base_url('front-end/assets/img/apple-touch-icon.png'); ?>" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
