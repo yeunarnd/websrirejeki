@@ -115,18 +115,73 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Selamat Datang, <?php echo $this->session->userdata('username'); ?></h1>
+                        <h1 class="h3 mb-0 text-gray-800">Rekap Pendaftaran</h1>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
+                        <div id="content-wrapper">
 
-                        </div>
+                            <div class="container-fluid">
 
-                        <div class="col-lg-6 mb-4">
+                                <!-- DataTables -->
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+                                    </div>
+                                    <div class="card-body">
+
+                                        <div class="table-responsive">
+                                            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Kode Daftar</th>
+                                                        <th>Tanggal Daftar</th>
+                                                        <th>Nama Calon Siswa</th>
+                                                        <th>Status</th>
+                                                        <th>Detail</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($dftr as $daftar) : ?>
+                                                        <tr>
+                                                            <td width="150">
+                                                                <?php echo $dftr->kode_barang ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $dftr->nama_barang ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $dftr->harga ?>
+                                                            </td>
+                                                            <td>
+                                                                <img src="<?php echo base_url('uploads/' . $products->gambar) ?>" width="64" />
+                                                            </td>
+                                                            <td width="250">
+                                                                <a href="<?php echo site_url('products/edit/' . $products->kode_barang) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
+                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('products/delete/' . $products->kode_barang) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.container-fluid -->
+
+                            <!-- Content Row -->
+                            <div class="row">
+
+                                <div class="col-lg-6 mb-4">
+
+                                </div>
+                            </div>
 
                         </div>
                     </div>
