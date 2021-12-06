@@ -34,7 +34,7 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block">
-                                <img src="<?= base_url('back-end/img/gb-login.jpg') ?>" width="500" alt="">
+                            <img src="<?= base_url('back-end/img/gb-login.jpg') ?>" width="500" alt="">
                             </div>
                             <div class="col-lg-6">
                             <div class="p-5">
