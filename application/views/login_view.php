@@ -33,7 +33,7 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block">
+                            <div class="col-lg-2 d-none d-lg-block">
                                 <img src="<?= base_url('back-end/img/gb-login.jpg') ?>" width="250" alt="">
                             </div>
                                 <div class="p-5">
