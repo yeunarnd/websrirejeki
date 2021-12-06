@@ -34,7 +34,7 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block">
-                                <img src="<?= base_url('') ?>" alt="">
+                                <img src="<?= base_url('back-end/img/gb-login.jpg') ?>" width="250" alt="">
                             </div>
                                 <div class="p-5">
                                     <div class="text-center">
@@ -54,6 +54,7 @@
                                             Login
                                         </button>
                                     </form>
+
                                     <hr>
                                     <h1 style="text-align: center;">Pos PAUD Sri Rejeki</h1>
                                     <!-- <div class="text-center">
