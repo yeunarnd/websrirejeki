@@ -129,6 +129,7 @@
                                 <div class="card mb-3">
                                     <div class="card-header">
                                         <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+                                        <input class="btn btn-dark" type="submit" name="btn" value="Cetak Laporan" style="float:right"/>
                                     </div>
                                     <div class="card-body">
 
