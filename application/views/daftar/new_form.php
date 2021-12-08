@@ -138,30 +138,69 @@
                                     <div class="card-body">
 
                                         <form action="<?php base_url('daftar/add') ?>" method="post" enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <label for="kode_barang">Kode Barang</label>
-                                                <input class="form-control <?php echo form_error('kode_barang') ? 'is-invalid' : '' ?>" type="text" name="kode_barang" placeholder="kode" />
+                                            <!-- <div class="form-group">
+                                                <label for="kd_daftar">Kode Pendaftaran</label>
+                                                <input class="form-control <?php echo form_error('kd_daftar') ? 'is-invalid' : '' ?>" type="text" name="kd_daftar" />
                                                 <div class="invalid-feedback">
-                                                    <?php echo form_error('kode_barang') ?>
+                                                    <?php echo form_error('kd_daftar') ?>
+                                                </div>
+                                            </div> -->
+
+                                            <div class="form-group">
+                                                <label for="nm_calon_siswa">Nama Calon Siswa</label>
+                                                <input class="form-control <?php echo form_error('nm_calon_siswa') ? 'is-invalid' : '' ?>" type="text" name="nm_calon_siswa" />
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('nm_calon_siswa') ?>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="nama_barang">Nama Barang</label>
-                                                <input class="form-control <?php echo form_error('nama_barang') ? 'is-invalid' : '' ?>" type="text" name="nama_barang" placeholder="nama" />
+                                                <label for="umur">Umur</label>
+                                                <input class="form-control <?php echo form_error('umur') ? 'is-invalid' : '' ?>" type="number" name="umur" />
                                                 <div class="invalid-feedback">
-                                                    <?php echo form_error('nama_barang') ?>
+                                                    <?php echo form_error('umur') ?>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="harga">Harga Barang</label>
-                                                <input class="form-control <?php echo form_error('harga') ? 'is-invalid' : '' ?>" type="number" name="harga" placeholder="harga" />
+                                                <label for="kelas">Kelas</label>
+                                                <input class="form-control <?php echo form_error('kelas') ? 'is-invalid' : '' ?>" type="text" name="kelas" />
                                                 <div class="invalid-feedback">
-                                                    <?php echo form_error('harga') ?>
+                                                    <?php echo form_error('kelas') ?>
                                                 </div>
                                             </div>
 
+                                            <div class="form-group">
+                                                <label for="ttl">Tempat, Tanggal Lahir</label>
+                                                <input class="form-control <?php echo form_error('ttl') ? 'is-invalid' : '' ?>" type="text" name="ttl" />
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('ttl') ?>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="jkel">Jenis Kelamin</label>
+                                                <input class="form-control <?php echo form_error('jkel') ? 'is-invalid' : '' ?>" type="text" name="jkel" />
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('jkel') ?>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="agama">Agama</label>
+                                                <input class="form-control <?php echo form_error('agama') ? 'is-invalid' : '' ?>" type="text" name="agama" />
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('agama') ?>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="alamat">Alamat</label>
+                                                <input class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" type="text" name="alamat" />
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('alamat') ?>
+                                                </div>
+                                            </div>
 
                                             <div class="form-group">
                                                 <label for="name">Gambar</label>
