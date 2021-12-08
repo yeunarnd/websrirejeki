@@ -71,7 +71,7 @@
             <div class="carousel-inner" role="listbox">
 
                 <!-- Slide 1 -->
-                <div class="carousel-item active" style="background-image: url(assets/img/slide/paud1.jpg)"><img src="<?php echo base_url() ?>front-end/assets/img/slide/paud1.jpg">
+                <div class="carousel-item active"> <img src="<?php echo base_url() ?>front-end/assets/img/slide/paud1.jpg" style="width:1500px;height:700px">
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Selamat Datang</h2>
