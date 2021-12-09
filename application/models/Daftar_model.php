@@ -9,7 +9,8 @@ class Daftar_model extends CI_Model
     public $nm_calon_siswa;
     public $umur;
     public $kelas;
-    public $ttl;
+    public $tempat_lahir;
+    public $tgl_lahir;
     public $jkel;
     public $agama;
     public $alamat;
