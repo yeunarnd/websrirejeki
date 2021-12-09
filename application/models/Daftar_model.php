@@ -34,6 +34,12 @@ class Daftar_model extends CI_Model
     {
         return [
             [
+                'field' => 'kd_daftar',
+                'label' => 'kd_daftar',
+                'rules' => 'required'
+            ],
+
+            [
                 'field' => 'nm_calon_siswa',
                 'label' => 'nm_calon_siswa',
                 'rules' => 'required'
@@ -162,10 +168,12 @@ class Daftar_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
+        $this->kd_daftar = $post["kd_daftar"];
         $this->nm_calon_siswa = $post["nm_calon_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];
-        $this->ttl = $post["ttl"];
+        $this->tempat_lahir = $post["tempat_lahir"];
+        $this->tempat_lahir = $post["tempat_lahir"];
         $this->jkel = $post["jkel"];
         $this->agama = $post["agama"];
         $this->alamat = $post["alamat"];

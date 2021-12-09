@@ -148,7 +148,7 @@
                                                 <tbody>
                                                     <?php foreach ($daftar as $daftar) : ?>
                                                         <tr>
-                                                            <td width="150">
+                                                            <td>
                                                                 <?php echo $daftar->kd_daftar ?>
                                                             </td>
                                                             <td>
@@ -160,10 +160,10 @@
                                                             <!-- <td>
                                                                 <img src="<?php echo base_url('uploads/' . $products->gambar) ?>" width="64" />
                                                             </td> -->
-                                                            <td width="250">
+                                                            <!-- <td width="250">
                                                                 <a href="<?php echo site_url('daftar/edit/' . $daftar->kd_daftar) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
                                                                 <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('daftar/delete/' . $daftar->kd_daftar) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                                            </td>
+                                                            </td> -->
                                                         </tr>
                                                     <?php endforeach; ?>
 
