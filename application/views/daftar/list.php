@@ -139,30 +139,30 @@
                                                     <tr>
                                                         <th>No</th>
                                                         <th>Kode Daftar</th>
-                                                        <th>Tanggal Daftar</th>
+                                                        <!-- <th>Tanggal Daftar</th> -->
                                                         <th>Nama Calon Siswa</th>
                                                         <th>Status</th>
                                                         <th>Detail</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($dftr as $daftar) : ?>
+                                                    <?php foreach ($daftar as $daftar) : ?>
                                                         <tr>
                                                             <td width="150">
-                                                                <?php echo $dftr->kode_barang ?>
+                                                                <?php echo $daftar->kd_daftar ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $dftr->nama_barang ?>
+                                                                <?php echo $daftar->nm_calon_siswa ?>
                                                             </td>
-                                                            <td>
-                                                                <?php echo $dftr->harga ?>
-                                                            </td>
-                                                            <td>
+                                                            <!-- <td>
+                                                                <?php echo $daftar->harga ?>
+                                                            </td> -->
+                                                            <!-- <td>
                                                                 <img src="<?php echo base_url('uploads/' . $products->gambar) ?>" width="64" />
-                                                            </td>
+                                                            </td> -->
                                                             <td width="250">
-                                                                <a href="<?php echo site_url('products/edit/' . $products->kode_barang) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('products/delete/' . $products->kode_barang) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                                <a href="<?php echo site_url('daftar/edit/' . $daftar->kd_daftar) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
+                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('daftar/delete/' . $daftar->kd_daftar) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>

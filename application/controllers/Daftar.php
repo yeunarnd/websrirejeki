@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Daftar extends CI_Controller
 {
@@ -13,7 +13,7 @@ class Daftar extends CI_Controller
 
     public function index()
     {
-        $data["dftr"] = $this->daftar_model->getAll();
+        $data["daftar"] = $this->daftar_model->getAll();
         $this->load->view("daftar/list", $data);
     }
 
@@ -34,7 +34,7 @@ class Daftar extends CI_Controller
     public function edit($id = null)
     {
         if (!isset($id)) redirect('daftar');
-       
+
         $daftar = $this->daftar_model;
         $validation = $this->form_validation;
         $validation->set_rules($daftar->rules());
@@ -46,14 +46,14 @@ class Daftar extends CI_Controller
 
         $data["daftar"] = $daftar->getById($id);
         if (!$data["daftar"]) show_404();
-        
+
         $this->load->view("daftar/edit_form", $data);
     }
 
-    public function delete($id=null)
+    public function delete($id = null)
     {
         if (!isset($id)) show_404();
-        
+
         if ($this->daftar_model->delete($id)) {
             redirect(site_url('daftar'));
         }

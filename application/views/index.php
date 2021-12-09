@@ -217,7 +217,7 @@
                     <div class="alert alert-primary">
                         <strong>Data Calon Siswa</strong>
                     </div>
-                    <form action="<?php base_url('produk/add') ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?php base_url('daftar/add') ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-sm-7">
                                 <div class="form-group">
@@ -421,6 +421,7 @@
 
                         </div>
                     </form>
+                </form>
         </section><!-- End Daftar Section -->
 
         <!-- ======= Portfolio Section ======= -->
