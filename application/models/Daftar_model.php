@@ -168,7 +168,7 @@ class Daftar_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->kd_daftar = $post["kd_daftar"];
+        $this->kd_daftar = uniqid();
         $this->nm_calon_siswa = $post["nm_calon_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];
@@ -199,7 +199,7 @@ class Daftar_model extends CI_Model
     public function update()
     {
         $post = $this->input->post();
-        $this->kd_daftar = $post["id"];
+        $this->kd_daftar = $post["kd_daftar"];
         $this->nm_calon_siswa = $post["nm_calon_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];
