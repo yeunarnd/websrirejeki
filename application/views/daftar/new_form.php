@@ -292,6 +292,9 @@
                                                     <div class="form-group">
                                                         <label>Alamat Tinggal:</label>
                                                         <textarea class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" name="alamat" rows="2" id="alamat"></textarea>
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('alamat') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -306,18 +309,27 @@
                                                     <div class="form-group">
                                                         <label>Nama Ayah:</label>
                                                         <input type="text" name="nm_ayah" class="form-control <?php echo form_error('nama_ayah') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('nama_ayah') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label>Umur Ayah:</label>
                                                         <input type="text" name="umur_ayah" class="form-control <?php echo form_error('umur_ayah') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('umur_ayah') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>Alamat Tinggal:</label>
                                                         <textarea class="form-control <?php echo form_error('alamat_ayah') ? 'is-invalid' : '' ?>" name="alamat_ayah" rows="2" id="alamat"></textarea>
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('alamat_ayah') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -339,12 +351,18 @@
                                                     <div class="form-group">
                                                         <label>Pekerjaan Ayah:</label>
                                                         <input type="text" name="pk_ayah" class="form-control <?php echo form_error('pekerjaan_ayah') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('pekerjaan_ayah') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>No. Telepon:</label>
                                                         <input type="text" name="no_ayah" class="form-control <?php echo form_error('telepon_ayah') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('telepon_ayah') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -357,18 +375,27 @@
                                                     <div class="form-group">
                                                         <label>Nama Ibu:</label>
                                                         <input type="text" name="nm_ibu" class="form-control <?php echo form_error('nama_ibu') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('nama_ibu') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label>Umur Ibu:</label>
                                                         <input type="text" name="umur_ibu" class="form-control <?php echo form_error('umur_ibu') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('umur_ibu') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>Alamat Tinggal:</label>
                                                         <textarea class="form-control <?php echo form_error('alamat_ibu') ? 'is-invalid' : '' ?>" name="alamat_ibu" rows="2" id="alamat"></textarea>
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('alamat_ibu') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -390,12 +417,18 @@
                                                     <div class="form-group">
                                                         <label>Pekerjaan Ibu:</label>
                                                         <input type="text" name="pk_ibu" class="form-control <?php echo form_error('pekerjaan_ibu') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('pekerjaan_ibu') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>No. Telepon:</label>
                                                         <input type="text" name="no_ibu" class="form-control <?php echo form_error('telepon_ibu') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('telepon_ibu') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -408,18 +441,27 @@
                                                     <div class="form-group">
                                                         <label>Akta Lahir:</label>
                                                         <input type="file" name="akta" class="form-control <?php echo form_error('akta_lahir') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('akta_lahir') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>Kartu Keluarga:</label>
                                                         <input type="file" name="kk" class="form-control <?php echo form_error('kartu_keluarga') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('kartu_keluarga') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label>Foto Siswa:</label>
                                                         <input type="file" name="foto" class="form-control <?php echo form_error('foto_siswa') ? 'is-invalid' : '' ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('foto_siswa') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
