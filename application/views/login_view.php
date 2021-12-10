@@ -58,6 +58,9 @@
 
                                     <hr>
                                     <h2 style="text-align: center;">Pos PAUD Sri Rejeki</h2>
+                                    <div class="text-center">
+                                        <a class="small" href="<?= base_url('home/index'); ?>">Kembali ke Beranda</a>
+                                    </div>
                                     <!-- <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
