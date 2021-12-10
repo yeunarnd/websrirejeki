@@ -131,24 +131,21 @@
                                     </div>
                                 <?php endif; ?>
 
+                                <!-- Card  -->
                                 <div class="card mb-3">
                                     <div class="card-header">
+
                                         <a href="<?php echo site_url('siswa') ?>"><i class="fas fa-arrow-left"></i> Back</a>
                                     </div>
                                     <div class="card-body">
 
-                                        <form action="<?php base_url('siswa/add') ?>" method="post" enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <label for="no_induk">No. induk</label>
-                                                <input class="form-control <?php echo form_error('no_induk') ? 'is-invalid' : '' ?>" type="text" name="no_induk" />
-                                                <div class="invalid-feedback">
-                                                    <?php echo form_error('no_induk') ?>
-                                                </div>
-                                            </div>
+                                        <form action="<?php base_url("siswa/edit") ?>" method="post" enctype="multipart/form-data">
+
+                                            <input type="hidden" name="id" value="<?php echo $siswa->no_induk ?>" />
 
                                             <div class="form-group">
                                                 <label for="nama_siswa">Nama Siswa</label>
-                                                <input class="form-control <?php echo form_error('nama_siswa') ? 'is-invalid' : '' ?>" type="text" name="nama_siswa" />
+                                                <input class="form-control <?php echo form_error('nama_siswa') ? 'is-invalid' : '' ?>" type="text" name="nama_siswa" value="<?php echo $siswa->nama_siswa ?>" />
                                                 <div class="invalid-feedback">
                                                     <?php echo form_error('nama_siswa') ?>
                                                 </div>
@@ -156,15 +153,16 @@
 
                                             <div class="form-group">
                                                 <label for="jenis_kelamin">Jenis Kelamin</label>
-                                                <input class="form-control <?php echo form_error('jenis_kelamin') ? 'is-invalid' : '' ?>" name="jenis_kelamin" />
+                                                <input class="form-control <?php echo form_error('jenis_kelamin') ? 'is-invalid' : '' ?>" type="text" name="jenis_kelamin" value="<?php echo $siswa->jenis_kelamin ?>" />
                                                 <div class="invalid-feedback">
                                                     <?php echo form_error('jenis_kelamin') ?>
                                                 </div>
                                             </div>
 
+
                                             <div class="form-group">
                                                 <label for="alamat">Alamat</label>
-                                                <input class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" type="text" name="alamat" />
+                                                <input class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" type="text" name="alamat" value="<?php echo $siswa->alamat ?>" />
                                                 <div class="invalid-feedback">
                                                     <?php echo form_error('alamat') ?>
                                                 </div>
@@ -172,7 +170,7 @@
 
                                             <div class="form-group">
                                                 <label for="kelompok_kelas">Kelompok Kelas</label>
-                                                <input class="form-control <?php echo form_error('kelompok_kelas') ? 'is-invalid' : '' ?>" type="text" name="kelompok_kelas" />
+                                                <input class="form-control <?php echo form_error('kelompok_kelas') ? 'is-invalid' : '' ?>" type="text" name="kelompok_kelas" value="<?php echo $siswa->kelompok_kelas ?>" />
                                                 <div class="invalid-feedback">
                                                     <?php echo form_error('kelompok_kelas') ?>
                                                 </div>
@@ -186,7 +184,6 @@
                                     <div class="card-footer small text-muted">
                                         * required fields
                                     </div>
-
 
                                 </div>
 
