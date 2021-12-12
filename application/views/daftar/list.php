@@ -1,6 +1,6 @@
-<title>SriRejeki - Pendaftaran</title>
+<title>PAUD Sri Rejeki - Pendaftaran</title>
 <?php $this->load->view("templates/header.php") ?>
-
+<link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
 <body id="page-top">
 
     <!-- Page Wrapper -->
