@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PAUD Sri Rejeki - Login</title>
+    <title>PAUD Sri Rejeki - Masuk</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
@@ -39,20 +39,20 @@
                             <div class="col-lg-6">
                             <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Selamat datang!</h1>
                                     </div>
 
                                     <?= $this->session->flashdata('msg'); ?>
 
                                     <form class="user" method="POST" action="<?= site_url('login/auth'); ?>">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" name="email" placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user" name="email" placeholder="Masukkan Email">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" name="password" placeholder="Masukkan Kata Sandi">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            Masuk
                                         </button>
                                     </form>
 

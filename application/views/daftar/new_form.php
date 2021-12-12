@@ -1,4 +1,4 @@
-<title>PAUD Sri Rejeki - Pendaftaran</title>
+<title>PAUD Sri Rejeki - Pendaftaran Siswa</title>
 <?php $this->load->view("templates/header.php") ?>
 <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
 <link href="<?= base_url('front-end/assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
@@ -42,7 +42,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('siswa') ?>">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Data Siswa</span>
+                    <span>Siswa</span>
                 </a>
             </li>
 
@@ -137,7 +137,7 @@
 
                                 <div class="card mb-3">
                                     <div class="card-header">
-                                        <a href="<?php echo site_url('daftar') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+                                        <a href="<?php echo site_url('daftar') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
                                     </div>
                                     <div class="card-body">
 
@@ -394,13 +394,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <input class="btn btn-success" type="submit" name="btn" value="Save" />
+                                            <input class="btn btn-success" type="submit" name="btn" value="Simpan" />
                                         </form>
 
                                     </div>
 
                                     <div class="card-footer small text-muted">
-                                        * required fields
+                                        *Wajib diisi
                                     </div>
 
 

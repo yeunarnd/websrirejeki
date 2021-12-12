@@ -48,17 +48,17 @@
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    <li class="active"><a href="#hero">Home</a></li>
+                    <li class="active"><a href="#hero">Beranda</a></li>
                     <li><a href="#about">Profil</a></li>
                     <li><a href="#petunjuk">Petunjuk</a></li>
                     <li><a href="#daftar">Daftar</a></li>
                     <li><a href="#galeri">Galeri</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Kontak</a></li>
 
                 </ul>
             </nav><!-- .nav-menu -->
 
-            <a href="<?= base_url('login'); ?>" class="get-started-btn scrollto">Login</a>
+            <a href="<?= base_url('login'); ?>" class="get-started-btn scrollto">Masuk</a>
 
         </div>
     </header><!-- End Header -->
@@ -77,7 +77,7 @@
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Selamat Datang</h2>
                             <p class="animate__animated animate__fadeInUp">Selamat Datang di Website Resmi POS PAUD Sri Rejeki</p>
-                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Baca Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -108,12 +108,12 @@
 
             <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+                <span class="sr-only">Sebelumnya</span>
             </a>
 
             <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+                <span class="sr-only">Selanjutnya</span>
             </a>
 
         </div>
@@ -561,7 +561,7 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Contact</h2>
+                    <h2>Kontak</h2>
                 </div>
 
                 <div class="row">
@@ -596,29 +596,29 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Nama Anda</label>
-                                    <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Masukkan naman anda" />
                                     <div class="validate"></div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="name">Email Anda</label>
-                                    <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                                    <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Masukkan email anda" />
                                     <div class="validate"></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="name">Subyek</label>
-                                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Masukkan subyek pesan" />
                                 <div class="validate"></div>
                             </div>
                             <div class="form-group">
                                 <label for="name">Ketikkan Pesan</label>
-                                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Tulis sesuatu untuk kami"></textarea>
                                 <div class="validate"></div>
                             </div>
                             <div class="mb-3">
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                                <div class="sent-message">Pesan anda telah terkirim. Terima Kasih!</div>
                             </div>
                             <div class="text-center"><button type="submit">Kirim Pesan</button></div>
                         </form>
@@ -644,7 +644,7 @@
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div> -->
             <div class="copyright">
-                &copy; 2021 <strong><span>SriRejeki</span></strong>. All Rights Reserved
+                &copy; 2021 <strong><span> PAUD Sri Rejeki</span></strong>. All Rights Reserved
             </div>
         </div>
     </footer><!-- End Footer -->

@@ -31,7 +31,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('siswa') ?>">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Data Siswa</span>
+                    <span>Siswa</span>
                 </a>
             </li>
 

@@ -30,9 +30,9 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Pilih "Keluar" below if you are ready to end your current session.</div>
+            <div class="modal-body">Pilih "Keluar" dibawah jika yakin ingin keluar.</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
                 <a class="btn btn-primary" href="<?= site_url('login/logout'); ?>">Keluar</a>
             </div>
         </div>

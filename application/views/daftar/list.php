@@ -1,4 +1,4 @@
-<title>PAUD Sri Rejeki - Pendaftaran</title>
+<title>PAUD Sri Rejeki - Rekap Pendaftaran</title>
 <?php $this->load->view("templates/header.php") ?>
 <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
 <body id="page-top">
@@ -38,7 +38,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('siswa') ?>">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Data Siswa</span>
+                    <span>Siswa</span>
                 </a>
             </li>
 
@@ -128,7 +128,7 @@
                                 <!-- DataTables -->
                                 <div class="card mb-3">
                                     <div class="card-header">
-                                        <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+                                        <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
                                         <input class="btn btn bg-gradient-light" type="submit" name="btn" value="Unduh Laporan" style="float:right" />
                                     </div>
                                     <div class="card-body">
