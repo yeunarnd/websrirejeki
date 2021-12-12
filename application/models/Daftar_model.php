@@ -5,12 +5,10 @@ class Daftar_model extends CI_Model
     private $_table = "daftar";
 
     public $kd_daftar;
-    public $tgl_daftar;
     public $nm_calon_siswa;
     public $umur;
     public $kelas;
-    public $tempat_lahir;
-    public $tgl_lahir;
+    public $ttl;
     public $jkel;
     public $agama;
     public $alamat;
@@ -26,19 +24,11 @@ class Daftar_model extends CI_Model
     public $pendidikan_ibu;
     public $pekerjaan_ibu;
     public $telepon_ibu;
-    public $akta_lahir = "default.jpg";
-    public $kartu_keluarga = "default.jpg";
-    public $foto_siswa = "default.jpg";
+    public $berkas;
 
     public function rules()
     {
         return [
-            [
-                'field' => 'kd_daftar',
-                'label' => 'kd_daftar',
-                'rules' => 'required'
-            ],
-
             [
                 'field' => 'nm_calon_siswa',
                 'label' => 'nm_calon_siswa',
@@ -168,12 +158,10 @@ class Daftar_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->kd_daftar = uniqid();
         $this->nm_calon_siswa = $post["nm_calon_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];
-        $this->tempat_lahir = $post["tempat_lahir"];
-        $this->tempat_lahir = $post["tempat_lahir"];
+        $this->ttl = $post["ttl"];
         $this->jkel = $post["jkel"];
         $this->agama = $post["agama"];
         $this->alamat = $post["alamat"];
@@ -189,9 +177,7 @@ class Daftar_model extends CI_Model
         $this->pendidikan_ibu = $post["pendidikan_ibu"];
         $this->pekerjaan_ibu = $post["pekerjaan_ibu"];
         $this->telepon_ibu = $post["telepon_ibu"];
-        $this->akta_lahir = $this->_uploadImage();
-        $this->kartu_keluarga = $this->_uploadImage2();
-        $this->foto_siswa = $this->_uploadImage3();
+        $this->berkas = $this->_upload();
 
         $this->db->insert($this->_table, $this);
     }
@@ -199,7 +185,8 @@ class Daftar_model extends CI_Model
     public function update()
     {
         $post = $this->input->post();
-        $this->kd_daftar = $post["kd_daftar"];
+        $this->kd_daftar = $post["id"];
+        $post = $this->input->post();
         $this->nm_calon_siswa = $post["nm_calon_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];
@@ -220,22 +207,10 @@ class Daftar_model extends CI_Model
         $this->pekerjaan_ibu = $post["pekerjaan_ibu"];
         $this->telepon_ibu = $post["telepon_ibu"];
 
-        if (!empty($_FILES["akta_lahir"]["name"])) {
-            $this->gambar = $this->_uploadImage();
+        if (!empty($_FILES["berkas"]["name"])) {
+            $this->berkas = $this->_upload();
         } else {
-            $this->gambar = $post["old_image"];
-        }
-
-        if (!empty($_FILES["kartu_keluarga"]["name2"])) {
-            $this->gambar = $this->_uploadImage2();
-        } else {
-            $this->gambar = $post["old_image"];
-        }
-
-        if (!empty($_FILES["foto_siswa"]["name3"])) {
-            $this->gambar = $this->_uploadImage3();
-        } else {
-            $this->gambar = $post["old_image"];
+            echo '<script>alert("File Yang Dimasukan Harus Bentuk Dokumen PDF");</script>';
         }
 
         $this->db->update($this->_table, $this, array('kd_daftar' => $post['id']));
@@ -243,26 +218,27 @@ class Daftar_model extends CI_Model
 
     public function delete($id)
     {
-        $this->_deleteImage($id);
-        $this->_deleteImage2($id);
-        $this->_deleteImage3($id);
+        $this->_delete($id);
         return $this->db->delete($this->_table, array("kd_daftar" => $id));
     }
 
-    private function _uploadImage()
+    private function _upload()
     {
-        $config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = $this->kd_daftar;
+        $config['upload_path']          = './back-end/dokumen/';
+        $config['allowed_types']        = 'pdf';
+        // $config['file_name']            = $this->kd_daftar;
         $config['overwrite']            = true;
         $config['max_size']             = 1024; // 1MB
-        // $config['max_width']            = 1024;
-        // $config['max_height']           = 768;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('akta_lahir')) {
-            return $this->upload->data("file_name");
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($_FILES['filefoto' . $i]['name'])) {
+                if (!$this->upload->do_upload('filefoto' . $i))
+                    $this->upload->display_errors();
+            }
         }
 
         return "default.jpg";
