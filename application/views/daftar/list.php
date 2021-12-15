@@ -1,6 +1,7 @@
 <title>PAUD Sri Rejeki - Rekap Pendaftaran</title>
 <?php $this->load->view("templates/header.php") ?>
 <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -137,9 +138,8 @@
                                             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>No</th>
                                                         <th>Kode Daftar</th>
-                                                        <!-- <th>Tanggal Daftar</th> -->
+                                                        <th>Tanggal Daftar</th>
                                                         <th>Nama Calon Siswa</th>
                                                         <th>Status</th>
                                                         <th>Detail</th>
@@ -152,11 +152,11 @@
                                                                 <?php echo $daftar->kd_daftar ?>
                                                             </td>
                                                             <td>
+                                                                <?php echo $daftar->tgl_daftar ?>
+                                                            </td>
+                                                            <td>
                                                                 <?php echo $daftar->nm_calon_siswa ?>
                                                             </td>
-                                                            <!-- <td>
-                                                                <?php echo $daftar->harga ?>
-                                                            </td> -->
                                                             <!-- <td>
                                                                 <img src="<?php echo base_url('uploads/' . $products->gambar) ?>" width="64" />
                                                             </td> -->
