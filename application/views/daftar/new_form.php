@@ -142,6 +142,9 @@
                                     <div class="card-body">
 
                                         <form action="<?php base_url('daftar/add') ?>" method="post" enctype="multipart/form-data">
+                                            <div class="alert alert-primary">
+                                                <strong>Data Calon Siswa</strong>
+                                            </div>
                                             <div class="row">
                                                 <div class="col-sm-7">
                                                     <div class="form-group">
@@ -368,21 +371,21 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="akta_lahir">Akta Lahir:</label>
-                                                        <input type="file" name="akta_lahir" class="form-control <?php echo form_error('akta_lahir') ? 'is-invalid' : '' ?>">
+                                                        <label for="berkas">Daftar Berkas:</label>
+                                                        <input type="file" name="berkas" class="form-control <?php echo form_error('berkas') ? 'is-invalid' : '' ?>">
                                                         <div class="invalid-feedback">
-                                                            <?php echo form_error('akta_lahir') ?>
+                                                            <?php echo form_error('berkas') ?>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <!-- <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="kartu_keluarga">Kartu Keluarga:</label>
                                                         <input type="file" name="kartu_keluarga" class="form-control <?php echo form_error('kartu_keluarga') ? 'is-invalid' : '' ?>">
                                                         <div class="invalid-feedback">
                                                             <?php echo form_error('kartu_keluarga') ?>
                                                         </div>
-                                                    </div>
+                                                    </div>s
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
@@ -392,7 +395,7 @@
                                                             <?php echo form_error('foto_siswa') ?>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <input class="btn btn-success" type="submit" name="btn" value="Simpan" />
                                         </form>

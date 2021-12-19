@@ -1,4 +1,4 @@
-<title>PAUD Sri Rejeki - Daftar Siswa</title>
+<title>PAUD Sri Rejeki - Daftar Tagihan</title>
 <?php $this->load->view("templates/header.php") ?>
 <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
 
@@ -116,7 +116,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Daftar Siswa</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Daftar Tagihan</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -129,7 +129,7 @@
                                 <!-- DataTables -->
                                 <div class="card mb-3">
                                     <div class="card-header">
-                                        <a href="<?php echo site_url('siswa/add') ?>"><i class="fas fa-user-plus"></i> Tambah Baru</a>
+                                        <a href="<?php echo site_url('tagihan/add') ?>"><i class="fas fa-user-plus"></i> Tambah Baru</a>
                                     </div>
                                     <div class="card-body">
 
@@ -137,35 +137,35 @@
                                             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>No. Induk</th>
+                                                        <th>Kode Tagihan</th>
                                                         <th>Nama Siswa</th>
-                                                        <th>JK</th>
-                                                        <th>Alamat</th>
-                                                        <th>Kelompok Kelas</th>
+                                                        <th>Nama Tagihan</th>
+                                                        <th>Jumlah Tagihan</th>
+                                                        <th>Tanggal Tempo</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($siswa as $siswa) : ?>
+                                                    <?php foreach ($tagihan as $tagihan) : ?>
                                                         <tr>
                                                             <td width="150">
-                                                                <?php echo $siswa->no_induk ?>
+                                                                <?php echo $tagihan->no_induk ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $siswa->nama_siswa ?>
+                                                                <?php echo $tagihan->nama_siswa ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $siswa->jenis_kelamin ?>
+                                                                <?php echo $tagihan->jenis_kelamin ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $siswa->alamat ?>
+                                                                <?php echo $tagihan->alamat ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $siswa->kelompok_kelas ?>
+                                                                <?php echo $tagihan->kelompok_kelas ?>
                                                             </td>
                                                             <td width="250">
-                                                                <a href="<?php echo site_url('siswa/edit/' . $siswa->no_induk) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('siswa/delete/' . $siswa->no_induk) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                                <a href="<?php echo site_url('tagihan/edit/' . $tagihan->no_induk) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
+                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('tagihan/delete/' . $tagihan->no_induk) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>
