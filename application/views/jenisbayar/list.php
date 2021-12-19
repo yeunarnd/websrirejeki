@@ -1,4 +1,4 @@
-<title>PAUD Sri Rejeki - Daftar Tagihan</title>
+<title>PAUD Sri Rejeki - Daftar Siswa</title>
 <?php $this->load->view("templates/header.php") ?>
 <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
 
@@ -116,7 +116,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Daftar Tagihan</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Daftar Jenis Pembayaran</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -129,7 +129,7 @@
                                 <!-- DataTables -->
                                 <div class="card mb-3">
                                     <div class="card-header">
-                                        <a href="<?php echo site_url('tagihan/add') ?>"><i class="fas fa-user-plus"></i> Tambah Baru</a>
+                                        <a href="<?php echo site_url('jenisbayar/add') ?>"><i class="fas fa-user-plus"></i> Tambah Baru</a>
                                     </div>
                                     <div class="card-body">
 
@@ -137,35 +137,28 @@
                                             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>Kode Tagihan</th>
-                                                        <th>Nama Siswa</th>
-                                                        <th>Nama Tagihan</th>
-                                                        <th>Jumlah Tagihan</th>
+                                                        <th>Kode Jenis</th>
+                                                        <th>Jenis Pembayaran</th>
                                                         <th>Tanggal Tempo</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($tagihan as $tagihan) : ?>
+                                                    <?php foreach ($jenisbayar as $jenisbayar) : ?>
                                                         <tr>
                                                             <td width="150">
-                                                                <?php echo $tagihan->kode_tagihan ?>
+                                                                <?php echo $jenisbayar->kode_jenis ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $tagihan->nama_siswa ?>
+                                                                <?php echo $jenisbayar->jenis_bayar ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $tagihan->nama_tagihan ?>
+                                                                <?php echo $jenisbayar->dateline ?>
                                                             </td>
-                                                            <td>
-                                                                <?php echo $tagihan->jumlah_tagihan ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $tagihan->tgl_jatuh_tempo ?>
                                                             </td>
                                                             <td width="250">
-                                                                <a href="<?php echo site_url('tagihan/edit/' . $tagihan->kode_tagihan) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('tagihan/delete/' . $tagihan->kode_tagihan) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                                <a href="<?php echo site_url('jenisbayar/edit/' . $jenisbayar->kode_jenis) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
+                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('jenisbayar/delete/' . $jenisbayar->kode_jenis) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>

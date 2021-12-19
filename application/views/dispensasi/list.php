@@ -116,7 +116,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Daftar Tagihan</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Daftar Pengajuan Dispensasi</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -129,7 +129,7 @@
                                 <!-- DataTables -->
                                 <div class="card mb-3">
                                     <div class="card-header">
-                                        <a href="<?php echo site_url('tagihan/add') ?>"><i class="fas fa-user-plus"></i> Tambah Baru</a>
+                                        <a href="<?php echo site_url('dispensasi/add') ?>"><i class="fas fa-user-plus"></i> Tambah Baru</a>
                                     </div>
                                     <div class="card-body">
 
@@ -137,35 +137,31 @@
                                             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>Kode Tagihan</th>
-                                                        <th>Nama Siswa</th>
-                                                        <th>Nama Tagihan</th>
-                                                        <th>Jumlah Tagihan</th>
-                                                        <th>Tanggal Tempo</th>
+                                                        <th>Kode Dispensasi</th>
+                                                        <th>No. Induk</th>
+                                                        <th>Nama Dispensasi</th>
+                                                        <th>Alasan Pengajuan</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($tagihan as $tagihan) : ?>
+                                                    <?php foreach ($dispensasi as $dispensasi) : ?>
                                                         <tr>
                                                             <td width="150">
-                                                                <?php echo $tagihan->kode_tagihan ?>
+                                                                <?php echo $dispensasi->kode_dispensasi ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $tagihan->nama_siswa ?>
+                                                                <?php echo $dispensasi->no_induk ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $tagihan->nama_tagihan ?>
+                                                                <?php echo $dispensasi->nama_dispensasi ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $tagihan->jumlah_tagihan ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $tagihan->tgl_jatuh_tempo ?>
+                                                                <?php echo $dispensasi->alasan_pengajuan ?>
                                                             </td>
                                                             <td width="250">
-                                                                <a href="<?php echo site_url('tagihan/edit/' . $tagihan->kode_tagihan) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('tagihan/delete/' . $tagihan->kode_tagihan) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                                <a href="<?php echo site_url('dispensasi/edit/' . $dispensasi->kode_dispensasi) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
+                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('dispensasi/delete/' . $dispensasi->kode_dispensasi) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>
