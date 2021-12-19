@@ -26,8 +26,8 @@ class Siswa_model extends CI_Model
             ],
 
             [
-                'field' => 'jkel',
-                'label' => 'jkel',
+                'field' => 'jenis_kelamin',
+                'label' => 'jenis_kelamin',
                 'rules' => 'required'
             ],
 
@@ -38,11 +38,10 @@ class Siswa_model extends CI_Model
             ],
 
             [
-                'field' => 'kelompok',
-                'label' => 'kelompok',
+                'field' => 'kelompok_kelas',
+                'label' => 'kelompok_kelas',
                 'rules' => 'required'
-            ],
-
+            ]
         ];
     }
 
@@ -59,24 +58,23 @@ class Siswa_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->no_induk = $post["no_induk"];
+        $this->no_induk = ["no_induk"];
         $this->nama_siswa = $post["nama_siswa"];
         $this->jenis_kelamin = $post["jenis_kelamin"];
         $this->alamat = $post["alamat"];
         $this->kelompok_kelas = $post["kelompok_kelas"];
-        $this->db->insert($this->_table, $this);
+        return $this->db->insert($this->_table, $this);
     }
 
     public function update()
     {
         $post = $this->input->post();
-        $this->no_induk = $post["no_induk"];
+        $this->no_induk = ["no_induk"];
         $this->nama_siswa = $post["nama_siswa"];
         $this->jenis_kelamin = $post["jenis_kelamin"];
         $this->alamat = $post["alamat"];
         $this->kelompok_kelas = $post["kelompok_kelas"];
-
-        $this->db->update($this->_table, $this, array('no_induk' => $post['id']));
+        return $this->db->update($this->_table, $this, array('no_induk' => $post['id']));
     }
 
     public function delete($id)
