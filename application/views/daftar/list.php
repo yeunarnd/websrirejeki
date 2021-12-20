@@ -71,7 +71,7 @@
                 </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('pengaturan') ?>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Pengaturan</span>
@@ -88,7 +88,7 @@
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -130,7 +130,7 @@
                                 <div class="card mb-3">
                                     <div class="card-header">
                                         <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
-                                        <input class="btn btn bg-gradient-light" type="submit" name="btn" value="Unduh Laporan" style="float:right" />
+                                        <a href="" class="btn btn-secondary" style="float:right"> Unduh Laporan</a>
                                     </div>
                                     <div class="card-body">
 
@@ -157,9 +157,12 @@
                                                             <td>
                                                                 <?php echo $daftar->nm_calon_siswa ?>
                                                             </td>
-                                                            <!-- <td>
-                                                                <img src="<?php echo base_url('uploads/' . $products->gambar) ?>" width="64" />
-                                                            </td> -->
+                                                            <td>
+                                                                tervalidasi
+                                                            </td>
+                                                            <td width="250">
+                                                                <a href="" class="btn btn-info btn-sm"> Detail</a>
+                                                            </td>
                                                             <!-- <td width="250">
                                                                 <a href="<?php echo site_url('daftar/edit/' . $daftar->kd_daftar) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
                                                                 <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('daftar/delete/' . $daftar->kd_daftar) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>

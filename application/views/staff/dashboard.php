@@ -42,13 +42,6 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('jenisbayar') ?>">
-                    <i class="fas fa-fw fa-money-bill-alt"></i>
-                    <span>Jenis Pembayaran</span>
-                </a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

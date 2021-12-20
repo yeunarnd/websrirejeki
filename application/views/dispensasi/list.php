@@ -1,4 +1,4 @@
-<title>PAUD Sri Rejeki - Daftar Tagihan</title>
+<title>PAUD Sri Rejeki - Pengajuan Dispensasi</title>
 <?php $this->load->view("templates/header.php") ?>
 <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
 
@@ -71,7 +71,7 @@
                 </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('pengaturan') ?>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Pengaturan</span>
@@ -88,7 +88,7 @@
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

@@ -25,7 +25,7 @@ class Daftar extends CI_Controller
 
         if ($validation->run()) {
             $daftar->save();
-            $this->session->set_flashdata('success', 'Data anda berhasil disimpan. Silahkan menunggu pengumunan selanjutnya');
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
         $this->load->view("daftar/new_form");
