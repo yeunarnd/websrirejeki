@@ -142,7 +142,7 @@
                                                         <th>Tanggal Daftar</th>
                                                         <th>Nama Calon Siswa</th>
                                                         <th>Status</th>
-                                                        <th>Detail</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

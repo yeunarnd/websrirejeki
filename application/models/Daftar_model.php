@@ -24,7 +24,9 @@ class Daftar_model extends CI_Model
     public $pendidikan_ibu;
     public $pekerjaan_ibu;
     public $telepon_ibu;
-    public $berkas;
+    public $akta_lahir;
+    public $kartu_keluarga;
+    public $foto_siswa;
 
     public function rules()
     {
@@ -177,7 +179,9 @@ class Daftar_model extends CI_Model
         $this->pendidikan_ibu = $post["pendidikan_ibu"];
         $this->pekerjaan_ibu = $post["pekerjaan_ibu"];
         $this->telepon_ibu = $post["telepon_ibu"];
-        $this->berkas = $this->_upload();
+        $this->akta_lahir = $this->_upload();
+        $this->kartu_keluarga = $this->_uploadImage2();
+        $this->foto_siswa = $this->_uploadImage3();
 
         $this->db->insert($this->_table, $this);
     }
@@ -207,25 +211,19 @@ class Daftar_model extends CI_Model
         $this->pekerjaan_ibu = $post["pekerjaan_ibu"];
         $this->telepon_ibu = $post["telepon_ibu"];
 
-        if (!empty($_FILES["berkas"]["name"])) {
-            $this->berkas = $this->_upload();
-        } else {
-            echo '<script>alert("File Yang Dimasukan Harus Bentuk Dokumen PDF");</script>';
-        }
-
         $this->db->update($this->_table, $this, array('kd_daftar' => $post['id']));
     }
 
     public function delete($id)
     {
-        $this->_delete($id);
+        $this->delete($id);
         return $this->db->delete($this->_table, array("kd_daftar" => $id));
     }
 
     private function _upload()
     {
-        $config['upload_path']          = './back-end/dokumen/';
-        $config['allowed_types']        = 'pdf';
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
         // $config['file_name']            = $this->kd_daftar;
         $config['overwrite']            = true;
         $config['max_size']             = 1024; // 1MB
@@ -234,15 +232,44 @@ class Daftar_model extends CI_Model
 
         $this->load->library('upload', $config);
 
-        for ($i = 1; $i <= 3; $i++) {
-            if (!empty($_FILES['filefoto' . $i]['name'])) {
-                if (!$this->upload->do_upload('filefoto' . $i))
-                    $this->upload->display_errors();
-            }
+        if ($this->upload->do_upload('akta_lahir')) {
+            return $this->upload->data("file_name");
         }
 
         return "default.jpg";
     }
+
+    // public function _upload()
+    // {
+    //     $data = array();
+    //     $config['upload_path'] = './uploads/';
+    //     $config['allowed_types'] = 'jpg|png';
+    //     $config['max_size'] = 5024;
+    //     $config['encrypt_name'] = true;
+
+    //     $this->load->library('upload', $config);
+
+    //     if (!$this->upload->do_upload('akta_lahir')) {
+    //         $error = array('error' => $this->upload->display_errors());
+    //     } else {
+    //         $fileData = $this->upload->data();
+    //         return $data['akta_lahir'] = $fileData['file_name'];
+    //     }
+
+    //     if (!$this->upload->do_upload('kartu_keluarga')) {
+    //         $error = array('error' => $this->upload->display_errors());
+    //     } else {
+    //         $fileData = $this->upload->data();
+    //         return $data['kartu_keluarga'] = $fileData['file_name'];
+    //     }
+
+    //     if (!$this->upload->do_upload('foto_siswa')) {
+    //         $error = array('error' => $this->upload->display_errors());
+    //     } else {
+    //         $fileData = $this->upload->data();
+    //         return $data['foto_siswa'] = $fileData['file_name'];
+    //     }
+    // }
 
     private function _uploadImage2()
     {
