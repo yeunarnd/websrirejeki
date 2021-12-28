@@ -142,6 +142,28 @@
                                     <div class="card-body">
 
                                         <form action="<?php base_url('daftar/add') ?>" method="post" enctype="multipart/form-data">
+                                            <!-- <div class="row g-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <label for="tgl_daftar" class="col-form-label">Tanggal Daftar:</label>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <input class="form-control" id="disabledInput" type="text" placeholder="<?php echo date('l, d-m-Y'); ?>" disabled>
+                                                </div>
+                                            </div> -->
+                                            <div class="row g-3 align-items-center">
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label for="kd_daftar" class="col-form-label">Kode Pendaftaran:</label>
+                                                        <input class="form-control" id="disabledInput" type="text" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label for="tgl_daftar" class="col-form-label">Tanggal Daftar:</label>
+                                                        <input class="form-control" id="disabledInput" type="text" placeholder="<?php echo date('l, d-m-Y'); ?>" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="alert alert-primary">
                                                 <strong>Data Calon Siswa</strong>
                                             </div>
@@ -168,9 +190,9 @@
                                                     <div class="form-group">
                                                         <label for="kelas">Kelas:</label>
                                                         <input type="text" name="kelas" class="form-control <?php echo form_error('kelas') ? 'is-invalid' : '' ?>">
-                                                    </div>
-                                                    <div class="invalid-feedback">
-                                                        <?php echo form_error('kelas') ?>
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('kelas') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -397,7 +419,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <input class="btn btn-success" type="submit" name="btn" value="Simpan" />
+                                            <input class="btn btn-success" type="submit" name="btn" value="Save" />
                                         </form>
 
                                     </div>

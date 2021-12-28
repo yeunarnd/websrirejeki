@@ -148,7 +148,7 @@
                                                 <tbody>
                                                     <?php foreach ($daftar as $daftar) : ?>
                                                         <tr>
-                                                            <td>
+                                                            <td width="150">
                                                                 <?php echo $daftar->kd_daftar ?>
                                                             </td>
                                                             <td>

@@ -47,7 +47,7 @@ class Daftar extends CI_Controller
         $data["daftar"] = $daftar->getById($id);
         if (!$data["daftar"]) show_404();
 
-        $this->load->view("daftar/edit_form", $data);
+        $this->load->view("daftar", $data);
     }
 
     public function delete($id = null)
