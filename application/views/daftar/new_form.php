@@ -157,7 +157,7 @@
                                                         <input class="form-control" id="disabledInput" type="text" disabled>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label for="tgl_daftar" class="col-form-label">Tanggal Daftar:</label>
                                                         <input class="form-control" id="disabledInput" type="text" placeholder="<?php echo date('l, d-m-Y'); ?>" disabled>
