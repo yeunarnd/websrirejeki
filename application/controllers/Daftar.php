@@ -17,6 +17,12 @@ class Daftar extends CI_Controller
         $this->load->view("daftar/list", $data);
     }
 
+    public function details()
+    {
+        $data["daftar"] = $this->daftar_model->getAll();
+        $this->load->view("daftar/detail", $data);
+    }
+
     public function add()
     {
         $daftar = $this->daftar_model;

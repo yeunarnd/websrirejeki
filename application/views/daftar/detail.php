@@ -116,7 +116,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Rekap Pendaftaran</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Detail Rekap Pendaftaran</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -128,10 +128,6 @@
 
                                 <!-- DataTables -->
                                 <div class="card mb-3">
-                                    <div class="card-header">
-                                        <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
-                                        <a href="" class="btn btn-secondary" style="float:right"> Unduh Laporan</a>
-                                    </div>
                                     <div class="card-body">
 
                                         <div class="table-responsive">
