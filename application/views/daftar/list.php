@@ -132,7 +132,7 @@
                                         <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
                                         <a href="" class="btn btn-secondary" style="float:right"> Unduh Laporan</a>
                                     </div>
-                                    
+
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
@@ -180,12 +180,12 @@
                             <!-- /.container-fluid -->
 
                             <!-- Content Row -->
-                            <div class="row">
+                            <!-- <div class="row">
 
                                 <div class="col-lg-6 mb-4">
 
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>

@@ -122,6 +122,17 @@
                         <h1 class="h3 mb-0 text-gray-800">Pendaftaran Siswa</h1>
                     </div>
 
+                    <?php
+                    $koneksi = mysqli_connect("localhost", "root", "", "paudsrirejeki");
+                    $auto = mysqli_query($koneksi, "SELECT max(kd_daftar) as max_code FROM daftar");
+                    $data = mysqli_fetch_array($auto);
+                    $code = $data['max_code'];
+                    $urutan = (int)substr($code, 1, 3);
+                    $urutan++;
+                    $huruf = "PD";
+                    $kd_daf = $huruf . sprintf("%03s", $urutan);
+                    ?>
+
                     <!-- Content Row -->
                     <div class="row">
 
@@ -154,7 +165,7 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="kd_daftar" class="col-form-label">Kode Pendaftaran:</label>
-                                                        <input class="form-control" id="disabledInput" type="text" disabled>
+                                                        <input class="form-control" value="<?php echo $kd_daf ?>" id="disabledInput" type="text" placeholder="" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
