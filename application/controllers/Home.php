@@ -3,9 +3,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model("daftar_model");
+        $this->load->library('form_validation');
+    }
 
     public function index()
     {
+        $data["daftar"] = $this->daftar_model->getAll();
         $this->load->view('index');
     }
 
@@ -20,6 +27,6 @@ class Home extends CI_Controller
             $this->session->set_flashdata('success', 'Data anda berhasil disimpan. Silahkan menunggu pengumunan selanjutnya');
         }
 
-        $this->load->view("daftar/new_form");
+        $this->load->view("index");
     }
 }

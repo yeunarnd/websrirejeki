@@ -290,7 +290,7 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="alamat_ayah">Alamat Tinggal:</label>
+                                                        <label for="alamat_ayah">Alamat Ayah:</label>
                                                         <textarea class="form-control <?php echo form_error('alamat_ayah') ? 'is-invalid' : '' ?>" name="alamat_ayah" rows="2" id="alamat"></textarea>
                                                         <div class="invalid-feedback">
                                                             <?php echo form_error('alamat_ayah') ?>
@@ -301,7 +301,7 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="pendidikan_ayah">Pendidikan Terakhir:</label>
+                                                        <label for="pendidikan_ayah">Pendidikan Ayah:</label>
                                                         <select class="form-control <?php echo form_error('pendidikan_ayah') ? 'is-invalid' : '' ?>" name="pendidikan_ayah">
                                                             <option value="sd">SD</option>
                                                             <option value="smp">SMP</option>
@@ -323,7 +323,7 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="telepon_ayah">No. Telepon:</label>
+                                                        <label for="telepon_ayah">No. Telp Ayah:</label>
                                                         <input type="text" name="telepon_ayah" class="form-control <?php echo form_error('telepon_ayah') ? 'is-invalid' : '' ?>">
                                                         <div class="invalid-feedback">
                                                             <?php echo form_error('telepon_ayah') ?>
@@ -356,7 +356,7 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="alamat_ibu">Alamat Tinggal:</label>
+                                                        <label for="alamat_ibu">Alamat Ibu:</label>
                                                         <textarea class="form-control <?php echo form_error('alamat_ibu') ? 'is-invalid' : '' ?>" name="alamat_ibu" rows="2" id="alamat"></textarea>
                                                         <div class="invalid-feedback">
                                                             <?php echo form_error('alamat_ibu') ?>
@@ -367,7 +367,7 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="pendidikan_ibu">Pendidikan Terakhir:</label>
+                                                        <label for="pendidikan_ibu">Pendidikan Ibu:</label>
                                                         <select class="form-control <?php echo form_error('pendidikan_ibu') ? 'is-invalid' : '' ?>" name="pendidikan_ibu">
                                                             <option value="SMA-IPA">SD</option>
                                                             <option value="SMA-IPS">SMP</option>
@@ -389,7 +389,7 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="telepon_ibu">No. Telepon:</label>
+                                                        <label for="telepon_ibu">No. Telp Ibu:</label>
                                                         <input type="text" name="telepon_ibu" class="form-control <?php echo form_error('telepon_ibu') ? 'is-invalid' : '' ?>">
                                                         <div class="invalid-feedback">
                                                             <?php echo form_error('telepon_ibu') ?>
@@ -411,7 +411,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <!-- <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="kartu_keluarga">Kartu Keluarga:</label>
                                                         <input type="file" name="kartu_keluarga" class="form-control <?php echo form_error('kartu_keluarga') ? 'is-invalid' : '' ?>">
@@ -428,7 +428,7 @@
                                                             <?php echo form_error('foto_siswa') ?>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <input class="btn btn-success" type="submit" name="btn" value="Save" />
                                         </form>
