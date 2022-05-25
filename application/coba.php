@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Custom fonts for this template-->
+    <link href="<?= base_url('back-end/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="<?= base_url('back-end/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
+
+</head>
+
 <title>PAUD Sri Rejeki - Rekap Pendaftaran</title>
 <?php $this->load->view("templates/header.php") ?>
 <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
@@ -116,7 +136,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Rekap Pendaftaran</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Detail Rekap Pendaftaran</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -129,62 +149,19 @@
                                 <!-- DataTables -->
                                 <div class="card mb-3">
                                     <div class="card-header">
-                                        <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
-                                        <a class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
-                                            <select class=" select2" name="periode">
-                                                <option>Periode 2020/2021</option>
-                                                <option value="eyJ0YWh1biI6IjIwMjAiLCJzZW1lc3RlciI6IkdlbmFwIn0=">2020 Genap</option>
-                                                <option value="eyJ0YWh1biI6IjIwMjAiLCJzZW1lc3RlciI6IkdhbmppbCJ9">2020 Ganjil</option>
-                                                <option value="eyJ0YWh1biI6IjIwMTkiLCJzZW1lc3RlciI6IkdlbmFwIn0=">2019 Genap</option>
-                                                <option value="eyJ0YWh1biI6IjIwMTkiLCJzZW1lc3RlciI6IkdhbmppbCJ9">2019 Ganjil</option>
-                                                <option value="eyJ0YWh1biI6IjIwMTgiLCJzZW1lc3RlciI6IkdlbmFwIn0=">2018 Genap</option>
-                                                <option value="eyJ0YWh1biI6IjIwMTgiLCJzZW1lc3RlciI6IkdhbmppbCJ9">2018 Ganjil</option>
-                                            </select>
-                                        </a>
-                                        <a href="" class="btn btn-secondary" style="float:right"> Unduh Laporan</a>
+                                        <a href="<?php echo site_url('daftar') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
                                     </div>
-
                                     <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Kode Daftar</th>
-                                                        <th>Tanggal Daftar</th>
-                                                        <th>Nama Calon Siswa</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($daftar as $daftar) : ?>
-                                                        <tr>
-                                                            <td width="150">
-                                                                <?php echo $daftar->kd_daftar ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $daftar->tgl_daftar ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $daftar->nm_calon_siswa ?>
-                                                            </td>
-                                                            <td>
-                                                                tervalidasi
-                                                            </td>
-                                                            <td width="250">
-                                                                <a href="<?php echo site_url('daftar/details') ?>" class="btn btn-info btn-sm"> Detail</a>
-                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('daftar/delete/' . $daftar->kd_daftar) ?>" class="btn btn-danger btn-sm">Hapus</a>
-                                                            </td>
-                                                            <!-- <td width="250">
-                                                                <a href="<?php echo site_url('daftar/edit/' . $daftar->kd_daftar) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('daftar/delete/' . $daftar->kd_daftar) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                                            </td> -->
-                                                        </tr>
-                                                    <?php endforeach; ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        <tr>
+                                            <td width="20%">Nama Lengkap</td>
+                                            <td width="1%">:</td>
+                                            <td><?php echo $daftar['nm_calon_siswa']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20%">Nama Lengkap</td>
+                                            <td width="1%">:</td>
+                                            <td><?php echo $daftar['umur']; ?></td>
+                                        </tr>
                                     </div>
                                 </div>
 
@@ -192,12 +169,12 @@
                             <!-- /.container-fluid -->
 
                             <!-- Content Row -->
-                            <!-- <div class="row">
+                            <div class="row">
 
                                 <div class="col-lg-6 mb-4">
 
                                 </div>
-                            </div> -->
+                            </div>
 
                         </div>
                     </div>
@@ -209,4 +186,62 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php $this->load->view("templates/footer.php") ?>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; PAUD Sri Rejeki <?= date('Y'); ?></span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin untuk keluar?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Pilih "Keluar" dibawah jika yakin ingin keluar.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary" href="<?= site_url('login/logout'); ?>">Keluar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?= base_url('back-end/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('back-end/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="<?= base_url('back-end/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="<?= base_url('back-end/vendor/chart.js/Chart.min.js'); ?>"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="<?= base_url('back-end/js/sb-admin-2.min.js'); ?>"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="<?= base_url('back-end/js/demo/chart-area-demo.js'); ?>"></script>
+
+</body>
+
+</html>

@@ -163,6 +163,12 @@ class Daftar_model extends CI_Model
         return $this->db->get_where($this->_table, ["kd_daftar" => $id])->row();
     }
 
+    function get($id)
+    {
+        $param = array('kd_daftar' => $id);
+        return $this->db->get_where('daftar', $param);
+    }
+
     public function save()
     {
         $post = $this->input->post();
@@ -188,6 +194,8 @@ class Daftar_model extends CI_Model
         $this->pendidikan_ibu = $post["pendidikan_ibu"];
         $this->pekerjaan_ibu = $post["pekerjaan_ibu"];
         $this->telepon_ibu = $post["telepon_ibu"];
+        $this->akta_lahir = $this->_uploadImage('akta_lahir');
+        $this->kartu_keluarga = $this->_uploadImage2('kartu_keluarga');
         return $this->db->insert($this->_table, $this);
     }
 
@@ -216,11 +224,77 @@ class Daftar_model extends CI_Model
         $this->pendidikan_ibu = $post["pendidikan_ibu"];
         $this->pekerjaan_ibu = $post["pekerjaan_ibu"];
         $this->telepon_ibu = $post["telepon_ibu"];
+
+        if (!empty($_FILES["gambar"]["name"])) {
+            $this->akta_lahir = $this->_uploadImage('akta_lahir');
+        } else {
+            $this->akta_lahir = $post["old_image"];
+        }
+
         return $this->db->update($this->_table, $this, array('kd_daftar' => $post['id']));
     }
 
     public function delete($id)
     {
+        $this->_deleteImage($id);
         return $this->db->delete($this->_table, array("kd_daftar" => $id));
+    }
+
+    private function _uploadImage($name_id)
+    {
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['file_name']            = $name_id . time();
+        $config['overwrite']            = true;
+        $config['max_size']             = 1024; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload($name_id)) {
+            return $this->upload->data("file_name");
+        }
+
+        return "default.jpg";
+    }
+
+    private function _uploadImage2($name_id)
+    {
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['file_name']            = $name_id . time();
+        $config['overwrite']            = true;
+        $config['max_size']             = 1024; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload2', $config);
+
+        if ($this->upload2->do_upload($name_id)) {
+            return $this->upload2->data("file_name");
+        }
+
+        return "default.jpg";
+    }
+
+    private function generateRandomString($length = 10)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    private function _deleteImage($id)
+    {
+        $daftar = $this->getById($id);
+        if ($daftar->gambar != "default.jpg") {
+            $filename = explode(".", $daftar->gambar)[0];
+            return array_map('unlink', glob(FCPATH . "uploads/$filename.*"));
+        }
     }
 }

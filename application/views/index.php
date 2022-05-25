@@ -400,18 +400,15 @@
                                     <input type="file" name="akta" class="form-control" required>
                                 </div>
                             </div>
-                            <!-- <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Kartu Keluarga:</label>
-                                    <input type="file" name="kk" class="form-control" required>
-                                </div>
-                            </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label>Foto Siswa:</label>
-                                    <input type="file" name="foto" class="form-control" required>
+                                    <label for="kartu_keluarga">Kartu Keluarga:</label>
+                                    <input type="file" name="kartu_keluarga" class="form-control <?php echo form_error('kartu_keluarga') ? 'is-invalid' : '' ?>">
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('kartu_keluarga') ?>
+                                    </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4">

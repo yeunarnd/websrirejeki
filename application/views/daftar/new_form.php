@@ -165,13 +165,21 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="kd_daftar" class="col-form-label">Kode Pendaftaran:</label>
-                                                        <input class="form-control" value="<?php echo $kd_daf ?>" id="disabledInput" type="text" placeholder="" disabled>
+                                                        <input class="form-control <?php echo form_error('kd_daftarx') ? 'is-invalid' : '' ?>" name="kd_daftarx" value="<?php echo $kd_daf ?>" id="disabledInput" type="text" placeholder="" disabled>
+                                                        <input class="form-control <?php echo form_error('kd_daftar') ? 'is-invalid' : '' ?>" style="display:none" name="kd_daftar" value="<?php echo $kd_daf ?>" id="disabledInput" type="text" placeholder="">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('kd_daftar') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="tgl_daftar" class="col-form-label">Tanggal Daftar:</label>
-                                                        <input class="form-control" id="disabledInput" type="text" placeholder="<?php echo format_indo(date('Y-m-d')); ?>" disabled>
+                                                        <input class="form-control <?php echo form_error('tgl_daftarx') ? 'is-invalid' : '' ?>" name="tgl_daftarx" id="disabledInput" type="text" placeholder="<?php echo format_indo(date('Y-m-d')); ?>" disabled>
+                                                        <input class="form-control <?php echo form_error('tgl_daftar') ? 'is-invalid' : '' ?>" style="display:none" name="tgl_daftar" id="disabledInput" type="text" value="<?php echo date('Y-m-d'); ?>">
+                                                        <div class="invalid-feedback">
+                                                            <?php echo form_error('tgl_daftar') ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -220,7 +228,7 @@
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label for="tgl_lahir">Tanggal Lahir:</label>
-                                                        <input type="date" name="tanggal_lahir" class="form-control <?php echo form_error('tgl_lahir') ? 'is-invalid' : '' ?>">
+                                                        <input type="date" name="tgl_lahir" class="form-control <?php echo form_error('tgl_lahir') ? 'is-invalid' : '' ?>">
                                                         <div class="invalid-feedback">
                                                             <?php echo form_error('tgl_lahir') ?>
                                                         </div>
@@ -411,7 +419,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-sm-4">
+                                                <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="kartu_keluarga">Kartu Keluarga:</label>
                                                         <input type="file" name="kartu_keluarga" class="form-control <?php echo form_error('kartu_keluarga') ? 'is-invalid' : '' ?>">
@@ -420,15 +428,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="foto_siswa">Foto Siswa:</label>
-                                                        <input type="file" name="foto_siswa" class="form-control <?php echo form_error('foto_siswa') ? 'is-invalid' : '' ?>">
-                                                        <div class="invalid-feedback">
-                                                            <?php echo form_error('foto_siswa') ?>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
+
                                             </div>
                                             <input class="btn btn-success" type="submit" name="btn" value="Save" />
                                         </form>
