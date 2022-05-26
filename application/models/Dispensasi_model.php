@@ -55,6 +55,7 @@ class Dispensasi_model extends CI_Model
         $this->no_induk = $post["no_induk"];
         $this->nama_dispensasi = $post["nama_dispensasi"];
         $this->alasan_pengajuan = $post["alasan_pengajuan"];
+        $this->tgl_pengajuan_bayar = $post["tgl_pengajuan_bayar"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -65,6 +66,7 @@ class Dispensasi_model extends CI_Model
         $this->no_induk = $post["no_induk"];
         $this->nama_dispensasi = $post["nama_dispensasi"];
         $this->alasan_pengajuan = $post["alasan_pengajuan"];
+        $this->tgl_pengajuan_bayar = $post["tgl_pengajuan_bayar"];
         return $this->db->update($this->_table, $this, array('kode_dispensasi' => $post['id']));
     }
 
