@@ -292,8 +292,17 @@ class Daftar_model extends CI_Model
     private function _deleteImage($id)
     {
         $daftar = $this->getById($id);
-        if ($daftar->gambar != "default.jpg") {
-            $filename = explode(".", $daftar->gambar)[0];
+        if ($daftar->akta_lahir != "default.jpg") {
+            $filename = explode(".", $daftar->akta_lahir)[0];
+            return array_map('unlink', glob(FCPATH . "uploads/$filename.*"));
+        }
+    }
+
+    private function _deleteImage1($id)
+    {
+        $daftar = $this->getById($id);
+        if ($daftar->kartu_keluarga != "default.jpg") {
+            $filename = explode(".", $daftar->kartu_keluarga)[0];
             return array_map('unlink', glob(FCPATH . "uploads/$filename.*"));
         }
     }
