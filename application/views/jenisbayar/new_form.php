@@ -1,7 +1,6 @@
-<title>PAUD Sri Rejeki - Daftar Pembayaran</title>
+<title>PAUD Sri Rejeki - Jenis Pembayaran</title>
 <?php $this->load->view("templates/header.php") ?>
 <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
-
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -71,7 +70,7 @@
                 </a>
             </li>
 
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('pengaturan') ?>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Pengaturan</span>
@@ -88,7 +87,7 @@
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
-            </li> -->
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -116,7 +115,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Daftar Pembayaran</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Daftar Jenis Pembayaran</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -126,54 +125,53 @@
 
                             <div class="container-fluid">
 
-                                <!-- DataTables -->
+                                <?php if ($this->session->flashdata('success')) : ?>
+                                    <div class="alert alert-success" role="alert">
+                                        <?php echo $this->session->flashdata('success'); ?>
+                                    </div>
+                                <?php endif; ?>
+
                                 <div class="card mb-3">
                                     <div class="card-header">
-                                        <a href="<?php echo site_url('pembayaran/add') ?>"><i class="fas fa-user-plus"></i> Tambah Baru</a>
+                                        <a href="<?php echo site_url('jenisbayar') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
                                     </div>
                                     <div class="card-body">
 
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Kode Pembayaran</th>
-                                                        <th>Nama Siswa</th>
-                                                        <th>Jenis Pembayaran</th>
-                                                        <th>Tanggal pembayaran</th>
-                                                        <th>Jumlah Pembayaran</th>
-                                                        <th>Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($pembayaran as $pembayaran) : ?>
-                                                        <tr>
-                                                            <td width="180">
-                                                                <?php echo $pembayaran->kode_pembayaran ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $pembayaran->nama_siswa ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $pembayaran->jenis_bayar ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $pembayaran->tgl_pembayaran ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $pembayaran->jumlah_bayar ?>
-                                                            </td>
-                                                            <td width="250">
-                                                                <a href="<?php echo site_url('pembayaran/edit/' . $pembayaran->kode_pembayaran) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                                <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('pembayaran/delete/' . $pembayaran->kode_pembayaran) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php endforeach; ?>
+                                        <form action="<?php base_url('jenisbayar/add') ?>" method="post" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label for="kode_jenis">Kode Jenis</label>
+                                                <input class="form-control <?php echo form_error('kode_jenis') ? 'is-invalid' : '' ?>" type="text" name="kode_jenis" />
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('kode_jenis') ?>
+                                                </div>
+                                            </div>
 
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                            <div class="form-group">
+                                                <label for="jenis_bayar">Jenis Pembayaran</label>
+                                                <input class="form-control <?php echo form_error('jenis_bayar') ? 'is-invalid' : '' ?>" type="text" name="jenis_bayar" />
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('jenis_bayar') ?>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="dateline">Tanggal Tempo</label>
+                                                <input class="form-control <?php echo form_error('dateline') ? 'is-invalid' : '' ?>" type="date" name="dateline" />
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('dateline') ?>
+                                                </div>
+                                            </div>
+
+                                            <input class="btn btn-success" type="submit" name="btn" value="Simpan" />
+                                        </form>
+
                                     </div>
+
+                                    <div class="card-footer small text-muted">
+                                        *Wajib diisi
+                                    </div>
+
+
                                 </div>
 
                             </div>
