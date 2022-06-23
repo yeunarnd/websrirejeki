@@ -138,7 +138,7 @@
                                                                 <?php echo $tagihan->nama_tagihan ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $tagihan->jumlah_tagihan ?>
+                                                                Rp<?php echo number_format ($tagihan->jumlah_tagihan) ?>
                                                             </td>
                                                             <td>
                                                                 <?php echo $tagihan->tgl_jatuh_tempo ?>

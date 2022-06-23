@@ -141,7 +141,7 @@
                                                                 <?php echo $pembayaran->tgl_pembayaran ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $pembayaran->jumlah_bayar ?>
+                                                                Rp<?php echo number_format ($pembayaran->jumlah_bayar) ?>
                                                             </td>
                                                             <td width="250">
                                                                 <a href="<?php echo site_url('pembayaran/edit/' . $pembayaran->kode_pembayaran) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
