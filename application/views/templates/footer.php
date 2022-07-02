@@ -19,44 +19,62 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Yakin untuk keluar?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Pilih "Keluar" dibawah jika yakin ingin keluar.</div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                <a class="btn btn-primary" href="<?= site_url('login/logout'); ?>">Keluar</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Logout</a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="<?= base_url('back-end/vendor/jquery/jquery.min.js'); ?>"></script>
-<script src="<?= base_url('back-end/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+<script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
+<script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="<?= base_url('back-end/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
+<script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Page level plugin JavaScript-->
-<script src="<?= base_url('back-end/vendor/chart.js/Chart.min.js'); ?>"></script>
-<script src="<?= base_url('back-end/vendor/datatables/jquery.dataTables.js'); ?>"></script>
-<script src="<?= base_url('back-end/vendor/datatables/dataTables.bootstrap4.js'); ?>"></script>
+<script src="<?= base_url('assets/vendor/chart.js/Chart.min.js'); ?>"></script>
+<script src="<?= base_url('assets/vendor/datatables/jquery.dataTables.js'); ?>"></script>
+<script src="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.js'); ?>"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="<?= base_url('back-end/js/sb-admin-2.min.js'); ?>"></script>
+<script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 
 <!-- Demo scripts for this page-->
-<script src="<?= base_url('back-end/js/demo/datatables-demo.js'); ?>"></script>
-<script src="<?= base_url('back-end/js/demo/chart-area-demo.js'); ?>"></script>
+<script src="<?= base_url('assets/js/demo/datatables-demo.js'); ?>"></script>
+<script src="<?= base_url('assets/js/demo/chart-area-demo.js'); ?>"></script>
+
+<script>
+    $('.form-check-input').on('click', function() {
+        const menuId = $(this).data('menu');
+        const roleId = $(this).data('role');
+
+        $.ajax({
+            url: "<?= base_url('admin/changeaccess'); ?>",
+            type: 'post',
+            data: {
+                menuId: menuId,
+                roleId: roleId
+            },
+            success: function() {
+                document.location.href = "<?= base_url('admin/roleaccess/'); ?>" + roleId;
+            }
+        })
+    });
+</script>
 
 </body>
 

@@ -58,7 +58,7 @@
                 </ul>
             </nav><!-- .nav-menu -->
 
-            <a href="<?= base_url('login'); ?>" class="get-started-btn scrollto">Masuk</a>
+            <a href="<?= base_url('auth'); ?>" class="get-started-btn scrollto">Masuk</a>
 
         </div>
     </header><!-- End Header -->
@@ -213,22 +213,22 @@
                     <p>Silahkan Mengisi Data Pendaftaran Di Bawah Ini</p>
                 </div>
 
-                <form id="daftar" method="post">
+                <div>
                     <div class="alert alert-primary">
                         <strong>Data Calon Siswa</strong>
                     </div>
-                    <form action="<?php base_url('home/add') ?>" method="post" enctype="multipart/form-data">
+                    <form action="http://localhost/GitHub/websrirejeki/daftar/add" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-sm-7">
                                 <div class="form-group">
                                     <label>Nama Lengkap:</label>
-                                    <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap" required>
+                                    <input type="text" name="nm_calon_siswa" class="form-control" placeholder="Masukan Nama Lengkap" required>
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label>Usia:</label>
-                                    <input type="text" name="usia" class="form-control" required>
+                                    <input type="text" name="umur" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -248,13 +248,13 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Tanggal Lahir:</label>
-                                    <input type="date" name="tanggal_lahir" class="form-control">
+                                    <input type="date" name="tgl_lahir" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-5">
                                 <div class="form-group">
                                     <label>Jenis Kelamin:</label>
-                                    <select class="form-control" name="jk">
+                                    <select class="form-control" name="jkel">
                                         <option>Pilih</option>
                                         <option value="1">Laki-laki</option>
                                         <option value="2">Perempuan</option>
@@ -295,7 +295,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Nama Ayah:</label>
-                                    <input type="text" name="nm_ayah" class="form-control" placeholder="Masukan Nama Lengkap" required>
+                                    <input type="text" name="nama_ayah" class="form-control" placeholder="Masukan Nama Lengkap" required>
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -315,7 +315,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Pendidikan Ayah:</label>
-                                    <select class="form-control" name="pd_ayah">
+                                    <select class="form-control" name="pendidikan_ayah">
                                         <option value="sd">SD</option>
                                         <option value="smp">SMP</option>
                                         <option value="sma_smk">SMA/SMK</option>
@@ -328,13 +328,13 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Pekerjaan Ayah:</label>
-                                    <input type="text" name="pk_ayah" class="form-control" placeholder="Masukan Pekerjaan" required>
+                                    <input type="text" name="pekerjaan_ayah" class="form-control" placeholder="Masukan Pekerjaan" required>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>No. Telp Ayah:</label>
-                                    <input type="text" name="no_ayah" class="form-control" placeholder="No. Telp/HP" required>
+                                    <input type="text" name="telepon_ayah" class="form-control" placeholder="No. Telp/HP" required>
                                 </div>
                             </div>
                         </div>
@@ -346,7 +346,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Nama Ibu:</label>
-                                    <input type="text" name="nm_ibu" class="form-control" placeholder="Masukan Nama Lengkap" required>
+                                    <input type="text" name="nama_ibu" class="form-control" placeholder="Masukan Nama Lengkap" required>
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -366,7 +366,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Pendidikan Ibu:</label>
-                                    <select class="form-control" name="pd_ayah">
+                                    <select class="form-control" name="pendidikan_ibu">
                                         <option value="SMA-IPA">SD</option>
                                         <option value="SMA-IPS">SMP</option>
                                         <option value="SMK-IPA">SMA/SMK</option>
@@ -379,13 +379,13 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Pekerjaan Ibu:</label>
-                                    <input type="text" name="pk_ibu" class="form-control" placeholder="Masukan Pekerjaan" required>
+                                    <input type="text" name="pekerjaan_ibu" class="form-control" placeholder="Masukan Pekerjaan" required>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>No. Telp Ibu:</label>
-                                    <input type="text" name="no_ibu" class="form-control" placeholder="No. Telp/HP" required>
+                                    <input type="text" name="telepon_ibu" class="form-control" placeholder="No. Telp/HP" required>
                                 </div>
                             </div>
                         </div>
@@ -418,7 +418,7 @@
 
                         </div>
                     </form>
-                </form>
+                </div>
         </section><!-- End Daftar Section -->
 
         <!-- ======= Portfolio Section ======= -->

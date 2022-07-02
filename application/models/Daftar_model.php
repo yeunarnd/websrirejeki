@@ -169,11 +169,29 @@ class Daftar_model extends CI_Model
         return $this->db->get_where('daftar', $param);
     }
 
+    public function upstatusvalidasi($statusvalidasi, $kd_daftar)
+    {
+
+        $this->db->where('kd_daftar', $kd_daftar);
+        $this->db->update('daftar', array('status' => $statusvalidasi));
+        return true;
+    }
+
+    public function hitungTervalidasi()
+    {
+        $this->db->select('count(*) AS jml');
+        $this->db->from('daftar');
+        $this->db->where('status', '1');
+        $this->db->group_by('daftar.status');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function save()
     {
         $post = $this->input->post();
-        $this->kd_daftar = $post["kd_daftar"];
-        $this->tgl_daftar = $post["tgl_daftar"];
+
+        $this->tgl_daftar = date("Y-m-d");
         $this->nm_calon_siswa = $post["nm_calon_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];

@@ -152,7 +152,7 @@
                                     </div>
                                     <div class="card-body">
 
-                                        <form action="<?php base_url('daftar/add') ?>" method="post" enctype="multipart/form-data">
+                                        <div>
                                             <!-- <div class="row g-3 align-items-center">
                                                 <div class="col-auto">
                                                     <label for="tgl_daftar" class="col-form-label">Tanggal Daftar:</label>
@@ -168,10 +168,9 @@
                                                 <div class="col-sm-7">
                                                     <div class="form-group">
                                                         <label for="nm_calon_siswa">Nama Lengkap:</label>
-                                                        <!-- <input type="text" name="nm_calon_siswa" class="form-control <?php echo form_error('nm_calon_siswa') ? 'is-invalid' : '' ?>"> -->
-                                                        <div class="invalid-feedback">
-                                                            <?php echo form_error('nm_calon_siswa') ?>
-                                                        </div>
+                                                        <b><?php echo $daftar->nm_calon_siswa ?></b>
+
+
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
@@ -408,10 +407,10 @@
                                                 </div>
 
                                             </div>
-                                            <input class="btn btn-secondary" type="submit" name="btn" value="Validasi" />
-                                            <input class="btn btn-secondary" type="button" name="btn" data-toggle="modal" data-target="#addModal" value="Tolak" />
-                                            <!-- <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#addModal">Add New</button> -->
-                                        </form>
+                                            <a href="<?= base_url('daftar/validasi/1/' . $daftar->kd_daftar); ?>" class="btn btn-secondary">Validasi</a>
+                                            <a href="<?= base_url('daftar/validasi/2/' . $daftar->kd_daftar); ?>" class="btn btn-secondary">Tolak</a>
+
+                                        </div>
 
                                     </div>
 

@@ -169,10 +169,17 @@
                                                                 <?php echo $daftar->nm_calon_siswa ?>
                                                             </td>
                                                             <td>
-                                                                tervalidasi
+                                                                <?php if ($daftar->status == 1) {
+                                                                    echo 'Tervalidasi';
+                                                                } else if ($daftar->status == 2) {
+                                                                    echo 'Ditolak';
+                                                                } else {
+                                                                    echo 'Menunggu validasi';
+                                                                }
+                                                                ?>
                                                             </td>
                                                             <td width="250">
-                                                                <a href="<?php echo site_url('daftar/details') ?>" class="btn btn-info btn-sm"> Detail</a>
+                                                                <a href="<?php echo site_url('daftar/details/' . $daftar->kd_daftar) ?>" class="btn btn-info btn-sm"> Detail</a>
                                                                 <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('daftar/delete/' . $daftar->kd_daftar) ?>" class="btn btn-danger btn-sm">Hapus</a>
                                                             </td>
                                                             <!-- <td width="250">
