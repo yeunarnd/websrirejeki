@@ -1,7 +1,6 @@
-<title>PAUD Sri Rejeki - Dispensasi</title>
+<title>PAUD Sri Rejeki - Jenis Pembayaran</title>
 <?php $this->load->view("templates/header.php") ?>
 <link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
-
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -96,7 +95,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Pengajuan Dispensasi</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Daftar Jenis Pembayaran</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -114,66 +113,32 @@
 
                                 <div class="card mb-3">
                                     <div class="card-header">
-                                        <a href="<?php echo site_url('dispensasi') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                        <a href="<?php echo site_url('jenisbayar') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
                                     </div>
                                     <div class="card-body">
 
-                                        <form action="<?php base_url('dispensasi/add') ?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?php base_url('jenisbayar/add') ?>" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <label for="kode_dispensasi">Kode Dispensasi</label>
-                                                <input class="form-control <?php echo form_error('kode_dispensasi') ? 'is-invalid' : '' ?>" type="text" name="kode_dispensasi" />
+                                                <label for="kode_jenis">Kode Jenis</label>
+                                                <input class="form-control <?php echo form_error('kode_jenis') ? 'is-invalid' : '' ?>" type="text" name="kode_jenis" />
                                                 <div class="invalid-feedback">
-                                                    <?php echo form_error('kode_dispensasi') ?>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label for="agama">No. Induk</label>
-                                                        <select class="form-control <?php echo form_error('no_induk') ? 'is-invalid' : '' ?>" name="no_induk">
-                                                            <option>Pilih</option>
-                                                            <option value="Islam">Islam</option>
-                                                            <option value="Kristen">Kristen</option>
-                                                            <option value="Katolik">Katolik</option>
-                                                            <option value="Hindu">Hindu</option>
-                                                            <option value="Budha">Budha</option>
-                                                            <option value="Lainnya">Lainnya</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="alamat">Nama Siswa</label>
-                                                        <textarea class="form-control <?php echo form_error('nama_siswa') ? 'is-invalid' : '' ?>" name="nama_siswa" rows="2" id="nama_siswa"></textarea>
-                                                        <div class="invalid-feedback">
-                                                            <?php echo form_error('nama_siswa') ?>
-                                                        </div>
-                                                    </div>
+                                                    <?php echo form_error('kode_jenis') ?>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="nama_siswa">Nama Dispensasi</label>
-                                                <input class="form-control <?php echo form_error('nama_dispensasi') ? 'is-invalid' : '' ?>" type="text" name="nama_dispensasi" />
+                                                <label for="jenis_bayar">Jenis Pembayaran</label>
+                                                <input class="form-control <?php echo form_error('jenis_bayar') ? 'is-invalid' : '' ?>" type="text" name="jenis_bayar" />
                                                 <div class="invalid-feedback">
-                                                    <?php echo form_error('nama_dispensasi') ?>
+                                                    <?php echo form_error('jenis_bayar') ?>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="jenis_kelamin">Alasan Pengajuan</label>
-                                                <input class="form-control <?php echo form_error('alasan_pengajuan') ? 'is-invalid' : '' ?>" name="alasan_pengajuan" />
+                                                <label for="dateline">Tanggal Tempo</label>
+                                                <input class="form-control <?php echo form_error('dateline') ? 'is-invalid' : '' ?>" type="date" name="dateline" />
                                                 <div class="invalid-feedback">
-                                                    <?php echo form_error('alasan_pengajuan') ?>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="tgl_pengajuan_bayar">Tanggal Pengajuan Bayar</label>
-                                                <input class="form-control <?php echo form_error('tgl_pengajuan_bayar') ? 'is-invalid' : '' ?>" type="date" name="tgl_pengajuan_bayar" />
-                                                <div class="invalid-feedback">
-                                                    <?php echo form_error('tgl_pengajuan_bayar') ?>
+                                                    <?php echo form_error('dateline') ?>
                                                 </div>
                                             </div>
 

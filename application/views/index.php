@@ -83,7 +83,7 @@
                 </div>
 
                 <!-- Slide 2 -->
-                <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)"><img src="<?php echo base_url() ?>front-end/assets/img/slide/slide-2.jpg">
+                <div class="carousel-item" style="background-image: url(assets/img/slide/paud2.jpg)"><img src="<?php echo base_url() ?>front-end/assets/img/slide/paud2.jpg" style="width:1550px;height:800px">
                     <div class="carousel-container">
                         <div class="container">
                             <!-- <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
@@ -94,7 +94,7 @@
                 </div>
 
                 <!-- Slide 3 -->
-                <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)"><img src="<?php echo base_url() ?>front-end/assets/img/slide/slide-3.jpg">
+                <div class="carousel-item" style="background-image: url(assets/img/slide/paud3.jpg)"><img src="<?php echo base_url() ?>front-end/assets/img/slide/paud3.jpg" style="width:1500px;height:800px">
                     <div class="carousel-container">
                         <div class="container">
                             <!-- <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>

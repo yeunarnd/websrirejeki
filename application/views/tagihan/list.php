@@ -70,27 +70,7 @@
                     <span>Pembayaran</span>
                 </a>
             </li>
-
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('pengaturan') ?>">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Pengaturan</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li> -->
-
-            <!-- Divider -->
+           <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -129,7 +109,7 @@
                                 <!-- DataTables -->
                                 <div class="card mb-3">
                                     <div class="card-header">
-                                        <a href="<?php echo site_url('tagihan/add') ?>"><i class="fas fa-user-plus"></i> Tambah Baru</a>
+                                        <a href="<?php echo site_url('tagihan/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
                                     </div>
                                     <div class="card-body">
 
@@ -158,7 +138,7 @@
                                                                 <?php echo $tagihan->nama_tagihan ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $tagihan->jumlah_tagihan ?>
+                                                                Rp<?php echo number_format ($tagihan->jumlah_tagihan) ?>
                                                             </td>
                                                             <td>
                                                                 <?php echo $tagihan->tgl_jatuh_tempo ?>
