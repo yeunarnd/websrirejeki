@@ -155,7 +155,7 @@ class Daftar_model extends CI_Model
 
     public function getAll()
     {
-        return $this->db->get($this->_table)->result();
+        return $this->db->get("daftar")->result();
     }
 
     public function getById($id)
