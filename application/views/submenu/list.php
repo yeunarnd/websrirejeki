@@ -22,7 +22,7 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Nama submenu</th>
+                                    <th>ID Menu</th>
                                     <th>Judul</th>
                                     <th>Url</th>
                                     <th>Icon</th>
@@ -35,8 +35,8 @@
                                 <?php foreach ($submenu as $sm) : ?>
                                     <tr>
                                         <th scope="row"><?= $i; ?></th>
+                                        <td><?= $sm['menu_id']; ?></td>
                                         <td><?= $sm['title']; ?></td>
-                                        <td><?= $sm['menu']; ?></td>
                                         <td><?= $sm['url']; ?></td>
                                         <td><?= $sm['icon']; ?></td>
                                         <td><?= $sm['is_active']; ?></td>
