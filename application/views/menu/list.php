@@ -6,14 +6,14 @@
 
     <div class="row">
         <div class="col-lg">
-            <?= form_error('jenisbayar', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+            <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
             <?= $this->session->flashdata('message'); ?>
 
             <!-- DataTables -->
             <div class="card mb-3">
                 <div class="card-header">
-                    <a href="<?php echo site_url('jenisbayar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
+                    <a href="<?php echo site_url('menu/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
                 </div>
                 <div class="card-body">
 
@@ -22,23 +22,19 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Kode Jenis</th>
-                                    <th>Jenis Pembayaran</th>
-                                    <th>dateline</th>
+                                    <th>Nama Menu</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($jenisbayar as $jb) : ?>
+                                <?php foreach ($menu as $m) : ?>
                                     <tr>
                                         <th scope="row"><?= $i; ?></th>
-                                        <td><?= $jb['kode_jenis']; ?></td>
-                                        <td><?= $jb['jenis_bayar']; ?></td>
-                                        <td><?= $jb['dateline']; ?></td>
+                                        <td><?= $m['menu']; ?></td>
                                         <td>
-                                            <a href="<?= base_url('jenisbayar/edit/') . $jb['kode_jenis']; ?>" class="badge badge-success"> Edit</a>
-                                            <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('jenisbayar/delete/') . $jb['kode_jenis']; ?>" class="badge badge-danger">Hapus</a>
+                                            <a href="<?= base_url('menu/edit/') . $m['id']; ?>" class="badge badge-success"> Edit</a>
+                                            <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('menu/delete/') . $m['id']; ?>" class="badge badge-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>

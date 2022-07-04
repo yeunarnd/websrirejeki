@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-lg">
-            <?= form_error('jenisbayar', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+            <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
             <?= $this->session->flashdata('message'); ?>
 
@@ -20,37 +20,21 @@
             <div class="card mb-3">
                 <div class="card-header">
 
-                    <a href="<?php echo site_url('jenisbayar') ?>"><i class="fas fa-arrow-left"></i>
+                    <a href="<?php echo site_url('menu') ?>"><i class="fas fa-arrow-left"></i>
                         Kembali</a>
                 </div>
                 <div class="card-body">
 
-                    <?php foreach ($jenisbayar as $t) : ?>
-                        <form action="<?php base_url("jenisbayar/edit") ?>" method="post" enctype="multipart/form-data">
+                    <?php foreach ($menu as $m) : ?>
+                        <form action="<?php base_url("menu/edit") ?>" method="post" enctype="multipart/form-data">
 
-                            <!-- <input type="hidden" name="kode_jenisbayar" value="<?php echo $t['kode_jenisbayar'] ?>" /> -->
-
-                            <div class="form-group">
-                                <label for="kode_jenis">Kode Jenis</label>
-                                <input class="form-control <?php echo form_error('kode_jenis') ? 'is-invalid' : '' ?>" type="text" name="kode_jenis" value="<?php echo $t['kode_jenis'] ?>" />
-                                <div class="invalid-feedback">
-                                    <?php echo form_error('kode_jenis') ?>
-                                </div>
-                            </div>
+                            <input type="hidden" name="id" value="<?php echo $m['id'] ?>" />
 
                             <div class="form-group">
-                                <label for="jenis_bayar">Jenis Pembayaran</label>
-                                <input class="form-control <?php echo form_error('jenis_bayar') ? 'is-invalid' : '' ?>" type="text" name="jenis_bayar" value="<?php echo $t['jenis_bayar'] ?>" />
+                                <label for="menu">Nama Menu</label>
+                                <input class="form-control <?php echo form_error('menu') ? 'is-invalid' : '' ?>" type="text" name="menu" placeholder="no. induk" value="<?php echo $m['menu'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('jenis_bayar') ?>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="dateline">Tanggal Tempo</label>
-                                <input class="form-control <?php echo form_error('dateline') ? 'is-invalid' : '' ?>" type="text" name="dateline" value="<?php echo $t['dateline'] ?>" />
-                                <div class="invalid-feedback">
-                                    <?php echo form_error('dateline') ?>
+                                    <?php echo form_error('menu') ?>
                                 </div>
                             </div>
 

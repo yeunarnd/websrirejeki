@@ -58,7 +58,7 @@ class Pembayaran_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->kode_pembayaran = ["kode_pembayaran"];
+        $this->kode_pembayaran = $post["kode_pembayaran"];
         $this->nama_siswa = $post["nama_siswa"];
         $this->jenis_bayar = $post["jenis_bayar"];
         $this->tgl_pembayaran = $post["tgl_pembayaran"];
@@ -66,15 +66,20 @@ class Pembayaran_model extends CI_Model
         return $this->db->insert($this->_table, $this);
     }
 
+    public function edit_data($where, $_table)
+    {
+        return $this->db->get_where($_table, $where);
+    }
+
     public function update()
     {
         $post = $this->input->post();
-        $this->kode_pembayaran = ["kode_pembayaran"];
+        $this->kode_pembayaran = $post["kode_pembayaran"];
         $this->nama_siswa = $post["nama_siswa"];
         $this->jenis_bayar = $post["jenis_bayar"];
         $this->tgl_pembayaran = $post["tgl_pembayaran"];
         $this->jumlah_bayar = $post["jumlah_bayar"];
-        return $this->db->update($this->_table, $this, array('kode_pembayaran' => $post['id']));
+        return $this->db->update($this->_table, $this, array('kode_pembayaran' => $post['kode_pembayaran']));
     }
 
     public function delete($id)

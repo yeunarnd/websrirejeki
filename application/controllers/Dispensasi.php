@@ -13,48 +13,114 @@ class Dispensasi extends CI_Controller
 
     public function index()
     {
+        $data['title'] = 'Daftar Pengajuan Dispensasi';
         $data["dispensasi"] = $this->dispensasi_model->getAll();
-        $this->load->view("dispensasi/list", $data);
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['dispensasi'] = $this->db->get('dispensasi')->result_array();
+
+        $this->form_validation->set_rules('dispensasi', 'Dispensasi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('dispensasi/list', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->db->insert('dispensasi', ['dispensasi' => $this->input->post('dispensasi')]);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
+            redirect('dispensasi');
+        }
+    }
+
+    public function details($kode_dispensasi)
+    {
+        $data['title'] = 'Detail Pendaftaran Siswa';
+        $data["dispensasi"] = $this->dispensasi_model->getAll();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data["dispensasi"] = $this->dispensasi_model->getById($kode_dispensasi);
+        // echo json_encode($data["dispensasi"]);
+        // exit;
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('dispensasi/detail', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function validasi($statusvalidasi, $kode_dispensasi)
+    {
+        if ($statusvalidasi == 1) {
+            $this->session->set_flashdata('sukses', 'Pengajuan dispensasi diterima');
+            echo "Diterima";
+        } else {
+            $this->session->set_flashdata('gagal', 'Pengajuan dispensasi ditolak');
+            echo "Ditolak";
+        }
+        $this->dispensasi_model->upstatusvalidasi($statusvalidasi, $kode_dispensasi);
+
+        redirect('dispensasi');
     }
 
     public function add()
     {
+        $data['title'] = 'Tambah Daftar Pengajuan Dispensasi';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
         $dispensasi = $this->dispensasi_model;
         $validation = $this->form_validation;
         $validation->set_rules($dispensasi->rules());
 
-        if ($validation->run()) {
+        if ($validation->run() == false) {
+        } else {
             $dispensasi->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
-
-        $this->load->view("dispensasi/new_form");
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('dispensasi/new_form', $data);
+        $this->load->view('templates/footer');
     }
 
-    public function edit($id = null)
+    public function edit($kode_dispensasi = null)
     {
-        if (!isset($id)) redirect('dispensasi');
+        if (!isset($kode_dispensasi)) redirect('siswa');
+
+        $data['title'] = 'Edit Daftar Pengajuan Dispensasi';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $where = array('kode_dispensasi' => $kode_dispensasi);
+        $data['dispensasi'] = $this->dispensasi_model->edit_data($where, 'dispensasi')->result_array();
 
         $dispensasi = $this->dispensasi_model;
         $validation = $this->form_validation;
         $validation->set_rules($dispensasi->rules());
 
-        if ($validation->run()) {
+        if ($validation->run() == false) {
+        } else {
             $dispensasi->update();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
+            // redirect('dispensasi');
         }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('dispensasi/edit_form', $data);
+        $this->load->view('templates/footer');
 
-        $data["dispensasi"] = $dispensasi->getById($id);
+        $data["dispensasi"] = $dispensasi->getById($kode_dispensasi);
         if (!$data["dispensasi"]) show_404();
-
-        $this->load->view("dispensasi/edit_form", $data);
     }
 
-    public function delete($id = null)
+    public function delete($kode_dispensasi = null)
     {
-        if (!isset($id)) show_404();
+        if (!isset($kode_dispensasi)) show_404();
 
-        if ($this->dispensasi_model->delete($id)) {
+        if ($this->dispensasi_model->delete($kode_dispensasi)) {
             redirect(site_url('dispensasi'));
         }
     }

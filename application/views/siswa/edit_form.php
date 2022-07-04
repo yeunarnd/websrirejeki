@@ -1,191 +1,116 @@
-<title>PAUD Sri Rejeki - Pendaftaran</title>
-<?php $this->load->view("templates/header.php") ?>
-<link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
-<body id="page-top">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <div class="row">
+        <div class="col-lg">
+            <?= form_error('siswa', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('akses') ?>">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-graduation-cap"></i>
+            <?= $this->session->flashdata('message'); ?>
+
+            <?php if ($this->session->flashdata('success')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?php echo $this->session->flashdata('success'); ?>
                 </div>
-                <div class="sidebar-brand-text mx-3">POS PAUD</div>
-            </a>
+            <?php endif; ?>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <!-- Card  -->
+            <div class="card mb-3">
+                <div class="card-header">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo site_url('akses') ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
+                    <a href="<?php echo site_url('siswa') ?>"><i class="fas fa-arrow-left"></i>
+                        Kembali</a>
+                </div>
+                <div class="card-body">
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('daftar') ?>">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Pendaftaran</span>
-                </a>
-            </li>
+                    <?php foreach ($siswa as $s) : ?>
+                        <form action="<?php base_url("siswa/edit") ?>" method="post" enctype="multipart/form-data">
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('siswa') ?>">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Siswa</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('tagihan') ?>">
-                    <i class="fas fa-fw fa-book"></i>
-                    <span>Data Tagihan</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('dispensasi') ?>">
-                    <i class="fas fa-fw fa-clock"></i>
-                    <span>Pengajuan Dispensasi</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('jenisbayar') ?>">
-                    <i class="fas fa-fw fa-money-bill-alt"></i>
-                    <span>Jenis Pembayaran</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('pembayaran') ?>">
-                    <i class="fas fa-fw fa-money-bill-alt"></i>
-                    <span>Pembayaran</span>
-                </a>
-            </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <?php $this->load->view("templates/topbar.php") ?>
-
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data Siswa</h1>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <div id="content-wrapper">
-
-                            <div class="container-fluid">
-
-                                <?php if ($this->session->flashdata('success')) : ?>
-                                    <div class="alert alert-success" role="alert">
-                                        <?php echo $this->session->flashdata('success'); ?>
-                                    </div>
-                                <?php endif; ?>
-
-                                <!-- Card  -->
-                                <div class="card mb-3">
-                                    <div class="card-header">
-
-                                        <a href="<?php echo site_url('siswa') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
-                                    </div>
-                                    <div class="card-body">
-
-                                        <form action="<?php base_url("siswa/edit") ?>" method="post" enctype="multipart/form-data">
-
-                                            <input type="hidden" name="id" value="<?php echo $siswa->no_induk ?>" />
-
-                                            <div class="form-group">
-                                                <label for="nama_siswa">Nama Siswa</label>
-                                                <input class="form-control <?php echo form_error('nama_siswa') ? 'is-invalid' : '' ?>" type="text" name="nama_siswa" value="<?php echo $siswa->nama_siswa ?>" />
-                                                <div class="invalid-feedback">
-                                                    <?php echo form_error('nama_siswa') ?>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="jenis_kelamin">Jenis Kelamin</label>
-                                                <input class="form-control <?php echo form_error('jenis_kelamin') ? 'is-invalid' : '' ?>" type="text" name="jenis_kelamin" value="<?php echo $siswa->jenis_kelamin ?>" />
-                                                <div class="invalid-feedback">
-                                                    <?php echo form_error('jenis_kelamin') ?>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label for="alamat">Alamat</label>
-                                                <input class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" type="text" name="alamat" value="<?php echo $siswa->alamat ?>" />
-                                                <div class="invalid-feedback">
-                                                    <?php echo form_error('alamat') ?>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="kelompok_kelas">Kelompok Kelas</label>
-                                                <input class="form-control <?php echo form_error('kelompok_kelas') ? 'is-invalid' : '' ?>" type="text" name="kelompok_kelas" value="<?php echo $siswa->kelompok_kelas ?>" />
-                                                <div class="invalid-feedback">
-                                                    <?php echo form_error('kelompok_kelas') ?>
-                                                </div>
-                                            </div>
-
-                                            <input class="btn btn-success" type="submit" name="btn" value="Simpan" />
-                                        </form>
-
-                                    </div>
-
-                                    <div class="card-footer small text-muted">
-                                        *Wajib diisi
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <!-- /.container-fluid -->
-
-                            <!-- Content Row -->
-                            <div class="row">
-
-                                <div class="col-lg-6 mb-4">
-
+                            <input type="hidden" name="id" value="<?php echo $s['id'] ?>" />
+                            <div class="form-group">
+                                <label for="nomor_induk">Nomor Induk Siswa</label>
+                                <input class="form-control <?php echo form_error('nomor_induk') ? 'is-invalid' : '' ?>" type="text" name="nomor_induk" placeholder="no. induk" value="<?php echo $s['nomor_induk'] ?>" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('nomor_induk') ?>
                                 </div>
                             </div>
 
-                        </div>
-                    </div>
+                            <div class="form-group">
+                                <label for="nama_siswa">Nama Lengkap Siswa</label>
+                                <input class="form-control <?php echo form_error('nama_siswa') ? 'is-invalid' : '' ?>" type="text" name="nama_siswa" placeholder="nama lengkap" value="<?php echo $s['nama_siswa'] ?>" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('nama_siswa') ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="jenis_kelamin">Jenis Kelamin</label>
+                                <input class="form-control <?php echo form_error('jenis_kelamin') ? 'is-invalid' : '' ?>" type="text" name="jenis_kelamin" placeholder="jenis kelamin" value="<?php echo $s['jenis_kelamin'] ?>" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('jenis_kelamin') ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <input class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" type="text" name="alamat" placeholder="alamat lengkap" value="<?php echo $s['alamat'] ?>" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('alamat') ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="kelompok_kelas">Kelompok Kelas</label>
+                                <input class="form-control <?php echo form_error('kelompok_kelas') ? 'is-invalid' : '' ?>" type="text" name="kelompok_kelas" placeholder="kelompok kelas" value="<?php echo $s['kelompok_kelas'] ?>" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('kelompok_kelas') ?>
+                                </div>
+                            </div>
+
+                            <input class="btn btn-dark" type="submit" name="btn" value="Simpan" />
+                        </form>
+                    <?php endforeach; ?>
 
                 </div>
-                <!-- /.container-fluid -->
+
+                <div class="card-footer small text-muted">
+                    *Wajib diisi
+                </div>
+
 
             </div>
-            <!-- End of Main Content -->
+        </div>
+    </div>
 
-            <!-- Footer -->
-            <?php $this->load->view("templates/footer.php") ?>
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="newMenuModal" tabindex="-1" aria-labelledby="newMenuModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newMenuModalLabel">Add New Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= base_url('menu'); ?>" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->

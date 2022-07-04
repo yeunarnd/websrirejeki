@@ -7,6 +7,8 @@ class Menu extends CI_Controller
     {
         parent::__construct();
         // is_logged_in();
+        $this->load->model("menu_model");
+        $this->load->library('form_validation');
     }
 
     public function index()
@@ -22,7 +24,7 @@ class Menu extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('menu/index', $data);
+            $this->load->view('menu/list', $data);
             $this->load->view('templates/footer');
         } else {
             $this->db->insert('user_menu', ['menu' => $this->input->post('menu')]);
@@ -31,37 +33,63 @@ class Menu extends CI_Controller
         }
     }
 
-    public function submenu()
+    public function add()
     {
-        $data['title'] = 'Submenu Management';
+        $data['title'] = 'Tambah Daftar Menu';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Menu_model', 'menu');
 
-        $data['subMenu'] = $this->menu->getSubMenu();
-        $data['menu'] = $this->db->get('user_menu')->result_array();
+        $menu = $this->menu_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($menu->rules());
 
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('menu_id', 'Menu', 'required');
-        $this->form_validation->set_rules('url', 'URL', 'required');
-        $this->form_validation->set_rules('icon', 'icon', 'required');
-
-        if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('menu/submenu', $data);
-            $this->load->view('templates/footer');
+        if ($validation->run() == false) {
         } else {
-            $data = [
-                'title' => $this->input->post('title'),
-                'menu_id' => $this->input->post('menu_id'),
-                'url' => $this->input->post('url'),
-                'icon' => $this->input->post('icon'),
-                'is_active' => $this->input->post('is_active'),
-            ];
-            $this->db->insert('user_sub_menu', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New sub menu added!</div>');
-            redirect('menu/submenu');
+            $menu->save();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('menu/new_form', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function edit($id = null)
+    {
+        if (!isset($id)) redirect('menu');
+
+        $data['title'] = 'Edit Daftar menu';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $where = array('id' => $id);
+        $data['menu'] = $this->menu_model->edit_data($where, 'user_menu')->result_array();
+
+        $menu = $this->menu_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($menu->rules());
+
+        if ($validation->run() == false) {
+        } else {
+            $menu->update();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+            // redirect('menu');
+        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('menu/edit_form', $data);
+        $this->load->view('templates/footer');
+
+        $data["menu"] = $menu->getById($id);
+        if (!$data["menu"]) show_404();
+    }
+
+    public function delete($id = null)
+    {
+        if (!isset($id)) show_404();
+
+        if ($this->menu_model->delete($id)) {
+            redirect(site_url('menu'));
         }
     }
 }

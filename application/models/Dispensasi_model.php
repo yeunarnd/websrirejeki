@@ -48,10 +48,18 @@ class Dispensasi_model extends CI_Model
         return $this->db->get_where($this->_table, ["kode_dispensasi" => $id])->row();
     }
 
+    public function upstatusvalidasi($statusvalidasi, $kode_dispensasi)
+    {
+
+        $this->db->where('kode_dispensasi', $kode_dispensasi);
+        $this->db->update('dispensasi', array('status' => $statusvalidasi));
+        return true;
+    }
+
     public function save()
     {
         $post = $this->input->post();
-        $this->kode_dispensasi = ["kode_dispensasi"];
+        $this->kode_dispensasi = $post["kode_dispensasi"];
         $this->no_induk = $post["no_induk"];
         $this->nama_dispensasi = $post["nama_dispensasi"];
         $this->alasan_pengajuan = $post["alasan_pengajuan"];
@@ -59,15 +67,20 @@ class Dispensasi_model extends CI_Model
         return $this->db->insert($this->_table, $this);
     }
 
+    public function edit_data($where, $_table)
+    {
+        return $this->db->get_where($_table, $where);
+    }
+
     public function update()
     {
         $post = $this->input->post();
-        $this->kode_dispensasi = ["kode_dispensasi"];
+        $this->kode_dispensasi = $post["kode_dispensasi"];
         $this->no_induk = $post["no_induk"];
         $this->nama_dispensasi = $post["nama_dispensasi"];
         $this->alasan_pengajuan = $post["alasan_pengajuan"];
         $this->tgl_pengajuan_bayar = $post["tgl_pengajuan_bayar"];
-        return $this->db->update($this->_table, $this, array('kode_dispensasi' => $post['id']));
+        return $this->db->update($this->_table, $this, array('kode_dispensasi' => $post['kode_dispensasi']));
     }
 
     public function delete($id)

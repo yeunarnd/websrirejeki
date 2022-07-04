@@ -58,7 +58,7 @@ class Tagihan_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->kode_tagihan = ["kode_tagihan"];
+        $this->kode_tagihan = $post["kode_tagihan"];
         $this->nama_siswa = $post["nama_siswa"];
         $this->nama_tagihan = $post["nama_tagihan"];
         $this->jumlah_tagihan = $post["jumlah_tagihan"];
@@ -66,15 +66,20 @@ class Tagihan_model extends CI_Model
         return $this->db->insert($this->_table, $this);
     }
 
+    public function edit_data($where, $_table)
+    {
+        return $this->db->get_where($_table, $where);
+    }
+
     public function update()
     {
         $post = $this->input->post();
-        $this->kode_tagihan = ["kode_tagihan"];
+        $this->kode_tagihan = $post["kode_tagihan"];
         $this->nama_siswa = $post["nama_siswa"];
         $this->nama_tagihan = $post["nama_tagihan"];
         $this->jumlah_tagihan = $post["jumlah_tagihan"];
         $this->tgl_jatuh_tempo = $post["tgl_jatuh_tempo"];
-        return $this->db->update($this->_table, $this, array('kode_tagihan' => $post['id']));
+        return $this->db->update($this->_table, $this, array('kode_tagihan' => $post['kode_tagihan']));
     }
 
     public function delete($id)

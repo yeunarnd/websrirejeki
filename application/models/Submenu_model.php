@@ -1,46 +1,42 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Siswa_model extends CI_Model
+class Menu_model extends CI_Model
 {
-    private $_table = "siswa";
+    private $_table = "user_sub_menu";
 
     public $id;
-    public $nomor_induk;
-    public $nama_siswa;
-    public $jenis_kelamin;
-    public $alamat;
-    public $kelompok_kelas;
+    public $menu_id;
+    public $title;
+    public $url;
+    public $icon;
+    public $is_active;
 
     public function rules()
     {
         return [
             [
-                'field' => 'nomor_induk',
-                'label' => 'nomor_induk',
+                'field' => 'menu_id',
+                'label' => 'menu_id',
                 'rules' => 'required'
             ],
-
             [
-                'field' => 'nama_siswa',
-                'label' => 'nama_siswa',
+                'field' => 'title',
+                'label' => 'title',
                 'rules' => 'required'
             ],
-
             [
-                'field' => 'jenis_kelamin',
-                'label' => 'jenis_kelamin',
+                'field' => 'url',
+                'label' => 'url',
                 'rules' => 'required'
             ],
-
             [
-                'field' => 'alamat',
-                'label' => 'alamat',
+                'field' => 'icon',
+                'label' => 'icon',
                 'rules' => 'required'
             ],
-
             [
-                'field' => 'kelompok_kelas',
-                'label' => 'kelompok_kelas',
+                'field' => 'is_active',
+                'label' => 'is_active',
                 'rules' => 'required'
             ]
         ];
@@ -59,11 +55,11 @@ class Siswa_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->nomor_induk = $post["nomor_induk"];
-        $this->nama_siswa = $post["nama_siswa"];
-        $this->jenis_kelamin = $post["jenis_kelamin"];
-        $this->alamat = $post["alamat"];
-        $this->kelompok_kelas = $post["kelompok_kelas"];
+        $this->menu_id = $post["menu_id"];
+        $this->title = $post["title"];
+        $this->url = $post["url"];
+        $this->icon = $post["icon"];
+        $this->is_active = $post["is_active"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -76,11 +72,11 @@ class Siswa_model extends CI_Model
     {
         $post = $this->input->post();
         $this->id = $post["id"];
-        $this->nomor_induk = $post["nomor_induk"];
-        $this->nama_siswa = $post["nama_siswa"];
-        $this->jenis_kelamin = $post["jenis_kelamin"];
-        $this->alamat = $post["alamat"];
-        $this->kelompok_kelas = $post["kelompok_kelas"];
+        $this->menu_id = $post["menu_id"];
+        $this->title = $post["title"];
+        $this->url = $post["url"];
+        $this->icon = $post["icon"];
+        $this->is_active = $post["is_active"];
         return $this->db->update($this->_table, $this, array('id' => $post['id']));
     }
 
