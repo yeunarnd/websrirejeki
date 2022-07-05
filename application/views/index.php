@@ -217,7 +217,7 @@
                     <div class="alert alert-primary">
                         <strong>Data Calon Siswa</strong>
                     </div>
-                    <form action="http://localhost/GitHub/websrirejeki/daftar/add" method="post" enctype="multipart/form-data">
+                    <form action="http://localhost/GitHub/websrirejeki/daftar/tambah_daftar" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-sm-7">
                                 <div class="form-group">

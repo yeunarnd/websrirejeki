@@ -88,6 +88,20 @@ class Daftar extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function tambah_daftar()
+    {
+        $tambah_daftar = $this->daftar_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($tambah_daftar->rules());
+
+        if ($validation->run() == false) {
+        } else {
+            $tambah_daftar->save();
+            $this->session->set_flashdata('success', 'Data berhasil disimpan, tunggu informasi selanjutnya!');
+        }
+        $this->load->view('index');
+    }
+
     public function edit($kd_daftar = null)
     {
         if (!isset($kd_daftar)) redirect('daftar');

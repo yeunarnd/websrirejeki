@@ -32,35 +32,35 @@
 
                             <div class="form-group">
                                 <label for="menu_id">ID Menu</label>
-                                <input class="form-control <?php echo form_error('menu_id') ? 'is-invalid' : '' ?>" type="text" name="menu_id" placeholder="no. induk" value="<?php echo $sm['menu_id'] ?>" />
+                                <input class="form-control <?php echo form_error('menu_id') ? 'is-invalid' : '' ?>" type="text" name="menu_id" value="<?php echo $sm['menu_id'] ?>" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('menu_id') ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="title">Judul</label>
-                                <input class="form-control <?php echo form_error('title') ? 'is-invalid' : '' ?>" type="text" name="title" placeholder="no. induk" value="<?php echo $sm['title'] ?>" />
+                                <input class="form-control <?php echo form_error('title') ? 'is-invalid' : '' ?>" type="text" name="title" value="<?php echo $sm['title'] ?>" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('title') ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="url">URL</label>
-                                <input class="form-control <?php echo form_error('url') ? 'is-invalid' : '' ?>" type="text" name="url" placeholder="no. induk" value="<?php echo $sm['url'] ?>" />
+                                <input class="form-control <?php echo form_error('url') ? 'is-invalid' : '' ?>" type="text" name="url" value="<?php echo $sm['url'] ?>" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('url') ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="icon">Icon</label>
-                                <input class="form-control <?php echo form_error('icon') ? 'is-invalid' : '' ?>" type="text" name="icon" placeholder="no. induk" value="<?php echo $sm['icon'] ?>" />
+                                <input class="form-control <?php echo form_error('icon') ? 'is-invalid' : '' ?>" type="text" name="icon" value="<?php echo $sm['icon'] ?>" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('icon') ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="is_active">Keaktifan</label>
-                                <input class="form-control <?php echo form_error('is_active') ? 'is-invalid' : '' ?>" type="text" name="is_active" placeholder="no. induk" value="<?php echo $sm['is_active'] ?>" />
+                                <input class="form-control <?php echo form_error('is_active') ? 'is-invalid' : '' ?>" type="text" name="is_active" value="<?php echo $sm['is_active'] ?>" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('is_active') ?>
                                 </div>
