@@ -39,7 +39,7 @@
                                         <td><?= $p['nama_siswa']; ?></td>
                                         <td><?= $p['jenis_bayar']; ?></td>
                                         <td><?= $p['tgl_pembayaran']; ?></td>
-                                        <td><?= $p['jumlah_bayar']; ?></td>
+                                        <td> Rp<?= number_format ($p['jumlah_bayar']); ?></td>
                                         <td>
                                             <a href="<?= base_url('pembayaran/edit/') . $p['kode_pembayaran']; ?>" class="badge badge-success"> Edit</a>
                                             <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('pembayaran/delete/') . $p['kode_pembayaran']; ?>" class="badge badge-danger">Hapus</a>

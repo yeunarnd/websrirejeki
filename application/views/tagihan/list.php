@@ -38,7 +38,7 @@
                                         <td><?= $t['kode_tagihan']; ?></td>
                                         <td><?= $t['nama_siswa']; ?></td>
                                         <td><?= $t['nama_tagihan']; ?></td>
-                                        <td><?= $t['jumlah_tagihan']; ?></td>
+                                        <td> Rp<?= number_format ($t['jumlah_tagihan']); ?></td>
                                         <td><?= $t['tgl_jatuh_tempo']; ?></td>
                                         <td>
                                             <a href="<?= base_url('tagihan/edit/') . $t['kode_tagihan']; ?>" class="badge badge-success"> Edit</a>
