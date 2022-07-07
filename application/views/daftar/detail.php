@@ -70,9 +70,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="tgl_lahir">Tanggal Lahir:</label>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('tgl_lahir') ?>
-                                        </div>
+                                        <b><?php echo $daftar->tgl_lahir ?></b>
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
