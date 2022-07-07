@@ -412,9 +412,21 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-4">
-                                <input type="submit" name="btn" class="btn btn-primary" value="Simpan" />
+                                <button class="btn btn-primary" type="submit" nama="btn" onclick="simpan()">Simpan</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>
                             </div>
+
+                            <script type="text/javascript">
+                                function simpan() {
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'success',
+                                        title: 'Data berhasil disimpan! Mohon tunggu informasi selanjutya',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    });
+                                }
+                            </script>
 
                         </div>
                     </form>
@@ -659,6 +671,9 @@
 
     <!-- Template Main JS File -->
     <script src="<?= base_url('front-end/assets/js/main.js'); ?>"></script>
+
+    <script src="<?= base_url('assets/js/js/sweetalert2.all.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/js/myscript.js'); ?>"></script>
 
 </body>
 
