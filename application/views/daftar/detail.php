@@ -6,17 +6,6 @@
         <h1 class="h3 mb-0 text-gray-800">Pendaftaran Siswa</h1>
     </div>
 
-    <?php
-    $koneksi = mysqli_connect("localhost", "root", "", "paudsrirejeki");
-    $auto = mysqli_query($koneksi, "SELECT max(kd_daftar) as max_code FROM daftar");
-    $data = mysqli_fetch_array($auto);
-    $code = $data['max_code'];
-    $urutan = (int)substr($code, 1, 3);
-    $urutan++;
-    $huruf = "PD";
-    $kd_daf = $huruf . sprintf("%03s", $urutan);
-    ?>
-
     <!-- Content Row -->
     <div class="row">
 
@@ -205,7 +194,7 @@
 
                             </div>
                             <a href="<?= base_url('daftar/validasi/1/' . $daftar->kd_daftar); ?>" class="btn btn-secondary">Validasi</a>
-                            <a href="<?= base_url('daftar/validasi/2/' . $daftar->kd_daftar); ?>" class="btn btn-secondary">Tolak</a>
+                            <a href="" class="btn btn-secondary" data-toggle="modal" data-target="#validasiModal">Tolak</a>
 
                         </div>
 
@@ -215,3 +204,29 @@
 
             </div>
             <!-- /.container-fluid -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="validasiModal" tabindex="-1" aria-labelledby="validasiModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="validasiModalLabel">Detail Rekap Pendaftaran</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="<?php base_url('daftar/add') ?>" method="post">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="alasan_ditolak">Alasan ditolak:</label>
+                                    <textarea class="form-control <?php echo form_error('alasan_ditolak') ? 'is-invalid' : '' ?>" name="alasan_ditolak" rows="2" id="alasan_ditolak"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="<?= base_url('daftar/validasi/2/' . $daftar->kd_daftar); ?>" class="btn btn-primary">Simpan</a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
