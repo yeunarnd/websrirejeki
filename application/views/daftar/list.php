@@ -26,7 +26,17 @@
                             <option value="eyJ0YWh1biI6IjIwMTgiLCJzZW1lc3RlciI6IkdhbmppbCJ9">2018 Ganjil</option>
                         </select>
                     </a>
-                    <a href="" class="btn btn-secondary" style="float:right"> Unduh Laporan</a>
+                    <a href="<?= base_url('daftar/export_pendaftaran') ?>" class="btn btn-secondary" style="float:right"><i class="fa fa-download"></i> Unduh Laporan</a>
+
+                    <!-- <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" style="float:right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-download"></i> Unduh Laporan
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="<?= base_url('daftar/ekspor_pdf') ?>">PDF</a>
+                            <a class="dropdown-item" href="<?= base_url('daftar/ekspor_excel') ?>">Excel</a>
+                        </div>
+                    </div> -->
                 </div>
 
                 <div class="card-body">

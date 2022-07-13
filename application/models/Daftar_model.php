@@ -169,6 +169,11 @@ class Daftar_model extends CI_Model
         return $this->db->get_where('daftar', $param);
     }
 
+    public function tampil_data()
+    {
+        return $this->db->get('daftar');
+    }
+
     public function upstatusvalidasi($statusvalidasi, $kd_daftar)
     {
 

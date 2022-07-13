@@ -215,7 +215,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="<?php base_url('daftar/add') ?>" method="post">
+                        <form action="<?php base_url('daftar/tolak_validasi') ?>" method="post">
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="alasan_ditolak">Alasan ditolak:</label>

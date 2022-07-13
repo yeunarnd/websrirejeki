@@ -53,7 +53,7 @@
                             </div>
 
                             <a href="<?= base_url('dispensasi/validasi/1/' . $dispensasi->kode_dispensasi); ?>" class="btn btn-secondary">Validasi</a>
-                            <a href="<?= base_url('dispensasi/validasi/2/' . $dispensasi->kode_dispensasi); ?>" class="btn btn-secondary">Tolak</a>
+                            <a href="" class="btn btn-secondary" data-toggle="modal" data-target="#tolakValidasiModal">Tolak</a>
 
                         </div>
 
@@ -63,3 +63,29 @@
 
             </div>
             <!-- /.container-fluid -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="tolakValidasiModal" tabindex="-1" aria-labelledby="tolakValidasiModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tolakValidasiModalLabel">Detail Rekap Pendaftaran</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="<?php base_url('dispensasi/tolak_dispen') ?>" method="post">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="alasan_ditolak">Alasan ditolak:</label>
+                                    <textarea class="form-control <?php echo form_error('alasan_ditolak') ? 'is-invalid' : '' ?>" name="alasan_ditolak" rows="2" id="alasan_ditolak"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="<?= base_url('dispensasi/validasi/2/' . $dispensasi->kode_dispensasi); ?>" class="btn btn-secondary">Simpan</a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>

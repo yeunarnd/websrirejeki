@@ -51,6 +51,19 @@ class Dispensasi extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    // public function konfirmasi_tolak()
+    // {
+    //     $konfirmasi = '2';
+    //     $data_dispensasi = array(
+    //         'konfirmasi' => $konfirmasi,
+    //         'alasan_tolak' => $this->input->post('alasanditolak'),
+    //     );
+
+    //     $this->Dispensasi_model->update_dispensasi($this->input->post('kode_dispensasi'), $data_dispensasi);
+
+    //     redirect(site_url('dispensasi'));
+    // }
+
     public function validasi($statusvalidasi, $kode_dispensasi)
     {
         if ($statusvalidasi == 1) {

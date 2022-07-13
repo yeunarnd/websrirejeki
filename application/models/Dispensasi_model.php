@@ -83,6 +83,12 @@ class Dispensasi_model extends CI_Model
         return $this->db->update($this->_table, $this, array('kode_dispensasi' => $post['kode_dispensasi']));
     }
 
+    // function update_dispensasi($id, $data)
+    // {
+    //     $this->db->where("kode_dispensasi", $id);
+    //     $this->db->update("dispensasi", $data);
+    // }
+
     public function delete($id)
     {
         return $this->db->delete($this->_table, array("kode_dispensasi" => $id));
