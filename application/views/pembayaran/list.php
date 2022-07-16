@@ -14,6 +14,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <a href="<?php echo site_url('pembayaran/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
+                    <a href="<?= base_url('pembayaran/export_pembayaran') ?>" class="btn btn-secondary" style="float:right"><i class="fa fa-download"></i> Unduh Laporan</a>
                 </div>
                 <div class="card-body">
 
@@ -39,7 +40,7 @@
                                         <td><?= $p['nama_siswa']; ?></td>
                                         <td><?= $p['jenis_bayar']; ?></td>
                                         <td><?= $p['tgl_pembayaran']; ?></td>
-                                        <td> Rp<?= number_format ($p['jumlah_bayar']); ?></td>
+                                        <td> Rp<?= number_format($p['jumlah_bayar']); ?></td>
                                         <td>
                                             <a href="<?= base_url('pembayaran/edit/') . $p['kode_pembayaran']; ?>" class="badge badge-success"> Edit</a>
                                             <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('pembayaran/delete/') . $p['kode_pembayaran']; ?>" class="badge badge-danger">Hapus</a>

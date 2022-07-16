@@ -55,6 +55,11 @@ class Pembayaran_model extends CI_Model
         return $this->db->get_where($this->_table, ["kode_pembayaran" => $id])->row();
     }
 
+    public function tampil_data()
+    {
+        return $this->db->get('pembayaran');
+    }
+
     public function save()
     {
         $post = $this->input->post();
