@@ -19,11 +19,15 @@
                     </div>
                 <?php endif; ?>
 
+
+
                 <div class="card mb-3">
                     <div class="card-header">
                         <a href="<?php echo site_url('daftar') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
                     </div>
                     <div class="card-body">
+
+                        <?= $this->session->flashdata('message'); ?>
 
                         <div>
                             <div class="alert alert-primary">

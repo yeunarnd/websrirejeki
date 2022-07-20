@@ -16,27 +16,14 @@
                 <div class="card-header">
                     <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
                     <a class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
-                        <select class=" select2" name="periode">
-                            <option>Periode 2020/2021</option>
-                            <option value="eyJ0YWh1biI6IjIwMjAiLCJzZW1lc3RlciI6IkdlbmFwIn0=">2020 Genap</option>
-                            <option value="eyJ0YWh1biI6IjIwMjAiLCJzZW1lc3RlciI6IkdhbmppbCJ9">2020 Ganjil</option>
-                            <option value="eyJ0YWh1biI6IjIwMTkiLCJzZW1lc3RlciI6IkdlbmFwIn0=">2019 Genap</option>
-                            <option value="eyJ0YWh1biI6IjIwMTkiLCJzZW1lc3RlciI6IkdhbmppbCJ9">2019 Ganjil</option>
-                            <option value="eyJ0YWh1biI6IjIwMTgiLCJzZW1lc3RlciI6IkdlbmFwIn0=">2018 Genap</option>
-                            <option value="eyJ0YWh1biI6IjIwMTgiLCJzZW1lc3RlciI6IkdhbmppbCJ9">2018 Ganjil</option>
+                        <select name="" id="daftar">
+                            <option value="0">Tampil Semua</option>
+                            <option value="1">2022</option>
+                            <option value="2">2021</option>
+                            <option value="3">2020</option>
                         </select>
                     </a>
                     <a href="<?= base_url('daftar/export_pendaftaran') ?>" class="btn btn-secondary" style="float:right"><i class="fa fa-download"></i> Unduh Laporan</a>
-
-                    <!-- <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" style="float:right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-download"></i> Unduh Laporan
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="<?= base_url('daftar/ekspor_pdf') ?>">PDF</a>
-                            <a class="dropdown-item" href="<?= base_url('daftar/ekspor_excel') ?>">Excel</a>
-                        </div>
-                    </div> -->
                 </div>
 
                 <div class="card-body">

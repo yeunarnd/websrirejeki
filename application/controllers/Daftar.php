@@ -57,12 +57,14 @@ class Daftar extends CI_Controller
             $jml = $this->daftar_model->hitungTervalidasi();
             // echo json_encode($jml);
             // exit;
-            if ($jml[0]['jml'] >= 50) {
+            if ($jml[0]['jml'] >= 2) {
 
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Pendaftaran sudah penuh!</div>');
                 redirect('daftar');
             }
         }
         $this->daftar_model->upstatusvalidasi($statusvalidasi, $kd_daftar);
+
 
         redirect('daftar');
     }
