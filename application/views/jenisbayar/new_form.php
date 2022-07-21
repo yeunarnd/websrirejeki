@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="dateline">Tanggal Tempo</label>
+                            <label for="dateline">Dateline</label>
                             <input class="form-control <?php echo form_error('dateline') ? 'is-invalid' : '' ?>" type="text" name="dateline" />
                             <div class="invalid-feedback">
                                 <?php echo form_error('dateline') ?>
