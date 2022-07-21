@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a href="<?= base_url('dispensasi/validasi/2/' . $dispensasi->kode_dispensasi); ?>" class="btn btn-secondary">Simpan</a>
+                                <a href="<?= base_url('dispensasi/validasi/2/' . $dispensasi->id); ?>" class="btn btn-secondary">Simpan</a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             </div>
                         </form>

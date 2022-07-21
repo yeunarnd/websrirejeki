@@ -97,14 +97,14 @@ class Dispensasi extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function edit($kode_dispensasi = null)
+    public function edit($id = null)
     {
-        if (!isset($kode_dispensasi)) redirect('siswa');
+        if (!isset($id)) redirect('siswa');
 
         $data['title'] = 'Edit Daftar Pengajuan Dispensasi';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $where = array('kode_dispensasi' => $kode_dispensasi);
+        $where = array('id' => $id);
         $data['dispensasi'] = $this->dispensasi_model->edit_data($where, 'dispensasi')->result_array();
 
         $dispensasi = $this->dispensasi_model;
@@ -123,15 +123,15 @@ class Dispensasi extends CI_Controller
         $this->load->view('dispensasi/edit_form', $data);
         $this->load->view('templates/footer');
 
-        $data["dispensasi"] = $dispensasi->getById($kode_dispensasi);
+        $data["dispensasi"] = $dispensasi->getById($id);
         if (!$data["dispensasi"]) show_404();
     }
 
-    public function delete($kode_dispensasi = null)
+    public function delete($id = null)
     {
-        if (!isset($kode_dispensasi)) show_404();
+        if (!isset($id)) show_404();
 
-        if ($this->dispensasi_model->delete($kode_dispensasi)) {
+        if ($this->dispensasi_model->delete($id)) {
             redirect(site_url('dispensasi'));
         }
     }

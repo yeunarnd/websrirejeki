@@ -31,14 +31,6 @@
                             <!-- <input type="hidden" name="kode_tagihan" value="<?php echo $d['kode_tagihan'] ?>" /> -->
 
                             <div class="form-group">
-                                <label for="kode_dispensasi">Kode Tagihan</label>
-                                <input class="form-control <?php echo form_error('kode_dispensasi') ? 'is-invalid' : '' ?>" type="text" name="kode_dispensasi" value="<?php echo $d['kode_dispensasi'] ?>" />
-                                <div class="invalid-feedback">
-                                    <?php echo form_error('kode_dispensasi') ?>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
                                 <label for="no_induk">No. Induk Siswa</label>
                                 <input class="form-control <?php echo form_error('no_induk') ? 'is-invalid' : '' ?>" type="text" name="no_induk" value="<?php echo $d['no_induk'] ?>" />
                                 <div class="invalid-feedback">
