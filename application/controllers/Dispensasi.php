@@ -29,19 +29,19 @@ class Dispensasi extends CI_Controller
             $this->load->view('dispensasi/list', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->db->insert('dispensasi', ['dispensasi' => $this->input->post('dispensasi')]);
+            $this->db->insert('user', ['dispensasi' => $this->input->post('dispensasi')]);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
             redirect('dispensasi');
         }
     }
 
-    public function details($kode_dispensasi)
+    public function details($id)
     {
-        $data['title'] = 'Detail Pendaftaran Siswa';
+        $data['title'] = 'Detail Pengajuan Dispensasi';
         $data["dispensasi"] = $this->dispensasi_model->getAll();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data["dispensasi"] = $this->dispensasi_model->getById($kode_dispensasi);
+        $data["dispensasi"] = $this->dispensasi_model->getById($id);
         // echo json_encode($data["dispensasi"]);
         // exit;
         $this->load->view('templates/header', $data);
@@ -64,16 +64,14 @@ class Dispensasi extends CI_Controller
     //     redirect(site_url('dispensasi'));
     // }
 
-    public function validasi($statusvalidasi, $kode_dispensasi)
+    public function validasi($statusvalidasi, $id)
     {
         if ($statusvalidasi == 1) {
-            $this->session->set_flashdata('sukses', 'Pengajuan dispensasi diterima');
             echo "Diterima";
         } else {
-            $this->session->set_flashdata('gagal', 'Pengajuan dispensasi ditolak');
             echo "Ditolak";
         }
-        $this->dispensasi_model->upstatusvalidasi($statusvalidasi, $kode_dispensasi);
+        $this->dispensasi_model->upstatusvalidasi($statusvalidasi, $id);
 
         redirect('dispensasi');
     }

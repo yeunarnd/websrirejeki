@@ -45,13 +45,13 @@ class Dispensasi_model extends CI_Model
 
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["kode_dispensasi" => $id])->row();
+        return $this->db->get_where($this->_table, ["id" => $id])->row();
     }
 
-    public function upstatusvalidasi($statusvalidasi, $kode_dispensasi)
+    public function upstatusvalidasi($statusvalidasi, $id)
     {
 
-        $this->db->where('kode_dispensasi', $kode_dispensasi);
+        $this->db->where('id', $id);
         $this->db->update('dispensasi', array('status' => $statusvalidasi));
         return true;
     }

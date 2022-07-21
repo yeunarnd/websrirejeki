@@ -28,11 +28,6 @@
                         <div>
 
                             <div class="form-group">
-                                <label for="kode_dispensasi">Kode Dispensasi:</label>
-                                <b><?php echo $dispensasi->kode_dispensasi ?></b>
-                            </div>
-
-                            <div class="form-group">
                                 <label for="no_induk">Nomor Induk:</label>
                                 <b><?php echo $dispensasi->no_induk ?></b>
                             </div>
@@ -52,7 +47,7 @@
                                 <b><?php echo $dispensasi->tgl_pengajuan_bayar ?></b>
                             </div>
 
-                            <a href="<?= base_url('dispensasi/validasi/1/' . $dispensasi->kode_dispensasi); ?>" class="btn btn-secondary">Validasi</a>
+                            <a href="<?= base_url('dispensasi/validasi/1/' . $dispensasi->id); ?>" class="btn btn-secondary">Validasi</a>
                             <a href="" class="btn btn-secondary" data-toggle="modal" data-target="#tolakValidasiModal">Tolak</a>
 
                         </div>

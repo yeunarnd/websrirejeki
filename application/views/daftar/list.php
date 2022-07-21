@@ -19,8 +19,6 @@
                         <select name="" id="daftar">
                             <option value="0">Tampil Semua</option>
                             <option value="1">2022</option>
-                            <option value="2">2021</option>
-                            <option value="3">2020</option>
                         </select>
                     </a>
                     <a href="<?= base_url('daftar/export_pendaftaran') ?>" class="btn btn-secondary" style="float:right"><i class="fa fa-download"></i> Unduh Laporan</a>

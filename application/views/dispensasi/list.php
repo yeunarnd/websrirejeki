@@ -22,7 +22,6 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Kode dispensasi</th>
                                     <th>No. Induk</th>
                                     <th width="200">Nama Dispensasi</th>
                                     <th>Status</th>
@@ -34,7 +33,6 @@
                                 <?php foreach ($dispensasi as $d) : ?>
                                     <tr>
                                         <th scope="row"><?= $i; ?></th>
-                                        <td><?= $d['kode_dispensasi']; ?></td>
                                         <td><?= $d['no_induk']; ?></td>
                                         <td><?= $d['nama_dispensasi']; ?></td>
                                         <td>
@@ -48,9 +46,9 @@
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="<?= base_url('dispensasi/details/') . $d['kode_dispensasi']; ?>" class="badge badge-info"> Detail</a>
-                                            <a href="<?= base_url('dispensasi/edit/') . $d['kode_dispensasi']; ?>" class="badge badge-success"> Edit</a>
-                                            <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('dispensasi/delete/') . $d['kode_dispensasi']; ?>" class="badge badge-danger">Hapus</a>
+                                            <a href="<?= base_url('dispensasi/details/') . $d['id']; ?>" class="badge badge-info"> Detail</a>
+                                            <a href="<?= base_url('dispensasi/edit/') . $d['id']; ?>" class="badge badge-success"> Edit</a>
+                                            <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('dispensasi/delete/') . $d['id']; ?>" class="badge badge-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
