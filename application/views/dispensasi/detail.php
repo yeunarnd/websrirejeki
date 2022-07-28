@@ -23,11 +23,10 @@
                     <div class="card-header">
                         <a href="<?php echo site_url('dispensasi') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
                     </div>
+                    
                     <div class="card-body">
-
                         <div>
-
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label for="no_induk">Nomor Induk:</label>
                                 <b><?php echo $dispensasi->no_induk ?></b>
                             </div>
@@ -49,8 +48,8 @@
 
                             <a href="<?= base_url('dispensasi/validasi/1/' . $dispensasi->id); ?>" class="btn btn-secondary">Validasi</a>
                             <a href="" class="btn btn-secondary" data-toggle="modal" data-target="#tolakValidasiModal">Tolak</a>
-
                         </div>
+                        
 
                     </div>
 
@@ -84,3 +83,4 @@
                     </div>
                 </div>
             </div>
+            

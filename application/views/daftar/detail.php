@@ -197,6 +197,7 @@
                                 </div>
 
                             </div>
+                            
                             <a href="<?= base_url('daftar/validasi/1/' . $daftar->kd_daftar); ?>" class="btn btn-secondary">Validasi</a>
                             <a href="" class="btn btn-secondary" data-toggle="modal" data-target="#validasiModal">Tolak</a>
 
@@ -206,8 +207,6 @@
 
                 </div>
 
-            </div>
-            <!-- /.container-fluid -->
 
             <!-- Modal -->
             <div class="modal fade" id="validasiModal" tabindex="-1" aria-labelledby="validasiModalLabel" aria-hidden="true">
