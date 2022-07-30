@@ -49,27 +49,27 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="<?= base_url('keuangan/tagihan'); ?>">
             <i class="fas fa-fw fa-file-invoice"></i>
             <span>Tagihan Siswa</span></a>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('keuangan/dispensasi'); ?>">
             <i class="fas fa-fw fa-clock"></i>
             <span>Pengajuan Dispensasi</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="<?= base_url('keuangan/jenis_bayar'); ?>">
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Jenis Pembayaran</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="<?= base_url('keuangan/pembayaran'); ?>">
             <i class="fas fa-fw fa-money-bill-alt"></i>
             <span>Pembayaran</span></a>
     </li>

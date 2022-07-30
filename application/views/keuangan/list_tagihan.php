@@ -95,12 +95,15 @@
 
     <div class="row">
         <div class="col-lg">
-            <?= form_error('siswa', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+            <?= form_error('tagihan', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
             <?= $this->session->flashdata('message'); ?>
 
             <!-- DataTables -->
             <div class="card mb-3">
+                <div class="card-header">
+                    <a href="<?php echo site_url('keuangan/add_tagihan') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
+                </div>
                 <div class="card-body">
 
                     <div class="table-responsive">
@@ -108,23 +111,28 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Nomor Induk</th>
-                                    <th>Nama Siswa</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>Alamat</th>
-                                    <th>Kelompok Kelas</th>
+                                    <th>Kode Tagihan</th>
+                                    <th width="200">Nama Siswa</th>
+                                    <th>Nama Tagihan</th>
+                                    <th>Jumlah Tagihan</th>
+                                    <th>Tanggal Jatuh Tempo</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($siswa as $s) : ?>
+                                <?php foreach ($tagihan as $t) : ?>
                                     <tr>
                                         <th scope="row"><?= $i; ?></th>
-                                        <td><?= $s['nomor_induk']; ?></td>
-                                        <td width="300"><?= $s['nama_siswa']; ?></td>
-                                        <td><?= $s['jenis_kelamin']; ?></td>
-                                        <td><?= $s['alamat']; ?></td>
-                                        <td><?= $s['kelompok_kelas']; ?></td>
+                                        <td><?= $t['kode_tagihan']; ?></td>
+                                        <td><?= $t['nama_siswa']; ?></td>
+                                        <td><?= $t['nama_tagihan']; ?></td>
+                                        <td> Rp<?= number_format($t['jumlah_tagihan']); ?></td>
+                                        <td><?= $t['tgl_jatuh_tempo']; ?></td>
+                                        <td>
+                                            <a href="<?= base_url('keuangan/edit_tagihan') . $t['kode_tagihan']; ?>" class="badge badge-success"> Edit</a>
+                                            <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('keuangan/delete_tagihan') . $t['kode_tagihan']; ?>" class="badge badge-danger">Hapus</a>
+                                        </td>
                                     </tr>
                                     <?php $i++; ?>
                                 <?php endforeach; ?>
