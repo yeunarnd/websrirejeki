@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard'); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-graduation-cap"></i>
         </div>
@@ -59,11 +59,11 @@
 
         <?php endforeach; ?>
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
                 <i class="fas fa-fw fa-sign-out-alt"></i>
                 <span>Logout</span></a>
-        </li>
+        </li> -->
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
