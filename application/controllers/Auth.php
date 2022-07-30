@@ -14,7 +14,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Login Page';
+            $data['title'] = 'Halaman Login';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/login');
             $this->load->view('templates/auth_footer');
@@ -44,6 +44,12 @@ class Auth extends CI_Controller
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
                         redirect('admin');
+                    } else if ($user['role_id'] == 2) {
+                        redirect('stafadmin');
+                    } else if ($user['role_id'] == 3) {
+                        redirect('keuangan');
+                    } else if ($user['role_id'] == 4) {
+                        redirect('pembina');
                     } else {
                         redirect('user');
                     }

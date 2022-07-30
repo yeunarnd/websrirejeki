@@ -64,24 +64,7 @@ class Daftar extends CI_Controller
         }
         $this->daftar_model->upstatusvalidasi($statusvalidasi, $kd_daftar);
 
-
         redirect('daftar');
-    }
-
-    public function tolak_validasi()
-    {
-        $this->form_validation->set_rules('alasan_ditolak', 'alasan_ditolak', 'required');
-        if ($this->form_validation->run() == FALSE) {
-            $this->session->set_flashdata('error', "Data Gagal Di Tambahkan");
-            redirect('daftar');
-        } else {
-            $data = array(
-                "alasan_ditolak" => $_POST['alasan_ditolak']
-            );
-            $this->db->insert('daftar', $data);
-            $this->session->set_flashdata('sukses', "Data Berhasil Disimpan");
-            redirect('daftar');
-        }
     }
 
     public function export_pendaftaran()
@@ -163,20 +146,6 @@ class Daftar extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('daftar/new_form', $data);
         $this->load->view('templates/footer');
-    }
-
-    public function tambah_daftar()
-    {
-        $tambah_daftar = $this->daftar_model;
-        $validation = $this->form_validation;
-        $validation->set_rules($tambah_daftar->rules());
-
-        if ($validation->run() == false) {
-        } else {
-            $tambah_daftar->save();
-            $this->session->set_flashdata('success', 'Data berhasil disimpan, tunggu informasi selanjutnya!');
-        }
-        $this->load->view('index');
     }
 
     public function edit($kd_daftar = null)

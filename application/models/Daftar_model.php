@@ -4,7 +4,7 @@ class Daftar_model extends CI_Model
 {
     private $_table = "daftar";
 
-    // public $kd_daftar;
+    public $kd_daftar;
     public $tgl_daftar;
     public $nm_calon_siswa;
     public $umur;
@@ -155,7 +155,7 @@ class Daftar_model extends CI_Model
 
     public function getAll()
     {
-        return $this->db->get("daftar")->result();
+        return $this->db->get($this->_table)->result();
     }
 
     public function getById($id)
@@ -169,34 +169,11 @@ class Daftar_model extends CI_Model
         return $this->db->get_where('daftar', $param);
     }
 
-    public function tampil_data()
-    {
-        return $this->db->get('daftar');
-    }
-
-    public function upstatusvalidasi($statusvalidasi, $kd_daftar)
-    {
-
-        $this->db->where('kd_daftar', $kd_daftar);
-        $this->db->update('daftar', array('status' => $statusvalidasi));
-        return true;
-    }
-
-    public function hitungTervalidasi()
-    {
-        $this->db->select('count(*) AS jml');
-        $this->db->from('daftar');
-        $this->db->where('status', '1');
-        $this->db->group_by('daftar.status');
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-
     public function save()
     {
         $post = $this->input->post();
-
-        $this->tgl_daftar = date("Y-m-d");
+        $this->kd_daftar = $post["kd_daftar"];
+        $this->tgl_daftar = $post["tgl_daftar"];
         $this->nm_calon_siswa = $post["nm_calon_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];
@@ -220,11 +197,6 @@ class Daftar_model extends CI_Model
         $this->akta_lahir = $this->_uploadImage('akta_lahir');
         $this->kartu_keluarga = $this->_uploadImage2('kartu_keluarga');
         return $this->db->insert($this->_table, $this);
-    }
-
-    public function edit_data($where, $_table)
-    {
-        return $this->db->get_where($_table, $where);
     }
 
     public function update()
@@ -253,13 +225,13 @@ class Daftar_model extends CI_Model
         $this->pekerjaan_ibu = $post["pekerjaan_ibu"];
         $this->telepon_ibu = $post["telepon_ibu"];
 
-        // if (!empty($_FILES["gambar"]["name"])) {
-        //     $this->akta_lahir = $this->_uploadImage('akta_lahir');
-        // } else {
-        //     $this->akta_lahir = $post["old_image"];
-        // }
+        if (!empty($_FILES["gambar"]["name"])) {
+            $this->akta_lahir = $this->_uploadImage('akta_lahir');
+        } else {
+            $this->akta_lahir = $post["old_image"];
+        }
 
-        return $this->db->update($this->_table, $this, array('kd_daftar' => $post['kd_daftar']));
+        return $this->db->update($this->_table, $this, array('kd_daftar' => $post['id']));
     }
 
     public function delete($id)
