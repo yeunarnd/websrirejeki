@@ -110,4 +110,78 @@ class Laporan extends CI_Controller
 
         exit;
     }
+
+    public function lap_bayar()
+    {
+        $data['title'] = 'Laporan Pembayaran';
+        $data["pembayaran"] = $this->pembayaran_model->getAll();
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['pembayaran'] = $this->db->get('pembayaran')->result_array();
+
+        $this->form_validation->set_rules('pembayaran', 'Pembayaran', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('laporan/lap_bayar', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->db->insert('pembayaran', ['pembayaran' => $this->input->post('pembayaran')]);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
+            redirect('pembayaran');
+        }
+    }
+
+    public function export_pembayaran()
+    {
+        $data['bayar'] = $this->pembayaran_model->tampil_data('bayar')->result();
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        ob_end_clean();
+
+        $objek = new PHPExcel();
+
+        $objek->getProperties()->setCreator("Web PAUD Sri Rejeki");
+        $objek->getProperties()->setLastModifiedBy("Web PAUD Sri Rejeki");
+
+        $objek->getProperties()->setTitle("Laporan Pembayaran");
+
+        $objek->setActiveSheetIndex(0);
+
+        $objek->getActiveSheet()->setCellValue('A1', 'NO');
+        $objek->getActiveSheet()->setCellValue('B1', 'NAMA SISWA');
+        $objek->getActiveSheet()->setCellValue('C1', 'JENIS BAYAR');
+        $objek->getActiveSheet()->setCellValue('D1', 'TANGGAL BAYAR');
+        $objek->getActiveSheet()->setCellValue('E1', 'JUMLAH BAYAR');
+
+        $baris = 2;
+        $no = 1;
+
+        foreach ($data['bayar'] as $byr) {
+            $objek->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $objek->getActiveSheet()->setCellValue('B' . $baris, $byr->nama_siswa);
+            $objek->getActiveSheet()->setCellValue('C' . $baris, $byr->jenis_bayar);
+            $objek->getActiveSheet()->setCellValue('D' . $baris, $byr->tgl_pembayaran);
+            $objek->getActiveSheet()->setCellValue('E' . $baris, $byr->jumlah_bayar);
+
+            $baris++;
+        }
+
+        $filename = "Rekap Laporan Pembayaran" . '.xlsx';
+        $objek->getActiveSheet()->setTitle("Laporan Pembayaran");
+
+        header('Content-Type: application/ vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createWriter($objek, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
 }
