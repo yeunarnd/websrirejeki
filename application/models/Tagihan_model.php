@@ -50,6 +50,13 @@ class Tagihan_model extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function tagihan_user()
+    {
+        $this->db->where('tagihan.user_id', $this->session->userdata('id'));
+
+        return $this->db->get('tagihan')->result_array();
+    }
+
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["kode_tagihan" => $id])->row();

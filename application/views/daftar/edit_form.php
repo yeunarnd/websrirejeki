@@ -1,4 +1,3 @@
-<link rel="shortcut icon" href="<?= base_url() ?>front-end/assets/img/logo-perum.png">
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -28,6 +27,8 @@
 
                     <?php foreach ($daftar as $daftar) : ?>
                         <form action="<?php base_url("daftar/edit") ?>" method="post" enctype="multipart/form-data">
+
+                            <input type="hidden" name="kd_daftar" value="<?php echo $daftar['kd_daftar'] ?>" />
                             <div class="alert alert-primary">
                                 <strong>Data Calon Siswa</strong>
                             </div>

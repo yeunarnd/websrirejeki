@@ -204,11 +204,15 @@ class Daftar_model extends CI_Model
         return $this->db->insert($this->_table, $this);
     }
 
+    public function edit_data($where, $_table)
+    {
+        return $this->db->get_where($_table, $where);
+    }
+
     public function update()
     {
         $post = $this->input->post();
         $this->kd_daftar = $post["kd_daftar"];
-        $this->tgl_daftar = $post["tgl_daftar"];
         $this->nm_calon_siswa = $post["nm_calon_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];
@@ -230,13 +234,13 @@ class Daftar_model extends CI_Model
         $this->pekerjaan_ibu = $post["pekerjaan_ibu"];
         $this->telepon_ibu = $post["telepon_ibu"];
 
-        if (!empty($_FILES["gambar"]["name"])) {
-            $this->akta_lahir = $this->_uploadImage('akta_lahir');
-        } else {
-            $this->akta_lahir = $post["old_image"];
-        }
+        // if (!empty($_FILES["gambar"]["name"])) {
+        //     $this->akta_lahir = $this->_uploadImage('akta_lahir');
+        // } else {
+        //     $this->akta_lahir = $post["old_image"];
+        // }
 
-        return $this->db->update($this->_table, $this, array('kd_daftar' => $post['id']));
+        return $this->db->update($this->_table, $this, array('kd_daftar' => $post['kd_daftar']));
     }
 
     public function delete($id)

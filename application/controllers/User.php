@@ -7,6 +7,8 @@ class User extends CI_Controller
     {
         parent::__construct();
         // is_logged_in();
+        $this->load->model("tagihan_model");
+        $this->load->library('form_validation');
     }
 
     public function index()

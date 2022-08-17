@@ -318,7 +318,8 @@
                                     <select class="form-control" name="pendidikan_ayah">
                                         <option value="sd">SD</option>
                                         <option value="smp">SMP</option>
-                                        <option value="sma_smk">SMA/SMK</option>
+                                        <option value="sma">SMA</option>
+                                        <option value="smk">SMK</option>
                                         <option value="diploma">DIPLOMA</option>
                                         <option value="sarjana">SARJANA</option>
                                         <option value="tidak_sekolah">Tidak Sekolah</option>
