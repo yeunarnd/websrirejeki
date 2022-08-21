@@ -1,3 +1,5 @@
+<link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
+
 <div class="container">
 
     <!-- Outer Row -->

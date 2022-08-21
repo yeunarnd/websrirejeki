@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="<?= base_url() ?>front-end/assets/img/logo-perum.png">
+<link href="<?= base_url('front-end/assets/img/logo-paud.png'); ?>" rel="icon">
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -15,6 +15,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
+
                     <a class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
                         <select name="" id="daftar">
                             <option value="0">Tampil Semua</option>
