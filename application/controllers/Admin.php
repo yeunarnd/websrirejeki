@@ -23,7 +23,7 @@ class Admin extends CI_Controller
 
     public function role()
     {
-        $data['title'] = 'Role';
+        $data['title'] = 'Daftar Role';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['role'] = $this->db->get('user_role')->result_array();
@@ -37,7 +37,7 @@ class Admin extends CI_Controller
 
     public function roleAccess($role_id)
     {
-        $data['title'] = 'Role Access';
+        $data['title'] = 'Akses Role';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();

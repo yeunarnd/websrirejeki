@@ -127,6 +127,20 @@ class Daftar extends CI_Controller
         exit;
     }
 
+    public function tolak_validasi()
+    {
+        $data['title'] = 'Tolak Pendaftaran Siswa';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['daftar'] = $this->db->get('daftar')->result_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('daftar/new_form', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function add()
     {
         $data['title'] = 'Tambah Pendaftaran Siswa';

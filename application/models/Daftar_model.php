@@ -149,6 +149,12 @@ class Daftar_model extends CI_Model
                 'field' => 'telepon_ibu',
                 'label' => 'telepon_ibu',
                 'rules' => 'required'
+            ],
+
+            [
+                'field' => 'alasan_ditolak',
+                'label' => 'alasan_ditolak',
+                'rules' => 'required'
             ]
         ];
     }
@@ -161,6 +167,24 @@ class Daftar_model extends CI_Model
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["kd_daftar" => $id])->row();
+    }
+
+    public function hitungTervalidasi()
+    {
+        $this->db->select('count(*) AS jml');
+        $this->db->from('daftar');
+        $this->db->where('status', '1');
+        $this->db->group_by('daftar.status');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function upstatusvalidasi($statusvalidasi, $id)
+    {
+
+        $this->db->where('id', $id);
+        $this->db->update('dispensasi', array('status' => $statusvalidasi));
+        return true;
     }
 
     function get($id)
@@ -201,6 +225,7 @@ class Daftar_model extends CI_Model
         $this->telepon_ibu = $post["telepon_ibu"];
         $this->akta_lahir = $this->_uploadImage('akta_lahir');
         $this->kartu_keluarga = $this->_uploadImage2('kartu_keluarga');
+        $this->alasan_ditolak = $post["alasan_ditolak"];
         return $this->db->insert($this->_table, $this);
     }
 

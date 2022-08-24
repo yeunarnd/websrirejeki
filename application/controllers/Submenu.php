@@ -46,7 +46,7 @@ class Submenu extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Sub menu manajemen';
+        $data['title'] = 'Sub menu Manajemen';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['submenu'] = $this->db->get('user_sub_menu')->result_array();
