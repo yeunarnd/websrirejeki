@@ -16,9 +16,9 @@
                 <div class="card-header">
                     <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
 
-                    <a class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
-                        <select name="" id="daftar">
-                            <option value="0">Tampil Semua</option>
+                    <a class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <select name="" class="btn btn-default border border-dark" id="daftar">
+                            <option value="0" class="text-gray-800">Tampil Semua</option>
                             <option value="1">2022</option>
                         </select>
                     </a>

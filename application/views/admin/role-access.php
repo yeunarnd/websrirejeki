@@ -9,8 +9,6 @@
 
             <?= $this->session->flashdata('message'); ?>
 
-
-
             <!-- DataTables -->
             <div class="card mb-3">
                 <div class="card-header">
@@ -24,7 +22,7 @@
                                 <tr>
                                     <th scope="col">No.</th>
                                     <th scope="col">Menu</th>
-                                    <th scope="col">Access</th>
+                                    <th scope="col">Akses</th>
                                 </tr>
                             </thead>
                             <tbody>
