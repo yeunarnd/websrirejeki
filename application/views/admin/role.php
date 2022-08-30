@@ -34,8 +34,8 @@
                                         <td><?= $r['role']; ?></td>
                                         <td>
                                             <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="badge badge-warning">Akses</a>
-                                            <a href="" class="badge badge-success">Edit</a>
-                                            <a href="" class="badge badge-danger">Hapus</a>
+                                            <a href="<?= base_url('admin/edit/') . $r['id']; ?>" class="badge badge-success">Edit</a>
+                                            <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('admin/delete/') . $r['id']; ?>" class="badge badge-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>

@@ -167,12 +167,13 @@
                                     <div class="form-group">
                                         <label for="pendidikan_ayah">Pendidikan Ayah:</label>
                                         <select class="form-control <?php echo form_error('pendidikan_ayah') ? 'is-invalid' : '' ?>" name="pendidikan_ayah">
-                                            <option value="sd">SD</option>
-                                            <option value="smp">SMP</option>
-                                            <option value="sma_smk">SMA/SMK</option>
-                                            <option value="diploma">DIPLOMA</option>
-                                            <option value="sarjana">SARJANA</option>
-                                            <option value="tidak_sekolah">Tidak Sekolah</option>
+                                            <option value="SD">SD</option>
+                                            <option value="SMP">SMP</option>
+                                            <option value="SMA">SMA</option>
+                                            <option value="SMK">SMK</option>
+                                            <option value="DIPLOMA">DIPLOMA</option>
+                                            <option value="SARJANA">SARJANA</option>
+                                            <option value="Tidak Sekolah">Tidak Sekolah</option>
                                         </select>
                                     </div>
                                 </div>
@@ -233,12 +234,13 @@
                                     <div class="form-group">
                                         <label for="pendidikan_ibu">Pendidikan Ibu:</label>
                                         <select class="form-control <?php echo form_error('pendidikan_ibu') ? 'is-invalid' : '' ?>" name="pendidikan_ibu">
-                                            <option value="SMA-IPA">SD</option>
-                                            <option value="SMA-IPS">SMP</option>
-                                            <option value="SMK-IPA">SMA/SMK</option>
-                                            <option value="SMK-IPS">DIPLOMA</option>
-                                            <option value="SMK-IPS">SARJANA</option>
-                                            <option value="SMK-IPS">Tidak Sekolah</option>
+                                            <option value="SD">SD</option>
+                                            <option value="SMP">SMP</option>
+                                            <option value="SMA">SMA</option>
+                                            <option value="SMK">SMK</option>
+                                            <option value="DIPLOMA">DIPLOMA</option>
+                                            <option value="SARJANA">SARJANA</option>
+                                            <option value="Tidak Sekolah">Tidak Sekolah</option>
                                         </select>
                                     </div>
                                 </div>
