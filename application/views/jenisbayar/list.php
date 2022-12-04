@@ -24,7 +24,7 @@
                                     <th>No.</th>
                                     <th>Kode Jenis</th>
                                     <th>Jenis Pembayaran</th>
-                                    <th>dateline</th>
+                                    <th>Harga</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -35,7 +35,7 @@
                                         <th scope="row"><?= $i; ?></th>
                                         <td><?= $jb['kode_jenis']; ?></td>
                                         <td><?= $jb['jenis_bayar']; ?></td>
-                                        <td><?= $jb['dateline']; ?></td>
+                                        <td>Rp<?= number_format($jb['harga']); ?></td>
                                         <td>
                                             <a href="<?= base_url('jenisbayar/edit/') . $jb['kode_jenis']; ?>" class="badge badge-success"> Edit</a>
                                             <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('jenisbayar/delete/') . $jb['kode_jenis']; ?>" class="badge badge-danger">Hapus</a>

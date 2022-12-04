@@ -23,6 +23,20 @@
                 <div class="card-body">
 
                     <form class="user" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label for="kd_daftar">Kode Pendaftaran</label>
+                            <select class="form-control <?php echo form_error('kd_daftar') ? 'is-invalid' : '' ?>" name="kd_daftar" id="kd_daftar" onchange="pilih_kode()">
+                                <option value="">Pilih Pendaftaran</option>
+                                <?php
+                                $list = $this->db->query("SELECT * FROM daftar");
+                                foreach ($list->result() as $t) {
+                                ?>
+                                    <option value="<?php echo $t->kd_daftar ?>"><?php echo $t->kd_daftar ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label for="nomor_induk">Nomor Induk siswa</label>
                             <input class="form-control <?php echo form_error('nomor_induk') ? 'is-invalid' : '' ?>" type="text" name="nomor_induk" />
@@ -33,7 +47,7 @@
 
                         <div class="form-group">
                             <label for="nama_siswa">Nama Siswa</label>
-                            <input class="form-control <?php echo form_error('nama_siswa') ? 'is-invalid' : '' ?>" type="text" name="nama_siswa" min="0" placeholder="nama" />
+                            <input class="form-control" type="text" name="nama_siswa" id="nama_siswa" placeholder="nama" />
                             <div class="invalid-feedback">
                                 <?php echo form_error('nama_siswa') ?>
                             </div>
@@ -41,15 +55,15 @@
 
                         <div class="form-group">
                             <label for="jenis_kelamin">Jenis Kelamin</label>
-                            <input class="form-control <?php echo form_error('jenis_kelamin') ? 'is-invalid' : '' ?>" type="text" name="jenis_kelamin" min="0" placeholder="jenis_kelamin" />
+                            <input class="form-control <?php echo form_error('jkel') ? 'is-invalid' : '' ?>" type="text" name="jkel" id="jkel" placeholder="jenis kelamin" />
                             <div class="invalid-feedback">
-                                <?php echo form_error('jenis_kelamin') ?>
+                                <?php echo form_error('jkel') ?>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
-                            <input class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" type="text" name="alamat" min="0" placeholder="alamat" />
+                            <input class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" type="text" name="alamat" id="alamat" placeholder="alamat" />
                             <div class="invalid-feedback">
                                 <?php echo form_error('alamat') ?>
                             </div>
@@ -57,14 +71,24 @@
 
                         <div class="form-group">
                             <label for="kelompok_kelas">Kelompok Kelas</label>
-                            <input class="form-control <?php echo form_error('kelompok_kelas') ? 'is-invalid' : '' ?>" type="text" name="kelompok_kelas" min="0" placeholder="masukkan kelompok_kelas" />
+                            <input class="form-control <?php echo form_error('kelas') ? 'is-invalid' : '' ?>" type="text" name="kelas" id="kelas" placeholder="masukkan kelompok_kelas" />
                             <div class="invalid-feedback">
-                                <?php echo form_error('kelompok_kelas') ?>
+                                <?php echo form_error('kelas') ?>
                             </div>
                         </div>
 
                         <input class="btn btn-dark" type="submit" name="btn" value="Simpan" />
                     </form>
+
+                    <!-- <datalist id="data_siswa">
+                        <?php
+                        // foreach ($record->result() as $b) {
+                        // echo "<option value='$b->kd_daftar'>$b->nm_calon_siswa</option>";
+                        // }
+                        // 
+                        ?>
+
+                    </datalist> -->
 
                 </div>
 

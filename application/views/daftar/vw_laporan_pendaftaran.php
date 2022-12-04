@@ -15,7 +15,7 @@ header("Expires: 0");
         <tr>
             <th>No.</th>
             <th>Tanggal Daftar</th>
-            <th>Nama Calon Siswa</th>
+            <th>Nama Siswa</th>
             <th>Umur</th>
             <th>Kelas</th>
             <th>Tempat Lahir</th>
@@ -35,7 +35,7 @@ header("Expires: 0");
                     <?= $df['tgl_daftar']; ?>
                 </td>
                 <td>
-                    <?= $df['nm_calon_siswa']; ?>
+                    <?= $df['nama_siswa']; ?>
                 </td>
                 <td>
                     <?= $df['umur']; ?>

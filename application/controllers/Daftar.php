@@ -87,7 +87,7 @@ class Daftar extends CI_Controller
 
         $objek->getActiveSheet()->setCellValue('A1', 'NO');
         $objek->getActiveSheet()->setCellValue('B1', 'TANGGAL DAFTAR');
-        $objek->getActiveSheet()->setCellValue('C1', 'NAMA CALON SISWA');
+        $objek->getActiveSheet()->setCellValue('C1', 'NAMA SISWA');
         $objek->getActiveSheet()->setCellValue('D1', 'UMUR');
         $objek->getActiveSheet()->setCellValue('E1', 'KELAS');
         $objek->getActiveSheet()->setCellValue('F1', 'TEMPAT LAHIR');
@@ -102,7 +102,7 @@ class Daftar extends CI_Controller
         foreach ($data['daftar'] as $df) {
             $objek->getActiveSheet()->setCellValue('A' . $baris, $no++);
             $objek->getActiveSheet()->setCellValue('B' . $baris, $df->tgl_daftar);
-            $objek->getActiveSheet()->setCellValue('C' . $baris, $df->nm_calon_siswa);
+            $objek->getActiveSheet()->setCellValue('C' . $baris, $df->nama_siswa);
             $objek->getActiveSheet()->setCellValue('D' . $baris, $df->umur);
             $objek->getActiveSheet()->setCellValue('E' . $baris, $df->kelas);
             $objek->getActiveSheet()->setCellValue('F' . $baris, $df->tempat_lahir);
@@ -125,20 +125,6 @@ class Daftar extends CI_Controller
         $writer->save('php://output');
 
         exit;
-    }
-
-    public function tolak_validasi()
-    {
-        $data['title'] = 'Tolak Pendaftaran Siswa';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $data['daftar'] = $this->db->get('daftar')->result_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('daftar/new_form', $data);
-        $this->load->view('templates/footer');
     }
 
     public function add()

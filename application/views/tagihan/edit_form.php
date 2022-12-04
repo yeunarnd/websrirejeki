@@ -28,45 +28,61 @@
                     <?php foreach ($tagihan as $t) : ?>
                         <form action="<?php base_url("tagihan/edit") ?>" method="post" enctype="multipart/form-data">
 
-                            <!-- <input type="hidden" name="kode_tagihan" value="<?php echo $t['kode_tagihan'] ?>" /> -->
+                            <input type="hidden" name="kode_tagihan" value="<?php echo $t['kode_tagihan'] ?>" />
 
                             <div class="form-group">
-                                <label for="kode_tagihan">Kode Tagihan</label>
-                                <input class="form-control <?php echo form_error('kode_tagihan') ? 'is-invalid' : '' ?>" type="text" name="kode_tagihan" value="<?php echo $t['kode_tagihan'] ?>" />
+                                <label for="nomor_induk">Nomor Induk Siswa</label>
+                                <input class="form-control <?php echo form_error('nomor_induk') ? 'is-invalid' : '' ?>" type="text" name="nomor_induk" value="<?php echo $t['nomor_induk'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('kode_tagihan') ?>
+                                    <?php echo form_error('nomor_induk') ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="nama_siswa">Nama Siswa</label>
-                                <input class="form-control <?php echo form_error('nama_siswa') ? 'is-invalid' : '' ?>" type="text" name="nama_siswa" value="<?php echo $t['nama_siswa'] ?>" />
+                                <label for="nm_tagihan">Nama Tagihan</label>
+                                <input class="form-control <?php echo form_error('nm_tagihan') ? 'is-invalid' : '' ?>" type="text" name="nm_tagihan" value="<?php echo $t['nm_tagihan'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('nama_siswa') ?>
+                                    <?php echo form_error('nm_tagihan') ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="nama_tagihan">Nama Tagihan</label>
-                                <input class="form-control <?php echo form_error('nama_tagihan') ? 'is-invalid' : '' ?>" type="text" name="nama_tagihan" value="<?php echo $t['nama_tagihan'] ?>" />
+                                <label for="jatuh_tempo">Tanggal Jatuh Tempo</label>
+                                <input class="form-control <?php echo form_error('jatuh_tempo') ? 'is-invalid' : '' ?>" type="date" name="jatuh_tempo" value="<?php echo $t['jatuh_tempo'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('nama_tagihan') ?>
+                                    <?php echo form_error('jatuh_tempo') ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="jumlah_tagihan">Jumlah Tagihan</label>
-                                <input class="form-control <?php echo form_error('jumlah_tagihan') ? 'is-invalid' : '' ?>" type="text" name="jumlah_tagihan" value="<?php echo $t['jumlah_tagihan'] ?>" />
+                                <label for="bulan">Bulan</label>
+                                <input class="form-control <?php echo form_error('bulan') ? 'is-invalid' : '' ?>" type="text" name="bulan" value="<?php echo $t['bulan'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('jumlah_tagihan') ?>
+                                    <?php echo form_error('bulan') ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="tgl_jatuh_tempo">Tanggal Jatuh Tempo</label>
-                                <input class="form-control <?php echo form_error('tgl_jatuh_tempo') ? 'is-invalid' : '' ?>" type="date" name="tgl_jatuh_tempo" value="<?php echo $t['tgl_jatuh_tempo'] ?>" />
+                                <label for="jml">Jumlah Tagihan</label>
+                                <input class="form-control <?php echo form_error('jml') ? 'is-invalid' : '' ?>" type="text" name="jml" value="<?php echo $t['jml'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('tgl_jatuh_tempo') ?>
+                                    <?php echo form_error('jml') ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ket">Keterangan</label>
+                                <input class="form-control <?php echo form_error('ket') ? 'is-invalid' : '' ?>" type="text" name="ket" value="<?php echo $t['ket'] ?>" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('ket') ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="id_user">Masukkan ID User</label>
+                                <input class="form-control <?php echo form_error('id_user') ? 'is-invalid' : '' ?>" type="text" name="id_user" value="<?php echo $t['id_user'] ?>" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('id_user') ?>
                                 </div>
                             </div>
 

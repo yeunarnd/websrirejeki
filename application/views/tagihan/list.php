@@ -21,12 +21,19 @@
                         <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
+                                    <!-- <th>No.</th>
                                     <th>Kode Tagihan</th>
                                     <th width="200">Nama Siswa</th>
                                     <th>Nama Tagihan</th>
                                     <th>Jumlah Tagihan</th>
-                                    <th>Tanggal Jatuh Tempo</th>
+                                    <th>Tanggal Jatuh Tempo</th> -->
+                                    <th>No.</th>
+                                    <th>Nomor Induk</th>
+                                    <th>Nama Tagihan</th>
+                                    <th>Bulan</th>
+                                    <th>Jatuh Tempo</th>
+                                    <th>Jumlah</th>
+                                    <th>Keterangan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -35,11 +42,18 @@
                                 <?php foreach ($tagihan as $t) : ?>
                                     <tr>
                                         <th scope="row"><?= $i; ?></th>
-                                        <td><?= $t['kode_tagihan']; ?></td>
+                                        <!-- <td><?= $t['kode_tagihan']; ?></td>
                                         <td><?= $t['nama_siswa']; ?></td>
                                         <td><?= $t['nama_tagihan']; ?></td>
-                                        <td> Rp<?= number_format ($t['jumlah_tagihan']); ?></td>
-                                        <td><?= $t['tgl_jatuh_tempo']; ?></td>
+                                        <td> Rp<?= number_format($t['jumlah_tagihan']); ?></td>
+                                        <td><?= $t['tgl_jatuh_tempo']; ?></td> -->
+
+                                        <td><?= $t['nomor_induk']; ?></td>
+                                        <td><?= $t['nm_tagihan']; ?></td>
+                                        <td><?= $t['bulan']; ?></td>
+                                        <td><?= $t['jatuh_tempo']; ?></td>
+                                        <td>Rp<?= number_format($t['jml']); ?></td>
+                                        <td><?= $t['ket']; ?></td>
                                         <td>
                                             <a href="<?= base_url('tagihan/edit/') . $t['kode_tagihan']; ?>" class="badge badge-success"> Edit</a>
                                             <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('tagihan/delete/') . $t['kode_tagihan']; ?>" class="badge badge-danger">Hapus</a>

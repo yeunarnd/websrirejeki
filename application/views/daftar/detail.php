@@ -31,13 +31,13 @@
 
                         <div>
                             <div class="alert alert-primary">
-                                <strong>Data Calon Siswa</strong>
+                                <strong>Data Siswa</strong>
                             </div>
                             <div class="row">
                                 <div class="col-sm-7">
                                     <div class="form-group">
-                                        <label for="nm_calon_siswa">Nama Lengkap:</label>
-                                        <b><?php echo $daftar->nm_calon_siswa ?></b>
+                                        <label for="nama_siswa">Nama Lengkap:</label>
+                                        <b><?php echo $daftar->nama_siswa ?></b>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">

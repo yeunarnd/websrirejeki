@@ -6,7 +6,7 @@ class Daftar_model extends CI_Model
 
     public $kd_daftar;
     public $tgl_daftar;
-    public $nm_calon_siswa;
+    public $nama_siswa;
     public $umur;
     public $kelas;
     public $tempat_lahir;
@@ -32,8 +32,8 @@ class Daftar_model extends CI_Model
     {
         return [
             [
-                'field' => 'nm_calon_siswa',
-                'label' => 'nm_calon_siswa',
+                'field' => 'nama_siswa',
+                'label' => 'nama_siswa',
                 'rules' => 'required'
             ],
 
@@ -149,12 +149,6 @@ class Daftar_model extends CI_Model
                 'field' => 'telepon_ibu',
                 'label' => 'telepon_ibu',
                 'rules' => 'required'
-            ],
-
-            [
-                'field' => 'alasan_ditolak',
-                'label' => 'alasan_ditolak',
-                'rules' => 'required'
             ]
         ];
     }
@@ -169,24 +163,6 @@ class Daftar_model extends CI_Model
         return $this->db->get_where($this->_table, ["kd_daftar" => $id])->row();
     }
 
-    public function hitungTervalidasi()
-    {
-        $this->db->select('count(*) AS jml');
-        $this->db->from('daftar');
-        $this->db->where('status', '1');
-        $this->db->group_by('daftar.status');
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-
-    public function upstatusvalidasi($statusvalidasi, $id)
-    {
-
-        $this->db->where('id', $id);
-        $this->db->update('dispensasi', array('status' => $statusvalidasi));
-        return true;
-    }
-
     function get($id)
     {
         $param = array('kd_daftar' => $id);
@@ -198,12 +174,30 @@ class Daftar_model extends CI_Model
         return $this->db->get('daftar');
     }
 
+    public function upstatusvalidasi($statusvalidasi, $kd_daftar)
+    {
+
+        $this->db->where('kd_daftar', $kd_daftar);
+        $this->db->update('daftar', array('status' => $statusvalidasi));
+        return true;
+    }
+
+    public function hitungTervalidasi()
+    {
+        $this->db->select('count(*) AS jml');
+        $this->db->from('daftar');
+        $this->db->where('status', '1');
+        $this->db->group_by('daftar.status');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function save()
     {
         $post = $this->input->post();
-        $this->kd_daftar = $post["kd_daftar"];
-        $this->tgl_daftar = $post["tgl_daftar"];
-        $this->nm_calon_siswa = $post["nm_calon_siswa"];
+
+        $this->tgl_daftar = date("Y-m-d");
+        $this->nama_siswa = $post["nama_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];
         $this->tempat_lahir = $post["tempat_lahir"];
@@ -225,7 +219,6 @@ class Daftar_model extends CI_Model
         $this->telepon_ibu = $post["telepon_ibu"];
         $this->akta_lahir = $this->_uploadImage('akta_lahir');
         $this->kartu_keluarga = $this->_uploadImage2('kartu_keluarga');
-        $this->alasan_ditolak = $post["alasan_ditolak"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -238,7 +231,8 @@ class Daftar_model extends CI_Model
     {
         $post = $this->input->post();
         $this->kd_daftar = $post["kd_daftar"];
-        $this->nm_calon_siswa = $post["nm_calon_siswa"];
+        //  $this->tgl_daftar = $post["tgl_daftar"];
+        $this->nama_siswa = $post["nama_siswa"];
         $this->umur = $post["umur"];
         $this->kelas = $post["kelas"];
         $this->tempat_lahir = $post["tempat_lahir"];

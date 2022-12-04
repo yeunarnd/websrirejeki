@@ -35,10 +35,10 @@
                             <div class="row">
                                 <div class="col-sm-7">
                                     <div class="form-group">
-                                        <label for="nm_calon_siswa">Nama Calon Siswa</label>
-                                        <input class="form-control <?php echo form_error('nm_calon_siswa') ? 'is-invalid' : '' ?>" type="text" name="nm_calon_siswa" min="0" placeholder="Uraian daftar" value="<?php echo $daftar['nm_calon_siswa'] ?>" />
+                                        <label for="nama_siswa">Nama Siswa</label>
+                                        <input class="form-control <?php echo form_error('nama_siswa') ? 'is-invalid' : '' ?>" type="text" name="nama_siswa" min="0" placeholder="Uraian daftar" value="<?php echo $daftar['nama_siswa'] ?>" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('nm_calon_siswa') ?>
+                                            <?php echo form_error('nama_siswa') ?>
                                         </div>
                                     </div>
                                 </div>

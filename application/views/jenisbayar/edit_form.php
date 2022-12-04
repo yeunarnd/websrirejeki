@@ -47,10 +47,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="dateline">Tanggal Tempo</label>
-                                <input class="form-control <?php echo form_error('dateline') ? 'is-invalid' : '' ?>" type="text" name="dateline" value="<?php echo $t['dateline'] ?>" />
+                                <label for="harga">Harga</label>
+                                <input class="form-control <?php echo form_error('harga') ? 'is-invalid' : '' ?>" type="text" name="harga" value="<?php echo $t['harga'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('dateline') ?>
+                                    <?php echo form_error('harga') ?>
                                 </div>
                             </div>
 

@@ -17,9 +17,16 @@
                     <a href="<?php echo site_url('daftar/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
 
                     <a class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <select name="" class="btn btn-default border border-dark" id="daftar">
-                            <option value="0" class="text-gray-800">Tampil Semua</option>
-                            <option value="1">2022</option>
+                        <select name="tahun" class="btn btn-default border border-dark" id="tahun" onchange="datatahun">
+                            <option value="0" class="text-gray-800">Pilih Tahun</option>
+                            <?php
+                            $thn_skr = date('Y');
+                            for ($x = $thn_skr; $x >= 2021; $x--) {
+                            ?>
+                                <option value="<?php echo $x ?>"><?php echo $x ?></option>
+                            <?php
+                            }
+                            ?>
                         </select>
                     </a>
                     <a href="<?= base_url('daftar/export_pendaftaran') ?>" class="btn btn-secondary" style="float:right"><i class="fa fa-download"></i> Unduh Laporan</a>
@@ -32,12 +39,12 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Tanggal Daftar</th>
-                                    <th>Nama Calon Siswa</th>
+                                    <th>Nama Siswa</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="list_tahun">
                                 <?php $i = 1; ?>
                                 <?php foreach ($daftar as $daftar) : ?>
                                     <tr>
@@ -46,7 +53,7 @@
                                             <?= $daftar['tgl_daftar']; ?>
                                         </td>
                                         <td>
-                                            <?= $daftar['nm_calon_siswa']; ?>
+                                            <?= $daftar['nama_siswa']; ?>
                                         </td>
                                         <td>
                                             <?php if ($daftar['status'] == 1) {

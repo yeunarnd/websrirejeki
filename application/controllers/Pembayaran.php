@@ -8,19 +8,21 @@ class Pembayaran extends CI_Controller
     {
         parent::__construct();
         $this->load->model("pembayaran_model");
+        $this->load->model("siswa_model");
         $this->load->library('form_validation');
     }
 
     public function index()
     {
         $data['title'] = 'Laporan Pembayaran';
-        $data["pembayaran"] = $this->pembayaran_model->getAll();
+        // $data["pembayaran"] = $this->pembayaran_model->getAll();
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['pembayaran'] = $this->db->get('pembayaran')->result_array();
+        // $data['pembayaran'] = $this->db->get('pembayaran')->result_array();
 
-        $this->form_validation->set_rules('pembayaran', 'Pembayaran', 'required');
+        // $this->form_validation->set_rules('pembayaran', 'Pembayaran', 'required');
+        $this->form_validation->set_rules('nomor_induk', 'Nomor Induk', 'required|trim', ['required' => 'Nomor induk wajib di isi!']);
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -29,16 +31,66 @@ class Pembayaran extends CI_Controller
             $this->load->view('pembayaran/list', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->db->insert('pembayaran', ['pembayaran' => $this->input->post('pembayaran')]);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
+            // $this->db->insert('pembayaran', ['pembayaran' => $this->input->post('pembayaran')]);
+            // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
+            // redirect('pembayaran');
+            $this->cariTagihan();
+        }
+    }
+
+    public function cariTagihan()
+    {
+        $data['title'] = 'Daftar Laporan Pembayaran';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $nomor_induk = $this->input->post('nomor_induk', true);
+        $where = ['nomor_induk' => $nomor_induk];
+        $data['siswa'] = $this->siswa_model->get_where('siswa', $where)->row_array();
+        $idSiswa = $data['siswa']['nomor_induk'];
+
+        if ($data['siswa'] == null) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert"><i class="fas fa-info-circle"></i> No. Induk Siswa <strong>' . $nomor_induk . '</strong> Tidak Terdaftar.</div>');
             redirect('pembayaran');
         }
+
+        $where = ['nomor_induk' => $idSiswa];
+        $data['pembayaran'] = $this->pembayaran_model->get_where('pembayaran', $where)->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('pembayaran/list', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function bayar($nomor_induk, $id)
+    {
+        $hariIini = date('Y-m-d');
+
+        $where = ['kode_pembayaran' => $id];
+        $data = [
+            'tgl_bayar' => $hariIini,
+            'ket' => 'Lunas'
+        ];
+        $this->pembayaran_model->update_where('pembayaran', $data, $where);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i class="fas fa-info-circle"></i> No. Induk <strong>' . $nomor_induk . '</strong> SPP Berhasil dibayar <strong>');
+        redirect('pembayaran');
+    }
+
+    public function cetak($nomor_induk, $kode_pembayaran)
+    {
+        $where = ['nomor_induk' => $nomor_induk];
+        $data['siswa'] = $this->pembayaran_model->get_where('siswa', $where)->row_array();
+        $data['title'] = 'Laporan ' . $data['siswa']['nama_siswa'];
+        $where = ['kode_pembayaran' => $kode_pembayaran];
+        $data['bayar'] = $this->pembayaran_model->get_join_where('pembayaran', $where)->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('pembayaran/cetak_pembayaran', $data);
     }
 
     public function add()
     {
         $data['title'] = 'Tambah Daftar Pembayaran';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['dataid'] = $this->pembayaran_model->getdata();
 
         $pembayaran = $this->pembayaran_model;
         $validation = $this->form_validation;

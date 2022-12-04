@@ -8,19 +8,22 @@ class Tagihan extends CI_Controller
     {
         parent::__construct();
         $this->load->model("tagihan_model");
+        $this->load->model("siswa_model");
+        $this->load->model("jenisbayar_model");
         $this->load->library('form_validation');
     }
 
     public function index()
     {
         $data['title'] = 'Daftar Tagihan';
-        $data["tagihan"] = $this->tagihan_model->getAll();
+        // $data["tagihan"] = $this->tagihan_model->getAll();
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['tagihan'] = $this->db->get('tagihan')->result_array();
 
         $this->form_validation->set_rules('tagihan', 'Tagihan', 'required');
+        // $this->form_validation->set_rules('nomor_induk', 'Nomor Induk', 'required|trim', ['required' => 'Nomor induk wajib di isi!']);
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -29,16 +32,54 @@ class Tagihan extends CI_Controller
             $this->load->view('tagihan/list', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->db->insert('tagihan', ['tagihan' => $this->input->post('tagihan')]);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
+            // $this->db->insert('tagihan', ['tagihan' => $this->input->post('tagihan')]);
+            // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
+            // redirect('tagihan');
+            $this->cariTagihan();
+        }
+    }
+
+    public function cariTagihan()
+    {
+        $data['title'] = 'Daftar Tagihan';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $nomor_induk = $this->input->post('nomor_induk', true);
+        $where = ['nomor_induk' => $nomor_induk];
+        $data['siswa'] = $this->siswa_model->get_where('siswa', $where)->row_array();
+        $idSiswa = $data['siswa']['nomor_induk'];
+
+        if ($data['siswa'] == null) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert"><i class="fas fa-info-circle"></i> NIS Siswa <strong>' . $nomor_induk . '</strong> Tidak Terdaftar.</div>');
             redirect('tagihan');
         }
+
+        $where = ['nomor_induk' => $idSiswa];
+        $data['tagihan'] = $this->tagihan_model->get_where('tagihan', $where)->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('tagihan/list', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function cari_id()
+    {
+        $data['title'] = 'Tambah Daftar Tagihan';
+        $data['id'] = $this->siswa_model->get_idsiswa();
+        //I take here a sample view, you can put more view pages here
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('tagihan/list', $data);
+        $this->load->view('templates/footer');
     }
 
     public function add()
     {
         $data['title'] = 'Tambah Daftar Tagihan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['dataid'] = $this->tagihan_model->getdata();
+        $data['jenisbayar'] = $this->db->get('jenis_pembayaran')->result_array();
 
         $tagihan = $this->tagihan_model;
         $validation = $this->form_validation;
@@ -65,6 +106,7 @@ class Tagihan extends CI_Controller
 
         $where = array('kode_tagihan' => $kode_tagihan);
         $data['tagihan'] = $this->tagihan_model->edit_data($where, 'tagihan')->result_array();
+
 
         $tagihan = $this->tagihan_model;
         $validation = $this->form_validation;

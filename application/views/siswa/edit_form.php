@@ -28,14 +28,7 @@
                     <?php foreach ($siswa as $s) : ?>
                         <form action="<?php base_url("siswa/edit") ?>" method="post" enctype="multipart/form-data">
 
-                            <input type="hidden" name="id" value="<?php echo $s['id'] ?>" />
-                            <div class="form-group">
-                                <label for="nomor_induk">Nomor Induk Siswa</label>
-                                <input class="form-control <?php echo form_error('nomor_induk') ? 'is-invalid' : '' ?>" type="text" name="nomor_induk" placeholder="no. induk" value="<?php echo $s['nomor_induk'] ?>" />
-                                <div class="invalid-feedback">
-                                    <?php echo form_error('nomor_induk') ?>
-                                </div>
-                            </div>
+                            <input type="hidden" name="nomor_induk" value="<?php echo $s['nomor_induk'] ?>" />
 
                             <div class="form-group">
                                 <label for="nama_siswa">Nama Lengkap Siswa</label>
@@ -46,10 +39,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="jenis_kelamin">Jenis Kelamin</label>
-                                <input class="form-control <?php echo form_error('jenis_kelamin') ? 'is-invalid' : '' ?>" type="text" name="jenis_kelamin" placeholder="jenis kelamin" value="<?php echo $s['jenis_kelamin'] ?>" />
+                                <label for="jkel">Jenis Kelamin</label>
+                                <input class="form-control <?php echo form_error('jkel') ? 'is-invalid' : '' ?>" type="text" name="jkel" placeholder="jenis kelamin" value="<?php echo $s['jkel'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('jenis_kelamin') ?>
+                                    <?php echo form_error('jkel') ?>
                                 </div>
                             </div>
 
@@ -62,10 +55,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="kelompok_kelas">Kelompok Kelas</label>
-                                <input class="form-control <?php echo form_error('kelompok_kelas') ? 'is-invalid' : '' ?>" type="text" name="kelompok_kelas" placeholder="kelompok kelas" value="<?php echo $s['kelompok_kelas'] ?>" />
+                                <label for="kelas">Kelompok Kelas</label>
+                                <input class="form-control <?php echo form_error('kelas') ? 'is-invalid' : '' ?>" type="text" name="kelas" placeholder="kelompok kelas" value="<?php echo $s['kelas'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('kelompok_kelas') ?>
+                                    <?php echo form_error('kelas') ?>
                                 </div>
                             </div>
 

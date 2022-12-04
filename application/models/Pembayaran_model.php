@@ -60,6 +60,32 @@ class Pembayaran_model extends CI_Model
         return $this->db->get('pembayaran');
     }
 
+    public function get_where($table, $where)
+    {
+        return $this->db->get_where($table, $where);
+    }
+
+    public function get_join_where($table, $where)
+    {
+        // $query = "SELECT spp.*, siswa.nis, siswa.nama_siswa, siswa.kelas FROM spp INNER JOIN siswa ON siswa.id_siswa = spp.id_siswa WHERE id_spp = '$' ORDER BY tgl_bayar ASC";
+        // return $this->db->query($query);
+        $this->db->join('siswa', 'siswa.nomor_induk = pembayaran.nomor_induk');
+        return $this->db->get_where($table, $where);
+    }
+
+    public function getdata()
+    {
+        $query = $this->db->query("SELECT * FROM siswa ORDER BY nomor_induk");
+
+        return $query->result();
+    }
+
+    public function update_where($table, $data, $where)
+    {
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
+
     public function save()
     {
         $post = $this->input->post();

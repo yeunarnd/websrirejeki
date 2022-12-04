@@ -40,15 +40,15 @@
                                 </div>
                             </div>
                             <div class="alert alert-primary">
-                                <strong>Data Calon Siswa</strong>
+                                <strong>Data Siswa</strong>
                             </div>
                             <div class="row">
                                 <div class="col-sm-7">
                                     <div class="form-group">
-                                        <label for="nm_calon_siswa">Nama Lengkap:</label>
-                                        <input type="text" name="nm_calon_siswa" class="form-control <?php echo form_error('nm_calon_siswa') ? 'is-invalid' : '' ?>">
+                                        <label for="nama_siswa">Nama Lengkap:</label>
+                                        <input type="text" name="nama_siswa" class="form-control <?php echo form_error('nama_siswa') ? 'is-invalid' : '' ?>">
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('nm_calon_siswa') ?>
+                                            <?php echo form_error('nama_siswa') ?>
                                         </div>
                                     </div>
                                 </div>

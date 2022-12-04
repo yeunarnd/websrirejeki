@@ -4,22 +4,15 @@ class Siswa_model extends CI_Model
 {
     private $_table = "siswa";
 
-    public $id;
     public $nomor_induk;
     public $nama_siswa;
-    public $jenis_kelamin;
+    public $jkel;
     public $alamat;
-    public $kelompok_kelas;
+    public $kelas;
 
     public function rules()
     {
         return [
-            [
-                'field' => 'nomor_induk',
-                'label' => 'nomor_induk',
-                'rules' => 'required'
-            ],
-
             [
                 'field' => 'nama_siswa',
                 'label' => 'nama_siswa',
@@ -27,8 +20,8 @@ class Siswa_model extends CI_Model
             ],
 
             [
-                'field' => 'jenis_kelamin',
-                'label' => 'jenis_kelamin',
+                'field' => 'jkel',
+                'label' => 'jkel',
                 'rules' => 'required'
             ],
 
@@ -39,8 +32,8 @@ class Siswa_model extends CI_Model
             ],
 
             [
-                'field' => 'kelompok_kelas',
-                'label' => 'kelompok_kelas',
+                'field' => 'kelas',
+                'label' => 'kelas',
                 'rules' => 'required'
             ]
         ];
@@ -53,17 +46,42 @@ class Siswa_model extends CI_Model
 
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["id" => $id])->row();
+        return $this->db->get_where($this->_table, ["nomor_induk" => $id])->row();
     }
+
+    public function get_where($table, $where)
+    {
+        return $this->db->get_where($table, $where);
+    }
+
+    function cari($id)
+    {
+        $query = $this->db->get_where('daftar', array('kd_daftar' => $id));
+        return $query;
+    }
+
+    public function get_idsiswa()
+    {
+        $query = $this->db->query('SELECT nomor_induk FROM siswa');
+        return $query->result();
+    }
+
+    // public function get_data($title)
+    // {
+    //     $this->db->like('kd_daftar', $title, 'BOTH');
+    //     $this->db->order_by('kd_daftar', 'asc');
+    //     $this->db->limit(10);
+    //     return $this->db->get('daftar')->result();
+    // }
 
     public function save()
     {
         $post = $this->input->post();
         $this->nomor_induk = $post["nomor_induk"];
         $this->nama_siswa = $post["nama_siswa"];
-        $this->jenis_kelamin = $post["jenis_kelamin"];
+        $this->jkel = $post["jkel"];
         $this->alamat = $post["alamat"];
-        $this->kelompok_kelas = $post["kelompok_kelas"];
+        $this->kelas = $post["kelas"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -75,17 +93,16 @@ class Siswa_model extends CI_Model
     public function update()
     {
         $post = $this->input->post();
-        $this->id = $post["id"];
         $this->nomor_induk = $post["nomor_induk"];
         $this->nama_siswa = $post["nama_siswa"];
-        $this->jenis_kelamin = $post["jenis_kelamin"];
+        $this->jkel = $post["jkel"];
         $this->alamat = $post["alamat"];
-        $this->kelompok_kelas = $post["kelompok_kelas"];
-        return $this->db->update($this->_table, $this, array('id' => $post['id']));
+        $this->kelas = $post["kelas"];
+        return $this->db->update($this->_table, $this, array('nomor_induk' => $post['nomor_induk']));
     }
 
-    public function delete($id)
+    public function delete($nomor_induk)
     {
-        return $this->db->delete($this->_table, array("id" => $id));
+        return $this->db->delete($this->_table, array("nomor_induk" => $nomor_induk));
     }
 }

@@ -19,7 +19,14 @@
     <link href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.css'); ?>" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="<?= base_url('assets/'); ?>css/bootstrap.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="<?= base_url('assets/'); ?>css/jquery-ui.css"> -->
     <link rel="shortcut icon" href="<?= base_url() ?>assets/img/logo-paud.png">
+
+    <!-- <script src="<?= base_url('assets/'); ?>js/bootstrap.js"></script> -->
+    <script src="<?= base_url('assets/'); ?>js/jquery-3.3.1.js"></script>
+    <!-- <script src="<?= base_url('assets/'); ?>js/jquery-ui.js"></script> -->
+    <!-- <script src="<?php echo base_url(); ?>assets/ajax.js"></script> -->
 
 </head>
 

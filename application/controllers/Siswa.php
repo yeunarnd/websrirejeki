@@ -8,6 +8,7 @@ class Siswa extends CI_Controller
     {
         parent::__construct();
         $this->load->model("siswa_model");
+        $this->load->model("daftar_model");
         $this->load->library('form_validation');
     }
 
@@ -35,6 +36,38 @@ class Siswa extends CI_Controller
         }
     }
 
+    public function tampil_data()
+    {
+        $kd_daftar = $_POST['kd_daftar'];
+        // $s = "SELECT nm_calon_siswa as nm_calon_siswa_b FROM daftar WHERE kd_daftar = '$kd_daftar'";
+        $s = "SELECT nama_siswa,jkel,alamat,kelas FROM daftar WHERE kd_daftar = '$kd_daftar'";
+        $res = $this->db->query($s)->row_array();
+        echo json_encode($res);
+    }
+
+    // public function cari()
+    // {
+    //     $kd_daftar = $_GET['kd_daftar'];
+    //     $cari = $this->daftar_model->cari($kd_daftar)->result();
+    //     echo json_encode($cari);
+    // }
+
+    // public function get_autocomplete()
+    // {
+    //     if (isset($_GET['term'])) {
+    //         $result = $this->daftar_model->get_data($_GET['term']);
+    //         if (count($result) > 0) {
+    //             foreach ($result as $row)
+    //                 $result_array[] = array(
+    //                     'label' => $row->kd_daftar,
+    //                     'nm_calon_siswa' => strtoupper($row->nama)
+    //                 );
+    //             echo json_encode($result_array);
+    //         }
+    //     }
+    // }
+
+
     public function add()
     {
         $data['title'] = 'Tambah Daftar Siswa';
@@ -56,15 +89,16 @@ class Siswa extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function edit($id = null)
+    public function edit($nomor_induk = null)
     {
-        if (!isset($id)) redirect('siswa');
+        if (!isset($nomor_induk)) redirect('siswa');
 
         $data['title'] = 'Edit Daftar Siswa';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $where = array('id' => $id);
+        $where = array('nomor_induk' => $nomor_induk);
         $data['siswa'] = $this->siswa_model->edit_data($where, 'siswa')->result_array();
+
 
         $siswa = $this->siswa_model;
         $validation = $this->form_validation;
@@ -82,15 +116,15 @@ class Siswa extends CI_Controller
         $this->load->view('siswa/edit_form', $data);
         $this->load->view('templates/footer');
 
-        $data["siswa"] = $siswa->getById($id);
+        $data["siswa"] = $siswa->getById($nomor_induk);
         if (!$data["siswa"]) show_404();
     }
 
-    public function delete($id = null)
+    public function delete($nomor_induk = null)
     {
-        if (!isset($id)) show_404();
+        if (!isset($nomor_induk)) show_404();
 
-        if ($this->siswa_model->delete($id)) {
+        if ($this->siswa_model->delete($nomor_induk)) {
             redirect(site_url('siswa'));
         }
     }

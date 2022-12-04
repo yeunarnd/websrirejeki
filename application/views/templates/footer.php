@@ -47,6 +47,7 @@
 
 <!-- Page level plugin JavaScript-->
 <script src="<?= base_url('assets/vendor/chart.js/Chart.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/jquery-1.11.2.min.js'); ?>"></script>
 <script src="<?= base_url('assets/vendor/datatables/jquery.dataTables.js'); ?>"></script>
 <script src="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.js'); ?>"></script>
 
@@ -74,6 +75,60 @@
             }
         })
     });
+</script>
+
+<script type="text/javascript">
+    function pilih_kode() {
+        var kd_daftar = $("#kd_daftar").val();
+        $.ajax({
+            url: "<?php echo base_url('siswa/tampil_data') ?>",
+            data: "kd_daftar=" + kd_daftar,
+            method: 'post',
+            dataType: 'json',
+            success: function(data) {
+                $("#nama_siswa").val(data.nama_siswa);
+                $("#jkel").val(data.jkel);
+                $("#alamat").val(data.alamat);
+                $("#kelas").val(data.kelas);
+            }
+        });
+    }
+    $(function() {
+        $(document).ready(function() {
+            $('#kd_daftar').select2()
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    function datatahun() {
+        var kd_daftar = $("#kd_daftar").val();
+        $.ajax({
+            url: "<?php echo base_url('daftar/list_tahun') ?>",
+            data: "kd_daftar=" + kd_daftar,
+            success: function(html) {
+                data = JSON.parse(html);
+                isi_tabel = '';
+                data.forEach(function(item, index) {
+                    isi_tabel += `
+                    <tr>
+                    <td>` + (index + 1) + `</td>
+                    <td>` + item.kd_daftar + `</td>
+                    <td>` + item.tgl_daftar + `</td>
+                    <td>` + item.nama_siswa + `</td>
+                    <td>` + item.status + `</td>
+
+                    <td>
+                    <button class="btn btn-tambah btn-danger btn-xs" onclick="add('` + item.kd_daftar + `','` + item.tgl_daftar + `','` + item.nama_siswa + `','` + item.status + `')" data-dismiss="modal">Pilih</button>
+                    </td>
+                    </tr>
+                    `;
+                });
+                $('#list_tahun').html(isi_tabel);
+                // $("#xtahun").dataTable();
+            }
+        });
+    }
 </script>
 
 </body>

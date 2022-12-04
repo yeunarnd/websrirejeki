@@ -37,12 +37,12 @@
                                         <th scope="row"><?= $i; ?></th>
                                         <td><?= $s['nomor_induk']; ?></td>
                                         <td width="300"><?= $s['nama_siswa']; ?></td>
-                                        <td><?= $s['jenis_kelamin']; ?></td>
+                                        <td><?= $s['jkel']; ?></td>
                                         <td><?= $s['alamat']; ?></td>
-                                        <td><?= $s['kelompok_kelas']; ?></td>
+                                        <td><?= $s['kelas']; ?></td>
                                         <td>
-                                            <a href="<?= base_url('siswa/edit/') . $s['id']; ?>" class="badge badge-success"> Edit</a>
-                                            <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('siswa/delete/') . $s['id']; ?>" class="badge badge-danger">Hapus</a>
+                                            <a href="<?= base_url('siswa/edit/') . $s['nomor_induk']; ?>" class="badge badge-success"> Edit</a>
+                                            <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('siswa/delete/') . $s['nomor_induk']; ?>" class="badge badge-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>

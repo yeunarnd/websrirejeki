@@ -6,7 +6,7 @@ class Jenisbayar_model extends CI_Model
 
     public $kode_jenis;
     public $jenis_bayar;
-    public $dateline;
+    public $harga;
 
     public function rules()
     {
@@ -24,8 +24,8 @@ class Jenisbayar_model extends CI_Model
             ],
 
             [
-                'field' => 'dateline',
-                'label' => 'dateline',
+                'field' => 'harga',
+                'label' => 'harga',
                 'rules' => 'required'
             ]
         ];
@@ -60,7 +60,7 @@ class Jenisbayar_model extends CI_Model
         $post = $this->input->post();
         $this->kode_jenis = $post["kode_jenis"];
         $this->jenis_bayar = $post["jenis_bayar"];
-        $this->dateline = $post["dateline"];
+        $this->harga = $post["harga"];
         return $this->db->update($this->_table, $this, array('kode_jenis' => $post['kode_jenis']));
     }
 

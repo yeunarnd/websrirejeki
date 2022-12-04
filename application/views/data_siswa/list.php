@@ -33,9 +33,9 @@
                                         <th scope="row"><?= $i; ?></th>
                                         <td><?= $s['nomor_induk']; ?></td>
                                         <td width="300"><?= $s['nama_siswa']; ?></td>
-                                        <td><?= $s['jenis_kelamin']; ?></td>
+                                        <td><?= $s['jkel']; ?></td>
                                         <td><?= $s['alamat']; ?></td>
-                                        <td><?= $s['kelompok_kelas']; ?></td>
+                                        <td><?= $s['kelas']; ?></td>
                                     </tr>
                                     <?php $i++; ?>
                                 <?php endforeach; ?>
