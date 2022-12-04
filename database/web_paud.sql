@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2022 at 07:08 AM
+-- Generation Time: Dec 04, 2022 at 04:55 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -99,13 +99,6 @@ CREATE TABLE `dispensasi` (
   `alasanditolak` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `dispensasi`
---
-
-INSERT INTO `dispensasi` (`id`, `no_induk`, `nama_dispensasi`, `alasan_pengajuan`, `tgl_pengajuan_bayar`, `status`, `alasanditolak`) VALUES
-(1, '40918', 'Dispensasi uang gedung', 'dana belum cukup', '2022-07-31', 2, '');
-
 -- --------------------------------------------------------
 
 --
@@ -115,16 +108,19 @@ INSERT INTO `dispensasi` (`id`, `no_induk`, `nama_dispensasi`, `alasan_pengajuan
 CREATE TABLE `jenis_pembayaran` (
   `kode_jenis` varchar(10) NOT NULL,
   `jenis_bayar` varchar(20) NOT NULL,
-  `dateline` varchar(5) NOT NULL
+  `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jenis_pembayaran`
 --
 
-INSERT INTO `jenis_pembayaran` (`kode_jenis`, `jenis_bayar`, `dateline`) VALUES
-('G1', 'Uang Gedung', '1'),
-('S1', 'SPP', '11');
+INSERT INTO `jenis_pembayaran` (`kode_jenis`, `jenis_bayar`, `harga`) VALUES
+('B1', 'Buku Pelajaran', 30000),
+('G1', 'Uang Gedung', 100000),
+('S1', 'SPP', 50000),
+('SE1', 'Paket Seragam', 150000),
+('ST1', 'Study Tour', 150000);
 
 -- --------------------------------------------------------
 
@@ -133,6 +129,42 @@ INSERT INTO `jenis_pembayaran` (`kode_jenis`, `jenis_bayar`, `dateline`) VALUES
 --
 
 CREATE TABLE `pembayaran` (
+  `kode_pembayaran` int(11) NOT NULL,
+  `nomor_induk` int(11) NOT NULL,
+  `nm_tagihan` varchar(50) NOT NULL,
+  `jatuh_tempo` date NOT NULL,
+  `bulan` varchar(20) NOT NULL,
+  `tgl_bayar` date NOT NULL,
+  `jml` int(11) NOT NULL,
+  `ket` text NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`kode_pembayaran`, `nomor_induk`, `nm_tagihan`, `jatuh_tempo`, `bulan`, `tgl_bayar`, `jml`, `ket`, `id_user`) VALUES
+(1, 2201, 'SPP', '2022-07-11', 'Juli 2022', '0000-00-00', 50000, 'Lunas', 3),
+(2, 2201, 'SPP', '2022-08-11', 'Agustus 2022', '2022-10-21', 50000, 'Lunas', 3),
+(3, 2201, 'SPP', '2022-09-11', 'September 2022', '2022-11-04', 50000, 'Lunas', 3),
+(4, 2201, 'SPP', '2022-10-11', 'Oktober 2022', '0000-00-00', 50000, '', 3),
+(5, 2201, 'SPP', '2022-11-11', 'November 2022', '0000-00-00', 50000, '', 3),
+(6, 2201, 'SPP', '2022-12-11', 'Desember 2022', '0000-00-00', 50000, '', 3),
+(7, 2201, 'SPP', '2023-01-11', 'Januari 2023', '0000-00-00', 50000, '', 3),
+(8, 2201, 'SPP', '2023-02-11', 'Februari 2023', '0000-00-00', 50000, '', 3),
+(9, 2201, 'SPP', '2023-03-11', 'Maret 2023', '0000-00-00', 50000, '', 3),
+(10, 2201, 'SPP', '2023-04-11', 'April 2023', '0000-00-00', 50000, '', 3),
+(11, 2201, 'SPP', '2023-05-11', 'Mei 2023', '0000-00-00', 50000, '', 3),
+(12, 2201, 'SPP', '2023-06-11', 'Juni 2023', '0000-00-00', 50000, '', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembayaran_`
+--
+
+CREATE TABLE `pembayaran_` (
   `kode_pembayaran` varchar(50) NOT NULL,
   `nama_siswa` varchar(30) NOT NULL,
   `jenis_bayar` varchar(20) NOT NULL,
@@ -141,10 +173,10 @@ CREATE TABLE `pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pembayaran`
+-- Dumping data for table `pembayaran_`
 --
 
-INSERT INTO `pembayaran` (`kode_pembayaran`, `nama_siswa`, `jenis_bayar`, `tgl_pembayaran`, `jumlah_bayar`) VALUES
+INSERT INTO `pembayaran_` (`kode_pembayaran`, `nama_siswa`, `jenis_bayar`, `tgl_pembayaran`, `jumlah_bayar`) VALUES
 ('PS1', 'Andhika', 'SPP', '2021-12-09', '50000');
 
 -- --------------------------------------------------------
@@ -154,8 +186,7 @@ INSERT INTO `pembayaran` (`kode_pembayaran`, `nama_siswa`, `jenis_bayar`, `tgl_p
 --
 
 CREATE TABLE `siswa` (
-  `id` int(11) NOT NULL,
-  `nomor_induk` varchar(10) NOT NULL,
+  `nomor_induk` int(11) NOT NULL,
   `nama_siswa` varchar(50) NOT NULL,
   `jkel` enum('Laki-laki','Perempuan') NOT NULL,
   `alamat` varchar(50) NOT NULL,
@@ -168,9 +199,9 @@ CREATE TABLE `siswa` (
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`id`, `nomor_induk`, `nama_siswa`, `jkel`, `alamat`, `kelas`, `tahun_ajaran`, `biaya`) VALUES
-(12, '2201', 'Andhika Trian Sakti Evryan Jaya', 'Laki-laki', 'Jl. Muharto 7 RT 3 RW 10', 'A', '2022/2023', 50000),
-(13, '2202', 'Anindia Dwi Faza Putri Lestari', 'Perempuan', 'Jl. Muharto 7 RT 3 RW 10', 'A', '2022/2023', 50000);
+INSERT INTO `siswa` (`nomor_induk`, `nama_siswa`, `jkel`, `alamat`, `kelas`, `tahun_ajaran`, `biaya`) VALUES
+(2201, 'Andhika Trian Sakti Evryan Jaya', 'Laki-laki', 'Jl. Muharto 7 RT 3 RW 10', 'A', '2022/2023', 50000),
+(2202, 'Anindia Dwi Faza Putri Lestari', 'Perempuan', 'Jl. Muharto 7 RT 3 RW 10', 'A', '2022/2023', 50000);
 
 -- --------------------------------------------------------
 
@@ -179,33 +210,34 @@ INSERT INTO `siswa` (`id`, `nomor_induk`, `nama_siswa`, `jkel`, `alamat`, `kelas
 --
 
 CREATE TABLE `tagihan` (
-  `id_spp` int(11) NOT NULL,
-  `id_siswa` int(11) NOT NULL,
+  `kode_tagihan` int(11) NOT NULL,
+  `nomor_induk` int(11) NOT NULL,
   `nm_tagihan` varchar(50) NOT NULL,
   `jatuh_tempo` date NOT NULL,
   `bulan` varchar(20) NOT NULL,
+  `tgl_bayar` date NOT NULL,
   `jml` int(11) NOT NULL,
-  `ket` text NOT NULL,
-  `id_user` int(11) NOT NULL
+  `ket` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tagihan`
 --
 
-INSERT INTO `tagihan` (`id_spp`, `id_siswa`, `nm_tagihan`, `jatuh_tempo`, `bulan`, `jml`, `ket`, `id_user`) VALUES
-(1, 12, 'SPP', '2022-07-11', 'Juli 2022', 50000, '', 3),
-(2, 12, 'SPP', '2022-08-11', 'Agustus 2022', 50000, '', 3),
-(3, 12, 'SPP', '2022-09-11', 'September 2022', 50000, '', 3),
-(4, 12, 'SPP', '2022-10-11', 'Oktober 2022', 50000, '', 3),
-(5, 12, 'SPP', '2022-11-11', 'November 2022', 50000, '', 3),
-(6, 12, 'SPP', '2022-12-11', 'Desember 2022', 50000, '', 3),
-(7, 12, 'SPP', '2023-01-11', 'Januari 2023', 50000, '', 3),
-(8, 12, 'SPP', '2023-02-11', 'Februari 2023', 50000, '', 3),
-(9, 12, 'SPP', '2023-03-11', 'Maret 2023', 50000, '', 3),
-(10, 12, 'SPP', '2023-04-11', 'April 2023', 50000, '', 3),
-(11, 12, 'SPP', '2023-05-11', 'Mei 2023', 50000, '', 3),
-(12, 12, 'SPP', '2023-06-11', 'Juni 2023', 50000, '', 3);
+INSERT INTO `tagihan` (`kode_tagihan`, `nomor_induk`, `nm_tagihan`, `jatuh_tempo`, `bulan`, `tgl_bayar`, `jml`, `ket`) VALUES
+(1, 2201, 'SPP', '2022-07-11', 'Juli 2022', '0000-00-00', 50000, 'Lunas'),
+(2, 2201, 'SPP', '2022-08-11', 'Agustus 2022', '2022-10-21', 50000, 'Lunas'),
+(3, 2201, 'SPP', '2022-09-11', 'September 2022', '0000-00-00', 50000, ''),
+(4, 2201, 'SPP', '2022-10-11', 'Oktober 2022', '0000-00-00', 50000, ''),
+(5, 2201, 'SPP', '2022-11-11', 'November 2022', '0000-00-00', 50000, ''),
+(6, 2201, 'SPP', '2022-12-11', 'Desember 2022', '0000-00-00', 50000, ''),
+(7, 2201, 'SPP', '2023-01-11', 'Januari 2023', '0000-00-00', 50000, ''),
+(8, 2201, 'SPP', '2023-02-11', 'Februari 2023', '0000-00-00', 50000, ''),
+(9, 2201, 'SPP', '2023-03-11', 'Maret 2023', '0000-00-00', 50000, ''),
+(10, 2201, 'SPP', '2023-04-11', 'April 2023', '0000-00-00', 50000, 'Belum bayar'),
+(11, 2201, 'SPP', '2023-05-11', 'Mei 2023', '0000-00-00', 50000, 'Belum bayar'),
+(12, 2201, 'SPP', '2023-06-11', 'Juni 2023', '0000-00-00', 50000, 'Belum bayar'),
+(13, 2201, 'Tagihan Seragam', '2022-11-30', 'november 2023', '0000-00-00', 300000, 'Belum bayar');
 
 -- --------------------------------------------------------
 
@@ -365,7 +397,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (6, 2, 'Submenu', 'submenu', 'fas fa-fw fa-user-cog', 1),
 (7, 4, 'Pendaftaran', 'daftar', 'fas fa-fw fa-users', 1),
 (8, 5, 'Daftar Siswa', 'siswa', 'fas fa-fw fa-user-tie', 1),
-(9, 7, 'Tagihan Siswa', 'tagihan', 'fas fa-fw fa-file-invoice', 1),
+(9, 7, 'Tagihan Siswa', 'tagihan/add', 'fas fa-fw fa-file-invoice', 1),
 (10, 7, 'Pengajuan Dispensasi', 'dispensasi', 'fas fa-fw fa-clock', 1),
 (11, 7, 'Jenis Pembayaran', 'jenisbayar', 'fas fa-fw fa-dollar-sign', 1),
 (12, 7, 'Pembayaran', 'pembayaran', 'fas fa-fw fa-money-bill-alt', 1),
@@ -411,16 +443,22 @@ ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`kode_pembayaran`);
 
 --
+-- Indexes for table `pembayaran_`
+--
+ALTER TABLE `pembayaran_`
+  ADD PRIMARY KEY (`kode_pembayaran`);
+
+--
 -- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`nomor_induk`);
 
 --
 -- Indexes for table `tagihan`
 --
 ALTER TABLE `tagihan`
-  ADD PRIMARY KEY (`id_spp`);
+  ADD PRIMARY KEY (`kode_tagihan`);
 
 --
 -- Indexes for table `tagihan_`
@@ -476,17 +514,17 @@ ALTER TABLE `daftar`
 -- AUTO_INCREMENT for table `dispensasi`
 --
 ALTER TABLE `dispensasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `siswa`
+-- AUTO_INCREMENT for table `pembayaran`
 --
-ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `pembayaran`
+  MODIFY `kode_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tagihan`
 --
 ALTER TABLE `tagihan`
-  MODIFY `id_spp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `kode_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `user`
 --
