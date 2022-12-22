@@ -29,10 +29,10 @@
                             <select class="form-control <?php echo form_error('kd_daftar') ? 'is-invalid' : '' ?>" name="kd_daftar" id="kd_daftar" onchange="pilih_kode()">
                                 <option value="">Pilih Pendaftaran</option>
                                 <?php
-                                $list = $this->db->query("SELECT * FROM daftar");
+                                $list = $this->db->query("SELECT * FROM daftar where status = 1");
                                 foreach ($list->result() as $t) {
                                 ?>
-                                    <option value="<?php echo $t->kd_daftar ?>"><?php echo $t->kd_daftar ?></option>
+                                    <option value="<?php echo $t->kd_daftar ?>"><?php echo $t->kd_daftar ?> | <?php echo $t->nama_siswa ?></option>
                                 <?php } ?>
                             </select>
                         </div>

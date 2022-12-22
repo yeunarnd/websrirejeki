@@ -55,7 +55,7 @@
                                         <td>
                                             <?= $daftar['nama_siswa']; ?>
                                         </td>
-                                        <td>
+                                        <td width="200">
                                             <?php if ($daftar['status'] == 1) {
                                                 echo 'Tervalidasi';
                                             } else if ($daftar['status'] == 2) {
@@ -65,7 +65,7 @@
                                             }
                                             ?>
                                         </td>
-                                        <td width="250">
+                                        <td width="200">
                                             <a href="<?= base_url('daftar/details/') . $daftar['kd_daftar']; ?>" class="badge badge-info"> Detail</a>
                                             <a href="<?= base_url('daftar/edit/') . $daftar['kd_daftar']; ?>" class="badge badge-success"> Edit</a>
                                             <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('daftar/delete/') . $daftar['kd_daftar']; ?>" class="badge badge-danger">Hapus</a>

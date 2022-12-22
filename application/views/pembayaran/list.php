@@ -90,7 +90,7 @@
                                         </thead>
                                         <tbody>
                                             <?php $i = 1; ?>
-                                            <?php foreach ($pembayaran as $pb) : ?>
+                                            <?php foreach ($tagihan as $pb) : ?>
                                                 <tr>
                                                     <th scope="row"><?= $i; ?></th>
 
@@ -101,8 +101,8 @@
                                                     <td>Rp<?= number_format($pb['jml']); ?></td>
                                                     <td><?= $pb['ket']; ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('pembayaran/bayar/') . $siswa['nomor_induk'] . '/' . $pb['kode_pembayaran']; ?>" class="badge badge-success"> Bayar</a>
-                                                        <a href="<?= base_url('pembayaran/cetak/') . $siswa['nomor_induk'] . '/' . $pb['kode_pembayaran']; ?>" class="badge badge-primary"> Cetak</a>
+                                                        <a href="<?= base_url('pembayaran/bayar/') . $siswa['nomor_induk'] . '/' . $pb['kode_tagihan']; ?>" class="badge badge-success"> Bayar</a>
+                                                        <a href="<?= base_url('pembayaran/cetak/') . $siswa['nomor_induk'] . '/' . $pb['kode_tagihan']; ?>" class="badge badge-primary"> Cetak</a>
                                                     </td>
                                                 </tr>
                                                 <?php $i++; ?>

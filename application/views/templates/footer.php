@@ -101,6 +101,36 @@
 </script>
 
 <script type="text/javascript">
+    // $(function() {
+
+    //     $("#id_buku").autocomplete({
+    //         source: "<?php echo base_url() ?>/index.php/peminjaman_buku/detail_buku",
+    //         minLength: 1
+    //     });       
+    // });
+
+    function pilih_kodejenis() {
+        var kode_jenis = $("#kode_jenis").val();
+        $.ajax({
+            url: "<?php echo base_url('tagihan/tampil_data') ?>",
+            data: "kode_jenis=" + kode_jenis,
+            method: 'post',
+            dataType: 'json',
+            success: function(data) {
+                $("#jml").val(data.jml_b);
+
+            }
+        });
+
+    }
+    $(function() {
+        $(document).ready(function() {
+            $('#kode_jenis').select2()
+        });
+    });
+</script>
+
+<script type="text/javascript">
     function datatahun() {
         var kd_daftar = $("#kd_daftar").val();
         $.ajax({

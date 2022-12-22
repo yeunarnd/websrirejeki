@@ -12,9 +12,6 @@
 
             <!-- DataTables -->
             <div class="card mb-3">
-                <div class="card-header">
-                    <a href="<?php echo site_url('tagihan/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
-                </div>
                 <div class="card-body">
 
                     <div class="table-responsive">
@@ -22,11 +19,9 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Kode Tagihan</th>
-                                    <th width="200">Nama Siswa</th>
                                     <th>Nama Tagihan</th>
-                                    <th>Jumlah Tagihan</th>
                                     <th>Tanggal Jatuh Tempo</th>
+                                    <th>Jumlah Tagihan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,11 +29,9 @@
                                 <?php foreach ($tagihan as $t) : ?>
                                     <tr>
                                         <th scope="row"><?= $i; ?></th>
-                                        <td><?= $t['kode_tagihan']; ?></td>
-                                        <td><?= $t['nama_siswa']; ?></td>
-                                        <td><?= $t['nama_tagihan']; ?></td>
-                                        <td> Rp<?= number_format($t['jumlah_tagihan']); ?></td>
-                                        <td><?= $t['tgl_jatuh_tempo']; ?></td>
+                                        <td><?= $t['nm_tagihan']; ?></td>
+                                        <td><?= $t['jatuh_tempo']; ?></td>
+                                        <td> Rp<?= number_format($t['jml']); ?></td>
                                     </tr>
                                     <?php $i++; ?>
                                 <?php endforeach; ?>

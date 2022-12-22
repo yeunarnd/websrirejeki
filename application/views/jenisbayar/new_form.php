@@ -40,10 +40,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="dateline">Dateline</label>
-                            <input class="form-control <?php echo form_error('dateline') ? 'is-invalid' : '' ?>" type="text" name="dateline" />
+                            <label for="jml">Harga</label>
+                            <input class="form-control <?php echo form_error('jml') ? 'is-invalid' : '' ?>" type="text" name="jml" />
                             <div class="invalid-feedback">
-                                <?php echo form_error('dateline') ?>
+                                <?php echo form_error('jml') ?>
                             </div>
                         </div>
 

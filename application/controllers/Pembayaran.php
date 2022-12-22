@@ -9,6 +9,7 @@ class Pembayaran extends CI_Controller
         parent::__construct();
         $this->load->model("pembayaran_model");
         $this->load->model("siswa_model");
+        $this->load->model("tagihan_model");
         $this->load->library('form_validation');
     }
 
@@ -53,7 +54,7 @@ class Pembayaran extends CI_Controller
         }
 
         $where = ['nomor_induk' => $idSiswa];
-        $data['pembayaran'] = $this->pembayaran_model->get_where('pembayaran', $where)->result_array();
+        $data['tagihan'] = $this->tagihan_model->get_where('tagihan', $where)->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

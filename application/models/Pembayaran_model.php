@@ -7,7 +7,7 @@ class Pembayaran_model extends CI_Model
     public $kode_pembayaran;
     public $nama_siswa;
     public $jenis_bayar;
-    public $tgl_pembayaran;
+    public $tgl_bayar;
     public $jumlah_bayar;
 
     public function rules()
@@ -32,8 +32,8 @@ class Pembayaran_model extends CI_Model
             ],
 
             [
-                'field' => 'tgl_pembayaran',
-                'label' => 'tgl_pembayaran',
+                'field' => 'tgl_bayar',
+                'label' => 'tgl_bayar',
                 'rules' => 'required'
             ],
 
@@ -92,7 +92,7 @@ class Pembayaran_model extends CI_Model
         $this->kode_pembayaran = $post["kode_pembayaran"];
         $this->nama_siswa = $post["nama_siswa"];
         $this->jenis_bayar = $post["jenis_bayar"];
-        $this->tgl_pembayaran = $post["tgl_pembayaran"];
+        $this->tgl_bayar = $post["tgl_bayar"];
         $this->jumlah_bayar = $post["jumlah_bayar"];
         return $this->db->insert($this->_table, $this);
     }

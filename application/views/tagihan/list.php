@@ -33,7 +33,6 @@
                                     <th>Bulan</th>
                                     <th>Jatuh Tempo</th>
                                     <th>Jumlah</th>
-                                    <th>Keterangan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -53,7 +52,6 @@
                                         <td><?= $t['bulan']; ?></td>
                                         <td><?= $t['jatuh_tempo']; ?></td>
                                         <td>Rp<?= number_format($t['jml']); ?></td>
-                                        <td><?= $t['ket']; ?></td>
                                         <td>
                                             <a href="<?= base_url('tagihan/edit/') . $t['kode_tagihan']; ?>" class="badge badge-success"> Edit</a>
                                             <a onclick="return confirm('Apakah anda yakin?')" href="<?php echo site_url('tagihan/delete/') . $t['kode_tagihan']; ?>" class="badge badge-danger">Hapus</a>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2022 at 04:55 PM
+-- Generation Time: Dec 14, 2022 at 05:53 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -99,6 +99,13 @@ CREATE TABLE `dispensasi` (
   `alasanditolak` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `dispensasi`
+--
+
+INSERT INTO `dispensasi` (`id`, `no_induk`, `nama_dispensasi`, `alasan_pengajuan`, `tgl_pengajuan_bayar`, `status`, `alasanditolak`) VALUES
+(1, '2201', 'Dispensasi SPP', 'belum ada dana', '2022-12-30', 2, '');
+
 -- --------------------------------------------------------
 
 --
@@ -139,24 +146,6 @@ CREATE TABLE `pembayaran` (
   `ket` text NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pembayaran`
---
-
-INSERT INTO `pembayaran` (`kode_pembayaran`, `nomor_induk`, `nm_tagihan`, `jatuh_tempo`, `bulan`, `tgl_bayar`, `jml`, `ket`, `id_user`) VALUES
-(1, 2201, 'SPP', '2022-07-11', 'Juli 2022', '0000-00-00', 50000, 'Lunas', 3),
-(2, 2201, 'SPP', '2022-08-11', 'Agustus 2022', '2022-10-21', 50000, 'Lunas', 3),
-(3, 2201, 'SPP', '2022-09-11', 'September 2022', '2022-11-04', 50000, 'Lunas', 3),
-(4, 2201, 'SPP', '2022-10-11', 'Oktober 2022', '0000-00-00', 50000, '', 3),
-(5, 2201, 'SPP', '2022-11-11', 'November 2022', '0000-00-00', 50000, '', 3),
-(6, 2201, 'SPP', '2022-12-11', 'Desember 2022', '0000-00-00', 50000, '', 3),
-(7, 2201, 'SPP', '2023-01-11', 'Januari 2023', '0000-00-00', 50000, '', 3),
-(8, 2201, 'SPP', '2023-02-11', 'Februari 2023', '0000-00-00', 50000, '', 3),
-(9, 2201, 'SPP', '2023-03-11', 'Maret 2023', '0000-00-00', 50000, '', 3),
-(10, 2201, 'SPP', '2023-04-11', 'April 2023', '0000-00-00', 50000, '', 3),
-(11, 2201, 'SPP', '2023-05-11', 'Mei 2023', '0000-00-00', 50000, '', 3),
-(12, 2201, 'SPP', '2023-06-11', 'Juni 2023', '0000-00-00', 50000, '', 3);
 
 -- --------------------------------------------------------
 
@@ -225,19 +214,9 @@ CREATE TABLE `tagihan` (
 --
 
 INSERT INTO `tagihan` (`kode_tagihan`, `nomor_induk`, `nm_tagihan`, `jatuh_tempo`, `bulan`, `tgl_bayar`, `jml`, `ket`) VALUES
-(1, 2201, 'SPP', '2022-07-11', 'Juli 2022', '0000-00-00', 50000, 'Lunas'),
-(2, 2201, 'SPP', '2022-08-11', 'Agustus 2022', '2022-10-21', 50000, 'Lunas'),
-(3, 2201, 'SPP', '2022-09-11', 'September 2022', '0000-00-00', 50000, ''),
-(4, 2201, 'SPP', '2022-10-11', 'Oktober 2022', '0000-00-00', 50000, ''),
-(5, 2201, 'SPP', '2022-11-11', 'November 2022', '0000-00-00', 50000, ''),
 (6, 2201, 'SPP', '2022-12-11', 'Desember 2022', '0000-00-00', 50000, ''),
-(7, 2201, 'SPP', '2023-01-11', 'Januari 2023', '0000-00-00', 50000, ''),
-(8, 2201, 'SPP', '2023-02-11', 'Februari 2023', '0000-00-00', 50000, ''),
-(9, 2201, 'SPP', '2023-03-11', 'Maret 2023', '0000-00-00', 50000, ''),
-(10, 2201, 'SPP', '2023-04-11', 'April 2023', '0000-00-00', 50000, 'Belum bayar'),
-(11, 2201, 'SPP', '2023-05-11', 'Mei 2023', '0000-00-00', 50000, 'Belum bayar'),
-(12, 2201, 'SPP', '2023-06-11', 'Juni 2023', '0000-00-00', 50000, 'Belum bayar'),
-(13, 2201, 'Tagihan Seragam', '2022-11-30', 'november 2023', '0000-00-00', 300000, 'Belum bayar');
+(13, 2201, 'Tagihan Seragam', '2022-11-30', 'november 2023', '0000-00-00', 300000, 'Belum bayar'),
+(14, 2202, 'SPP', '2022-12-20', 'Desember', '0000-00-00', 50000, '');
 
 -- --------------------------------------------------------
 
@@ -514,7 +493,7 @@ ALTER TABLE `daftar`
 -- AUTO_INCREMENT for table `dispensasi`
 --
 ALTER TABLE `dispensasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
@@ -524,7 +503,7 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `tagihan`
 --
 ALTER TABLE `tagihan`
-  MODIFY `kode_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `kode_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `user`
 --

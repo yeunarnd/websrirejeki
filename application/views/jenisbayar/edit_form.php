@@ -47,10 +47,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="harga">Harga</label>
-                                <input class="form-control <?php echo form_error('harga') ? 'is-invalid' : '' ?>" type="text" name="harga" value="<?php echo $t['harga'] ?>" />
+                                <label for="jml">Harga</label>
+                                <input class="form-control <?php echo form_error('jml') ? 'is-invalid' : '' ?>" type="text" name="jml" value="<?php echo $t['jml'] ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('harga') ?>
+                                    <?php echo form_error('jml') ?>
                                 </div>
                             </div>
 

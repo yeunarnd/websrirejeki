@@ -8,9 +8,7 @@ class Tagihan_model extends CI_Model
     public $nomor_induk;
     public $nm_tagihan;
     public $jatuh_tempo;
-    public $bulan;
     public $jml;
-    public $ket;
 
     public function rules()
     {
@@ -34,20 +32,8 @@ class Tagihan_model extends CI_Model
             ],
 
             [
-                'field' => 'bulan',
-                'label' => 'bulan',
-                'rules' => 'required'
-            ],
-
-            [
                 'field' => 'jml',
                 'label' => 'jml',
-                'rules' => 'required'
-            ],
-
-            [
-                'field' => 'ket',
-                'label' => 'ket',
                 'rules' => 'required'
             ]
         ];
@@ -60,7 +46,7 @@ class Tagihan_model extends CI_Model
 
     public function tagihan_user()
     {
-        $this->db->where('tagihan.user_id', $this->session->userdata('id'));
+        $this->db->where('tagihan.nomor_induk', $this->session->userdata('id'));
 
         return $this->db->get('tagihan')->result_array();
     }
@@ -82,16 +68,12 @@ class Tagihan_model extends CI_Model
         return $query->result();
     }
 
-    // public function save()
-    // {
-    //     $post = $this->input->post();
-    //     $this->kode_tagihan = $post["kode_tagihan"];
-    //     $this->nama_siswa = $post["nama_siswa"];
-    //     $this->nama_tagihan = $post["nama_tagihan"];
-    //     $this->jumlah_tagihan = $post["jumlah_tagihan"];
-    //     $this->tgl_jatuh_tempo = $post["tgl_jatuh_tempo"];
-    //     return $this->db->insert($this->_table, $this);
-    // }
+    public function gettag()
+    {
+        $query = $this->db->query("SELECT * FROM jenis_pembayaran ORDER BY kode_jenis");
+
+        return $query->result();
+    }
 
     public function save()
     {
@@ -100,9 +82,7 @@ class Tagihan_model extends CI_Model
         $this->nomor_induk = $post["nomor_induk"];
         $this->nm_tagihan = $post["nm_tagihan"];
         $this->jatuh_tempo = $post["jatuh_tempo"];
-        $this->bulan = $post["bulan"];
         $this->jml = $post["jml"];
-        $this->ket = $post["ket"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -118,9 +98,7 @@ class Tagihan_model extends CI_Model
         $this->nomor_induk = $post["nomor_induk"];
         $this->nm_tagihan = $post["nm_tagihan"];
         $this->jatuh_tempo = $post["jatuh_tempo"];
-        $this->bulan = $post["bulan"];
         $this->jml = $post["jml"];
-        $this->ket = $post["ket"];
         return $this->db->update($this->_table, $this, array('kode_tagihan' => $post['kode_tagihan']));
     }
 

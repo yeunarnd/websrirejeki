@@ -36,19 +36,15 @@
                         </div>
                         <div class="form-group">
                             <label for="nm_tagihan">Nama Tagihan</label>
-                            <td>
-                                <div class="form-inline">
-                                    <input class="form-control <?php echo form_error('nm_tagihan') ? 'is-invalid' : '' ?>" size="80" type="text" name="nm_tagihan" id="Nmtagihan" placeholder="--Pilih jenis pembayaran--" />
-                                    <span>
-                                        <a href="" class="btn btn-primary" data-target="#id_tabelTagihan" id="id_btnModal" data-toggle="modal">
-                                            <i class="fas fa-search" /></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </td>
-                            <div class="invalid-feedback">
-                                <?php echo form_error('nm_tagihan') ?>
-                            </div>
+                            <select class="form-control <?php echo form_error('kode_jenis') ? 'is-invalid' : '' ?>" name="kode_jenis" id="kode_jenis" onchange="pilih_kodejenis()">
+                                <option value="">Pilih jenis tagihan</option>
+                                <?php
+                                $list = $this->db->query("SELECT * FROM jenis_pembayaran");
+                                foreach ($list->result() as $t) {
+                                ?>
+                                    <option value="<?php echo $t->kode_jenis ?>"><?php echo $t->kode_jenis ?> - <?php echo $t->jenis_bayar ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="jatuh_tempo">Tanggal Jatuh Tempo</label>
@@ -57,25 +53,12 @@
                                 <?php echo form_error('jatuh_tempo') ?>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="bulan">Bulan</label>
-                            <input class="form-control <?php echo form_error('bulan') ? 'is-invalid' : '' ?>" type="text" name="bulan" />
-                            <div class="invalid-feedback">
-                                <?php echo form_error('bulan') ?>
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <label for="jml">Jumlah Tagihan</label>
-                            <input class="form-control <?php echo form_error('jml') ? 'is-invalid' : '' ?>" type="text" name="jml" />
+                            <input class="form-control" type="text" name="jml" id="jml" placeholder="jml" />
                             <div class="invalid-feedback">
                                 <?php echo form_error('jml') ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="ket">Keterangan</label>
-                            <input class="form-control <?php echo form_error('ket') ? 'is-invalid' : '' ?>" type="text" name="ket" />
-                            <div class="invalid-feedback">
-                                <?php echo form_error('ket') ?>
                             </div>
                         </div>
 

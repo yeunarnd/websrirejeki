@@ -6,7 +6,7 @@ class Jenisbayar_model extends CI_Model
 
     public $kode_jenis;
     public $jenis_bayar;
-    public $harga;
+    public $jml;
 
     public function rules()
     {
@@ -24,8 +24,8 @@ class Jenisbayar_model extends CI_Model
             ],
 
             [
-                'field' => 'harga',
-                'label' => 'harga',
+                'field' => 'jml',
+                'label' => 'jml',
                 'rules' => 'required'
             ]
         ];
@@ -46,7 +46,7 @@ class Jenisbayar_model extends CI_Model
         $post = $this->input->post();
         $this->kode_jenis = $post["kode_jenis"];
         $this->jenis_bayar = $post["jenis_bayar"];
-        $this->dateline = $post["dateline"];
+        $this->jml = $post["jml"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -60,7 +60,7 @@ class Jenisbayar_model extends CI_Model
         $post = $this->input->post();
         $this->kode_jenis = $post["kode_jenis"];
         $this->jenis_bayar = $post["jenis_bayar"];
-        $this->harga = $post["harga"];
+        $this->jml = $post["jml"];
         return $this->db->update($this->_table, $this, array('kode_jenis' => $post['kode_jenis']));
     }
 

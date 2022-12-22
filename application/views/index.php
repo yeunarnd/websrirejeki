@@ -654,7 +654,7 @@
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div> -->
             <div class="copyright">
-                &copy; 2021 <strong><span> PAUD Sri Rejeki</span></strong>. All Rights Reserved
+                &copy; 2022 <strong><span> PAUD Sri Rejeki</span></strong>. All Rights Reserved
             </div>
         </div>
     </footer><!-- End Footer -->

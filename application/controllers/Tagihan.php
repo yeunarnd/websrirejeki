@@ -74,11 +74,21 @@ class Tagihan extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function tampil_data()
+    {
+        $kode_jenis = $_POST['kode_jenis'];
+        $s = "SELECT jml as jml_b FROM jenis_pembayaran WHERE kode_jenis='$kode_jenis'";
+        // $s = "SELECT harga FROM jenis_pembayaran WHERE kode_jenis = '$kode_jenis'";
+        $res = $this->db->query($s)->row_array();
+        echo json_encode($res);
+    }
+
     public function add()
     {
-        $data['title'] = 'Tambah Daftar Tagihan';
+        $data['title'] = 'Tambah Pendaftaran Siswa';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataid'] = $this->tagihan_model->getdata();
+        $data['datatag'] = $this->tagihan_model->gettag();
         $data['jenisbayar'] = $this->db->get('jenis_pembayaran')->result_array();
 
         $tagihan = $this->tagihan_model;

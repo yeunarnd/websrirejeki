@@ -218,7 +218,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="<?php base_url('daftar/tolak_validasi') ?>" method="post">
+                            <form action="<?= base_url('daftar/validasi/2/' . $daftar->kd_daftar . '') ?>" method="post" enctype="multipart/form-data">
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="alasan_ditolak">Alasan ditolak:</label>
@@ -226,7 +226,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="<?= base_url('daftar/validasi/2/' . $daftar->kd_daftar); ?>" class="btn btn-primary">Simpan</a>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                                 </div>
                             </form>
